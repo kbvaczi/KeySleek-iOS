@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" colorLabel="IBBuiltInLabel-Red"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="BarcodeCardImageCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeCardImageCell" rowHeight="199" id="baN-gG-GRx" userLabel="Barcode Card Image Cell" customClass="BarcodeCardImageCell" customModule="barcodeManager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="baN-gG-GRx" id="Ob1-k5-Ygo">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="198.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LDf-j9-68J" userLabel="Barcode Image View">
+                        <rect key="frame" x="30" y="0.0" width="315" height="198.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LDf-j9-68J" firstAttribute="centerY" secondItem="Ob1-k5-Ygo" secondAttribute="centerY" id="3p3-AJ-0I5"/>
+                    <constraint firstItem="LDf-j9-68J" firstAttribute="leading" secondItem="Ob1-k5-Ygo" secondAttribute="leading" constant="30" id="9GZ-MG-xhM"/>
+                    <constraint firstAttribute="trailing" secondItem="LDf-j9-68J" secondAttribute="trailing" constant="30" id="HJE-hx-4Lu"/>
+                    <constraint firstItem="LDf-j9-68J" firstAttribute="top" secondItem="Ob1-k5-Ygo" secondAttribute="top" id="RaL-u8-o6r"/>
+                </constraints>
+            </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" notEnabled="YES"/>
+            </accessibility>
+            <connections>
+                <outlet property="barcodeImageView" destination="LDf-j9-68J" id="bgE-em-pth"/>
+            </connections>
+            <point key="canvasLocation" x="39.200000000000003" y="65.217391304347828"/>
+        </tableViewCell>
+    </objects>
+</document>

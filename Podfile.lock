@@ -1,0 +1,24 @@
+PODS:
+  - Disk (0.4.0)
+  - Eureka (4.3.1)
+  - FontAwesome.swift (1.4.8)
+
+DEPENDENCIES:
+  - Disk (~> 0.4.0)
+  - Eureka (~> 4.3.1)
+  - FontAwesome.swift (~> 1.4.8)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Disk
+    - Eureka
+    - FontAwesome.swift
+
+SPEC CHECKSUMS:
+  Disk: ef2956657d5bb56034b38b29b352170165226440
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  FontAwesome.swift: fb8637bffb9a588c7e8c753c084565b27b20a39d
+
+PODFILE CHECKSUM: 1adeac5ffaf30b358c311d5e618cbba769e8a9d1
+
+COCOAPODS: 1.5.3

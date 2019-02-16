@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mqw-6T-193">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scan-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Scan" id="BYZ-38-t0r" customClass="ScanViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qbd-e1-pXz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Npv-he-Yod"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="65g-F6-Qo9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="yNE-DN-cpY"/>
+                    <navigationItem key="navigationItem" title="Scan Barcode" id="F4p-3B-zz3"/>
+                    <connections>
+                        <segue destination="mF5-ak-kpS" kind="show" identifier="NewBarcodeCardSegue" id="tMa-RC-Dye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="-755"/>
+        </scene>
+        <!--New Barcode Card View Controller-->
+        <scene sceneID="OWB-we-yAY">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="mF5-ak-kpS" customClass="NewBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adR-hv-SpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="-755"/>
+        </scene>
+        <!--ScanNavigationController-->
+        <scene sceneID="WHh-qG-xdj">
+            <objects>
+                <navigationController title="ScanNavigationController" id="ASK-e4-yLC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scan" id="hyN-U6-kDn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MyP-3Z-mQr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="30F-ae-GMG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzc-az-PHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="-755"/>
+        </scene>
+        <!--Saved Barcodes-->
+        <scene sceneID="GLQ-OV-VLY">
+            <objects>
+                <tableViewController id="x7i-Ni-odx" customClass="BarcodeCardsIndexViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pbk-xr-tZu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeCell" id="5am-Ur-JNv">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5am-Ur-JNv" id="Arp-hh-G7Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="UoF-Kl-pmB" kind="show" identifier="ShowBarcodeCardSegue" id="UTc-nL-dmd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x7i-Ni-odx" id="Vu7-QA-UPy"/>
+                            <outlet property="delegate" destination="x7i-Ni-odx" id="BU9-r0-axm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Saved Barcodes" id="aKr-9D-axB">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8cp-f1-hX5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ydu-9N-UoK">
+                            <connections>
+                                <segue destination="mF5-ak-kpS" kind="show" id="DWO-ex-n5n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o7U-Sn-VQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="-6"/>
+        </scene>
+        <!--Show Barcode Card View Controller-->
+        <scene sceneID="Pju-4W-Rdh">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="UoF-Kl-pmB" customClass="ShowBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eaH-lm-yY8"/>
+                        <viewControllerLayoutGuide type="bottom" id="pjW-nh-dU9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HlM-Ok-S6y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-X9-m1y">
+                                <rect key="frame" x="67" y="162" width="241" height="343"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-A0-69o">
+                                <rect key="frame" x="152" y="136" width="71" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AJs-A0-69o" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="6Vk-ry-fI6"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerY" secondItem="HlM-Ok-S6y" secondAttribute="centerY" id="BwP-zc-BEZ"/>
+                            <constraint firstItem="pjW-nh-dU9" firstAttribute="top" secondItem="at8-X9-m1y" secondAttribute="bottom" constant="162" id="XZu-lp-j9Y"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="c4b-kj-B0b"/>
+                            <constraint firstItem="AJs-A0-69o" firstAttribute="top" secondItem="eaH-lm-yY8" secondAttribute="bottom" constant="72" id="fzo-k4-jRx"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leadingMargin" constant="51" id="qSj-L3-I6T"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8K3-AI-6Uz">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="eaC-e3-eEo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="w3i-wE-3b4">
+                            <connections>
+                                <segue destination="9zR-LU-ihy" kind="show" identifier="EditBarcodeCardSegueIdentifier" id="PkR-Y6-hnn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barcodeImageView" destination="at8-X9-m1y" id="fAx-MB-FJo"/>
+                        <outlet property="titleLabel" destination="AJs-A0-69o" id="bBF-91-mDH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ww1-dw-ZQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832.8" y="-6.746626686656672"/>
+        </scene>
+        <!--Edit Barcode Card View Controller-->
+        <scene sceneID="l0N-Uf-NZT">
+            <objects>
+                <viewController id="9zR-LU-ihy" customClass="EditBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2zj-kg-7az"/>
+                        <viewControllerLayoutGuide type="bottom" id="5gf-hn-17D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rel-f5-Ts6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tS8-6R-2Ak" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="-6"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="f4a-wu-ywg">
+            <objects>
+                <tableViewController id="Ueg-d9-XyE" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U5U-M6-927">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gb6-36-UIr">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gb6-36-UIr" id="L4T-cu-BK2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Ueg-d9-XyE" id="tqR-9x-tBR"/>
+                            <outlet property="delegate" destination="Ueg-d9-XyE" id="YCf-x0-NCj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="ZGJ-DL-I8o"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="baE-eN-zRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="716"/>
+        </scene>
+        <!--SettingsNavigationController-->
+        <scene sceneID="9Ys-Vb-JxY">
+            <objects>
+                <navigationController title="SettingsNavigationController" id="WhM-Tu-4aY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="w3l-km-01Z"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uD9-UR-m0o">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ueg-d9-XyE" kind="relationship" relationship="rootViewController" id="tAM-cp-Fqt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CfD-Ip-9C7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="716"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="ZMY-hY-N6p">
+            <objects>
+                <navigationController id="Fvi-TL-sTT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" id="seN-EQ-WLA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vHh-CD-TC1">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="x7i-Ni-odx" kind="relationship" relationship="rootViewController" id="o9L-Mn-IqZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xka-oN-rDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="-5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yJw-b2-Nte">
+            <objects>
+                <tabBarController id="mqw-6T-193" customClass="TabBarController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qh3-Sw-Jkp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Fvi-TL-sTT" kind="relationship" relationship="viewControllers" id="esK-42-snt"/>
+                        <segue destination="WhM-Tu-4aY" kind="relationship" relationship="viewControllers" id="i5X-Yw-odU"/>
+                        <segue destination="ASK-e4-yLC" kind="relationship" relationship="viewControllers" id="NSw-il-XMV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttl-Sx-ljK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1094" y="-6"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DWO-ex-n5n"/>
+    </inferredMetricsTieBreakers>
+</document>
