@@ -12,8 +12,12 @@ import AVFoundation
 
 class ScanViewController: RSCodeReaderViewController {
     
+    @IBOutlet weak var cancelButton: ProgressBarButton!
+    @IBOutlet weak var torchButton: RoundButton!
+    @IBAction func toggleTorch(_ sender: Any) { let _ = toggleTorch() }
+    
     var codeHasBeenScanned: Bool = false
-    var barcodeCard: BarcodeCard?
+    var delegate: BarcodeScanDelegate? = nil
 
     override func viewWillAppear(_ animated: Bool) {
         self.codeHasBeenScanned = false // reset the flag so user can do another scan
@@ -22,10 +26,18 @@ class ScanViewController: RSCodeReaderViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.focusMarkLayer.strokeColor = UIColor.red.cgColor
-        
-        self.cornersLayer.strokeColor = UIColor.yellow.cgColor
+        setupScanner()
+        setupCancelButton()
+        setupTorchButton()
+    }
+    
+}
+
+extension ScanViewController {
+    
+    func setupScanner() {
+        self.focusMarkLayer.strokeColor = UIColor.white.cgColor
+        self.cornersLayer.strokeColor = UIColor.clear.cgColor
         
         // MARK: NOTE: If you layout views in storyboard, you should these 3 lines
         for subview in self.view.subviews {
@@ -37,15 +49,11 @@ class ScanViewController: RSCodeReaderViewController {
             for barcode in barcodes {
                 guard   let codeValue = barcode.stringValue else { continue }
                 self.codeHasBeenScanned = true
-                let stringToPrint = "Barcode found: type=" + barcode.type.rawValue + " value=" + codeValue
-                print(stringToPrint)
-                self.barcodeCard = BarcodeCard(title: nil,
-                                               code: codeValue,
-                                               codeType: BarcodeCards.barcodeType(rawValue: barcode.type.rawValue)!)
+                let codeType = BarcodeCards.barcodeType(rawValue: barcode.type.rawValue)!
                 DispatchQueue.main.async(execute: {
-                    self.performSegue(withIdentifier: "NewBarcodeCardSegue", sender: self)
+                    self.delegate?.didScanBarcode(withCode: codeValue, ofType: codeType)
+                    self.dismiss(animated: true, completion: nil)
                 })
-                
             }
         }
         
@@ -57,19 +65,36 @@ class ScanViewController: RSCodeReaderViewController {
         let imageView = UIImageView(frame: imageFrame)
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-//        imageView.center = self.view.center
         self.view.addSubview(imageView)
-        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewBarcodeCardSegue" {
-            if  let destination = segue.destination as? NewBarcodeCardViewController,
-                self.barcodeCard != nil {
-                destination.barcodeCard = barcodeCard
-            }
-        }
+    func setupCancelButton() {
+        cancelButton.setupButton(iconName: .ban, iconStyle: .solid, iconColor: .white, buttonStyle: .cancel)
+        cancelButton.delegate = self
     }
+    
+    func setupTorchButton() {
+        self.torchButton.setButtonIcon(iconName: .bolt, iconStyle: .solid, iconColor: .white)
+        self.torchButton.isToggleButton = true
+        self.torchButton.buttonStyle = .default
+        self.torchButton.titleLabel?.text = nil
+    }
+    
+}
 
+extension ScanViewController: ProgressBarButtonDelegate {
+    
+    func onProgressBarButtonComplete(name: String?) {
+        self.dismiss(animated: true)
+    }
+    
+    func onProgressBarButtonReset(name: String?) { }
+    
+}
+
+protocol BarcodeScanDelegate {
+
+    func didScanBarcode(withCode code: String, ofType codeType: BarcodeCards.barcodeType)
+    
 }
 

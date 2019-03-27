@@ -19,18 +19,20 @@ class TabBarController: UITabBarController {
     
     func customizeTabs() {
         guard let tabBarItems = self.tabBar.items else { return }
-        tabBarItems[0].image = UIImage.fontAwesomeIcon(name: .barcode,
+        tabBarItems[0].image = UIImage.fontAwesomeIcon(name: .home,
                                                        style: .solid,
                                                        textColor: .black,
                                                        size: CGSize(width: 30, height: 30))
-        tabBarItems[1].image = UIImage.fontAwesomeIcon(name: .cog,
+        tabBarItems[1].image = UIImage.fontAwesomeIcon(name: .plusCircle,
                                                        style: .solid,
                                                        textColor: .black,
                                                        size: CGSize(width: 30, height: 30))
-        tabBarItems[2].image = UIImage.fontAwesomeIcon(name: .camera,
+        tabBarItems[2].image = UIImage.fontAwesomeIcon(name: .cog,
                                                        style: .solid,
                                                        textColor: .black,
-                                                       size: CGSize(width: 30, height: 30))    }
+                                                       size: CGSize(width: 30, height: 30))
+        
+    }
 
     /*
     // MARK: - Navigation

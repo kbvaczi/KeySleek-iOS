@@ -8,15 +8,28 @@
 
 import UIKit
 import Eureka
+import ImageRow
 
 class BarcodeCardFormViewController: FormViewController {
     
     var barcodeCard: BarcodeCard?
     
+    var scanSegueIdentifier = "ScanSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        form +++ Section("Name")
+        setupForm()
+    }
+
+}
+
+extension BarcodeCardFormViewController {
+    
+    func setupForm() {
+        form +++ Section("General")
             <<< TextRow(){ row in
+                row.title = "Name"
+                row.tag = "Name"
                 row.placeholder = "Enter title here"
                 row.value = barcodeCard?.title
                 row.add(rule: RuleRequired())
@@ -24,40 +37,56 @@ class BarcodeCardFormViewController: FormViewController {
                 }.onChange { row in
                     self.barcodeCard?.title = row.value
                 }.cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.titleLabel?.textColor = .red
-                    }
+                    if !row.isValid { cell.titleLabel?.textColor = .red }
                 }
-            +++ Section()
-            <<< BarcodeCardImageRow() { row in
-                    row.tag = "barcodeImage"
-                    if self.barcodeCard != nil {
-                        row.value = self.barcodeCard!
-                    }
+            <<< ImageCropRow() { row in
+                row.title = "Front Photo"
+                row.allowEditor = false
+                row.value = barcodeCard?.photo
+                row.placeholderImage = UIImage.fontAwesomeIcon(name: .camera,
+                                                               style: .solid,
+                                                               textColor: .lightGray,
+                                                               size: CGSize(width: 160, height: 80))
+                }.cellSetup { (cell, row) in
+                    cell.height = ( { return 80 } )
+                }.onChange { row in
+                    self.barcodeCard?.photo = row.value
                 }
-            +++ Section("Barcode Information")
-            <<< TextAreaRow(){ row in
+            +++ Section("Barcode")
+            <<< BarcodeImageRow() { row in
+                row.tag = "barcodeImage"
+                if self.barcodeCard != nil { row.value = self.barcodeCard?.barcodeImage }
+                }.onCellSelection { cell, row in
+                    self.performSegue(withIdentifier: self.scanSegueIdentifier, sender: nil)
+                }.cellSetup { (cell, row) in
+                    cell.height = ( { return row.value?.size.height ?? 55 } )
+                }.onChange { row in
+                    row.cell.height = ( { return row.value?.size.height ?? 80 } )
+                }
+            <<< TextRow(){ row in
                 row.title = "Data"
-                row.tag = "data"
-                row.add(rule: RuleRequired())
+                row.tag = "barcodeData"
                 row.value = self.barcodeCard?.code
-//                row.disabled = true
-                row.textAreaHeight = .dynamic(initialTextViewHeight: 20)
+                row.disabled = true
+                row.hidden = Condition.function(["barcodeImage"], { form in
+                    return ((form.rowBy(tag: "barcodeImage") as? BarcodeImageRow)?.value != nil ? false : true)
+                })
                 }.onChange { row in
                     if  let newCode = row.value,
                         self.barcodeCard != nil {
                         self.barcodeCard?.code = newCode
-                        if let imageRow = self.form.rowBy(tag: "barcodeImage") as? BarcodeCardImageRow {
-                            imageRow.value = self.barcodeCard
+                        if let imageRow = self.form.rowBy(tag: "barcodeImage") as? BarcodeImageRow {
+                            imageRow.value = self.barcodeCard?.barcodeImage
                             imageRow.updateCell()
                         }
                     }
                 }
             <<< PushRow<BarcodeCards.barcodeType>() { row in
                 row.title = "Type"
-                row.tag = "type"
-                row.add(rule: RuleRequired())
+                row.tag = "barcodeType"
                 row.options = BarcodeCards.barcodeType.allCases
+                row.disabled = true
+                row.hidden = true
                 if let codeTypeString = self.barcodeCard?.codeTypeString {
                     row.value = BarcodeCards.barcodeType(rawValue: codeTypeString)
                 }
@@ -65,15 +94,42 @@ class BarcodeCardFormViewController: FormViewController {
                     if  let newCodeTypeString = row.value?.rawValue,
                         self.barcodeCard != nil {
                         self.barcodeCard?.codeTypeString = newCodeTypeString
-                        if let imageRow = self.form.rowBy(tag: "barcodeImage") as? BarcodeCardImageRow {
-                            imageRow.value = self.barcodeCard
+                        if let imageRow = self.form.rowBy(tag: "barcodeImage") as? BarcodeImageRow {
+                            imageRow.value = self.barcodeCard?.barcodeImage
                             imageRow.updateCell()
                         }
                     }
                 }.cellUpdate { cell, row in
-                    if !row.isValid {
-                        cell.textLabel?.textColor = .red
-                    }
+                    if !row.isValid { cell.textLabel?.textColor = .red }
                 }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ScanViewController {
+            destination.delegate = self
+        }
+    }
+    
+}
+
+extension BarcodeCardFormViewController: BarcodeScanDelegate {
+    
+    func didScanBarcode(withCode code: String, ofType codeType: BarcodeCards.barcodeType) {
+        self.barcodeCard?.codeTypeString = codeType.rawValue
+        self.barcodeCard?.code = code
+        if let imageRow = self.form.rowBy(tag: "barcodeImage") as? BarcodeImageRow {
+            imageRow.value = self.barcodeCard?.barcodeImage
+            imageRow.updateCell()
+        }
+        if let dataRow = self.form.rowBy(tag: "barcodeData") as? TextRow {
+            print("yes")
+            dataRow.value = code
+            dataRow.updateCell()
+        }
+        if let typeRow = self.form.rowBy(tag: "barcodeType") as? PushRow<BarcodeCards.barcodeType> {
+            typeRow.value = codeType
+            typeRow.updateCell()
+        }
+    }
+    
 }

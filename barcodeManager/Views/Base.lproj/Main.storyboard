@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mqw-6T-193">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="z3b-f7-6QN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,61 +20,153 @@
                     <view key="view" contentMode="scaleToFill" id="65g-F6-Qo9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26h-5v-yJR" userLabel="Cancel Button" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="205" y="527" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="DHT-5T-xkf"/>
+                                    <constraint firstAttribute="height" constant="120" id="gDw-JG-6pB"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="updateButton"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNK-QO-yzi" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="75" y="552" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="at4-5H-1hS"/>
+                                    <constraint firstAttribute="width" constant="70" id="bkK-4y-YGy"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="toggleTorch:" destination="BYZ-38-t0r" eventType="touchDown" id="CD3-Ll-mof"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place barcode in center" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0I-3O-f7N">
+                                <rect key="frame" x="67" y="73" width="241" height="74"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q0I-3O-f7N" firstAttribute="centerX" secondItem="65g-F6-Qo9" secondAttribute="centerX" id="4xq-tJ-v6o"/>
+                            <constraint firstItem="q0I-3O-f7N" firstAttribute="leading" secondItem="65g-F6-Qo9" secondAttribute="leadingMargin" constant="51" id="McX-ak-OGE"/>
+                            <constraint firstItem="Npv-he-Yod" firstAttribute="top" secondItem="26h-5v-yJR" secondAttribute="bottom" constant="20" id="WAZ-fv-xeU"/>
+                            <constraint firstItem="vNK-QO-yzi" firstAttribute="leading" secondItem="65g-F6-Qo9" secondAttribute="leading" constant="75" id="Wnp-UE-DWA"/>
+                            <constraint firstAttribute="trailing" secondItem="26h-5v-yJR" secondAttribute="trailing" constant="50" id="fAM-gJ-Bk9"/>
+                            <constraint firstItem="q0I-3O-f7N" firstAttribute="top" secondItem="Qbd-e1-pXz" secondAttribute="bottom" constant="53" id="h8d-8V-IzT"/>
+                            <constraint firstItem="Npv-he-Yod" firstAttribute="top" secondItem="vNK-QO-yzi" secondAttribute="bottom" constant="45" id="q8E-Lb-Yk4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yNE-DN-cpY"/>
                     <navigationItem key="navigationItem" title="Scan Barcode" id="F4p-3B-zz3"/>
                     <connections>
-                        <segue destination="mF5-ak-kpS" kind="show" identifier="NewBarcodeCardSegue" id="tMa-RC-Dye"/>
+                        <outlet property="cancelButton" destination="26h-5v-yJR" id="BoF-bc-pVA"/>
+                        <outlet property="torchButton" destination="vNK-QO-yzi" id="meK-sx-QKN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-755"/>
+            <point key="canvasLocation" x="2788" y="-638.2308845577212"/>
         </scene>
-        <!--New Barcode Card View Controller-->
+        <!--New Card-->
         <scene sceneID="OWB-we-yAY">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="mF5-ak-kpS" customClass="NewBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController hidesBottomBarWhenPushed="YES" id="mF5-ak-kpS" customClass="NewBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BM4-kw-oXi"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHh-dQ-kGu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="btE-dK-WmU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PF1-0F-Vga" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="127.5" y="527" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="3iG-50-OZ8"/>
+                                    <constraint firstAttribute="width" constant="120" id="ssT-Wj-ouU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="updateButton"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CHh-dQ-kGu" firstAttribute="top" secondItem="PF1-0F-Vga" secondAttribute="bottom" constant="20" id="edJ-Ti-iHf"/>
+                            <constraint firstItem="PF1-0F-Vga" firstAttribute="centerX" secondItem="btE-dK-WmU" secondAttribute="centerX" id="pZe-fO-QsP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="New Card" id="vNL-K5-FsN"/>
+                    <connections>
+                        <outlet property="saveButton" destination="PF1-0F-Vga" id="4ln-H5-cE6"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="YAU-Bf-JhH"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adR-hv-SpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="-755"/>
+            <point key="canvasLocation" x="1846" y="-984"/>
         </scene>
-        <!--ScanNavigationController-->
-        <scene sceneID="WHh-qG-xdj">
+        <!--Navigation Controller-->
+        <scene sceneID="j0L-Xw-0sW">
             <objects>
-                <navigationController title="ScanNavigationController" id="ASK-e4-yLC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scan" id="hyN-U6-kDn"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MyP-3Z-mQr">
+                <navigationController id="z3b-f7-6QN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ap6-5G-7V6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="30F-ae-GMG"/>
+                        <segue destination="x7i-Ni-odx" kind="relationship" relationship="rootViewController" id="u0i-hE-4cJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pzc-az-PHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diO-Db-n6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="-755"/>
+            <point key="canvasLocation" x="82" y="-638"/>
         </scene>
-        <!--Saved Barcodes-->
+        <!--Cards-->
         <scene sceneID="GLQ-OV-VLY">
             <objects>
                 <tableViewController id="x7i-Ni-odx" customClass="BarcodeCardsIndexViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pbk-xr-tZu">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pbk-xr-tZu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeCell" id="5am-Ur-JNv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BarcodeCell" rowHeight="100" id="5am-Ur-JNv" customClass="BarcodeCardTableViewCell" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5am-Ur-JNv" id="Arp-hh-G7Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5am-Ur-JNv" id="Arp-hh-G7Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cUT-g1-Nh8" userLabel="Card Photo">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="100"/>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="750" constant="100" id="b2M-XE-ccB"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="cUT-g1-Nh8" firstAttribute="leading" secondItem="Arp-hh-G7Y" secondAttribute="leading" constant="20" id="GlP-Ui-eFA"/>
+                                        <constraint firstAttribute="trailing" secondItem="cUT-g1-Nh8" secondAttribute="trailing" constant="20" id="PjA-us-uqd"/>
+                                        <constraint firstAttribute="bottom" secondItem="cUT-g1-Nh8" secondAttribute="bottom" id="dGM-4X-EVI"/>
+                                        <constraint firstItem="cUT-g1-Nh8" firstAttribute="top" secondItem="Arp-hh-G7Y" secondAttribute="top" id="y21-oo-990"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="UoF-Kl-pmB" kind="show" identifier="ShowBarcodeCardSegue" id="UTc-nL-dmd"/>
+                                    <outlet property="cardPhotoImageHeightConstraint" destination="b2M-XE-ccB" id="0tX-Hh-GjN"/>
+                                    <outlet property="cardPhotoImageView" destination="cUT-g1-Nh8" id="Ffw-Uk-h21"/>
+                                    <segue destination="UoF-Kl-pmB" kind="presentation" identifier="ShowBarcodeCardSegue" modalPresentationStyle="overCurrentContext" id="UTc-nL-dmd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,18 +175,27 @@
                             <outlet property="delegate" destination="x7i-Ni-odx" id="BU9-r0-axm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved Barcodes" id="aKr-9D-axB">
+                    <tabBarItem key="tabBarItem" title="Cards" id="e28-eC-c4i"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="aKr-9D-axB">
                         <barButtonItem key="backBarButtonItem" title="Back" id="8cp-f1-hX5"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ydu-9N-UoK">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="eA6-aH-jtd">
                             <connections>
-                                <segue destination="mF5-ak-kpS" kind="show" id="DWO-ex-n5n"/>
+                                <segue destination="Ueg-d9-XyE" kind="show" id="JZ6-bi-bgV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="Ydu-9N-UoK">
+                            <connections>
+                                <segue destination="mF5-ak-kpS" kind="show" id="QSl-o7-iwo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="9zR-LU-ihy" kind="show" identifier="EditBarcodeCardSegue" id="NhE-Dt-2np"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7U-Sn-VQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-6"/>
+            <point key="canvasLocation" x="904.79999999999995" y="-638.2308845577212"/>
         </scene>
         <!--Show Barcode Card View Controller-->
         <scene sceneID="Pju-4W-Rdh">
@@ -108,42 +209,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-X9-m1y">
-                                <rect key="frame" x="67" y="162" width="241" height="343"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJs-A0-69o">
-                                <rect key="frame" x="152" y="136" width="71" height="36"/>
+                                <rect key="frame" x="152" y="92" width="71" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-X9-m1y">
+                                <rect key="frame" x="40" y="291" width="295" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="5vI-EO-uVg"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-In-FT4" userLabel="Photo Image View">
+                                <rect key="frame" x="20" y="60" width="335" height="201"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3aQ-In-FT4" secondAttribute="height" multiplier="5:3" id="A3j-xg-84O"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OC-mI-TeO" userLabel="Back Button" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="127.5" y="539" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Ml1-c0-4b5"/>
+                                    <constraint firstAttribute="width" constant="120" id="bdJ-3K-2wS"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRx-7F-Ru6" userLabel="QRCode Image View">
+                                <rect key="frame" x="80" y="291" width="215" height="215"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BRx-7F-Ru6" secondAttribute="height" multiplier="1:1" id="znS-e2-qfL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5OC-mI-TeO" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="06c-fF-8ef"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="66o-gm-wxc"/>
+                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="6Iz-Db-qKe"/>
                             <constraint firstItem="AJs-A0-69o" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="6Vk-ry-fI6"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerY" secondItem="HlM-Ok-S6y" secondAttribute="centerY" id="BwP-zc-BEZ"/>
-                            <constraint firstItem="pjW-nh-dU9" firstAttribute="top" secondItem="at8-X9-m1y" secondAttribute="bottom" constant="162" id="XZu-lp-j9Y"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="c4b-kj-B0b"/>
+                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="top" secondItem="3aQ-In-FT4" secondAttribute="bottom" constant="30" id="MBX-VO-4Wh"/>
+                            <constraint firstItem="3aQ-In-FT4" firstAttribute="top" secondItem="eaH-lm-yY8" secondAttribute="bottom" constant="40" id="Qq8-dy-Tji"/>
+                            <constraint firstItem="3aQ-In-FT4" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="RlT-bR-EdM"/>
+                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="80" id="Tqf-UM-WdI"/>
                             <constraint firstItem="AJs-A0-69o" firstAttribute="top" secondItem="eaH-lm-yY8" secondAttribute="bottom" constant="72" id="fzo-k4-jRx"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leadingMargin" constant="51" id="qSj-L3-I6T"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="top" secondItem="3aQ-In-FT4" secondAttribute="bottom" constant="30" id="hXz-T8-FKW"/>
+                            <constraint firstItem="pjW-nh-dU9" firstAttribute="top" secondItem="5OC-mI-TeO" secondAttribute="bottom" constant="8" symbolic="YES" id="lNX-aQ-tFB"/>
+                            <constraint firstItem="3aQ-In-FT4" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="20" symbolic="YES" id="s15-Eu-fhX"/>
+                            <constraint firstItem="at8-X9-m1y" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="40" id="yDV-eE-YA3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8K3-AI-6Uz">
                         <barButtonItem key="backBarButtonItem" title="Back" id="eaC-e3-eEo"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="w3i-wE-3b4">
-                            <connections>
-                                <segue destination="9zR-LU-ihy" kind="show" identifier="EditBarcodeCardSegueIdentifier" id="PkR-Y6-hnn"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="w3i-wE-3b4"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="5OC-mI-TeO" id="5iH-Yr-jtc"/>
                         <outlet property="barcodeImageView" destination="at8-X9-m1y" id="fAx-MB-FJo"/>
+                        <outlet property="photoImageView" destination="3aQ-In-FT4" id="pHS-Oj-mQQ"/>
+                        <outlet property="qrCodeImageView" destination="BRx-7F-Ru6" id="IP6-HZ-xSH"/>
                         <outlet property="titleLabel" destination="AJs-A0-69o" id="bBF-91-mDH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww1-dw-ZQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="-6.746626686656672"/>
+            <point key="canvasLocation" x="904.79999999999995" y="176.76161919040482"/>
         </scene>
         <!--Edit Barcode Card View Controller-->
         <scene sceneID="l0N-Uf-NZT">
@@ -156,24 +286,49 @@
                     <view key="view" contentMode="scaleToFill" id="rel-f5-Ts6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPl-Pi-6a8" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
+                                <rect key="frame" x="127.5" y="527" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="CBn-ar-Dj2"/>
+                                    <constraint firstAttribute="width" constant="120" id="tsh-Bk-hIM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="updateButton"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5gf-hn-17D" firstAttribute="top" secondItem="vPl-Pi-6a8" secondAttribute="bottom" constant="20" id="mJ3-Ww-RsA"/>
+                            <constraint firstItem="vPl-Pi-6a8" firstAttribute="centerX" secondItem="rel-f5-Ts6" secondAttribute="centerX" id="vrf-LU-ERw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="updateButton" destination="vPl-Pi-6a8" id="9eH-bv-RI3"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="Ler-48-gUK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tS8-6R-2Ak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="-6"/>
+            <point key="canvasLocation" x="1846" y="-235"/>
         </scene>
         <!--Settings-->
         <scene sceneID="f4a-wu-ywg">
             <objects>
                 <tableViewController id="Ueg-d9-XyE" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U5U-M6-927">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U5U-M6-927">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="kAZ-xl-Lcl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Gb6-36-UIr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Settings Cell" id="Gb6-36-UIr">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gb6-36-UIr" id="L4T-cu-BK2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -186,67 +341,15 @@
                             <outlet property="delegate" destination="Ueg-d9-XyE" id="YCf-x0-NCj"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" id="Odr-DZ-uhd"/>
                     <navigationItem key="navigationItem" title="Settings" id="ZGJ-DL-I8o"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baE-eN-zRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="716"/>
-        </scene>
-        <!--SettingsNavigationController-->
-        <scene sceneID="9Ys-Vb-JxY">
-            <objects>
-                <navigationController title="SettingsNavigationController" id="WhM-Tu-4aY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="w3l-km-01Z"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uD9-UR-m0o">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Ueg-d9-XyE" kind="relationship" relationship="rootViewController" id="tAM-cp-Fqt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CfD-Ip-9C7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-34" y="716"/>
-        </scene>
-        <!--Saved-->
-        <scene sceneID="ZMY-hY-N6p">
-            <objects>
-                <navigationController id="Fvi-TL-sTT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" id="seN-EQ-WLA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vHh-CD-TC1">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="x7i-Ni-odx" kind="relationship" relationship="rootViewController" id="o9L-Mn-IqZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xka-oN-rDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-34" y="-5"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yJw-b2-Nte">
-            <objects>
-                <tabBarController id="mqw-6T-193" customClass="TabBarController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qh3-Sw-Jkp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="Fvi-TL-sTT" kind="relationship" relationship="viewControllers" id="esK-42-snt"/>
-                        <segue destination="WhM-Tu-4aY" kind="relationship" relationship="viewControllers" id="i5X-Yw-odU"/>
-                        <segue destination="ASK-e4-yLC" kind="relationship" relationship="viewControllers" id="NSw-il-XMV"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttl-Sx-ljK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1094" y="-6"/>
+            <point key="canvasLocation" x="1846" y="-1693"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DWO-ex-n5n"/>
+        <segue reference="YAU-Bf-JhH"/>
     </inferredMetricsTieBreakers>
 </document>

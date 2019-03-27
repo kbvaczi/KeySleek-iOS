@@ -11,28 +11,36 @@ import Eureka
 
 class EditBarcodeCardViewController: BarcodeCardFormViewController {
     
+    @IBOutlet weak var updateButton: ProgressBarButton!
+    
     var originalBarcodeCard: BarcodeCard?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
         self.originalBarcodeCard = self.barcodeCard
-        form +++ Section()
-            <<< ButtonRow() { row in
-                row.title = "Update"
-                row.onCellSelection(self.updateBarcode)
-        }
+        self.initButtons()
     }
     
-    func updateBarcode(cell: ButtonCellOf<String>, row: ButtonRow)  {
+}
+
+extension EditBarcodeCardViewController {
+    
+    func initButtons() {
+        updateButton.setupButton(iconName: .check, iconStyle: .solid, iconColor: .white, buttonStyle: .default)
+        updateButton.delegate = self
+        self.view.bringSubviewToFront(updateButton)
+    }
+    
+    func updateBarcode() -> Bool  {
         
         guard   let barcodeToUpdate = self.originalBarcodeCard,
-                let newBarcodeCard = self.barcodeCard else { return }
+            let newBarcodeCard = self.barcodeCard else { return false }
         
         let validationError = self.form.validate()
         
         if validationError.count > 0 {
             print("invalid form")
-            return
+            return false
         }
         
         if BarcodeCards.instance.update(barcodeToUpdate, with: newBarcodeCard) {
@@ -43,17 +51,19 @@ class EditBarcodeCardViewController: BarcodeCardFormViewController {
             }
             self.navigationController?.popViewController(animated: true)
         }
+        return true
     }
     
+}
+
+extension EditBarcodeCardViewController: ProgressBarButtonDelegate {
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func onProgressBarButtonComplete(name: String?) {
+        if self.updateBarcode() {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func onProgressBarButtonReset(name: String?) { }
     
 }

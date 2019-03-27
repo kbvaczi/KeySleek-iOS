@@ -11,33 +11,17 @@ import AVFoundation
 import Disk
 import RSBarcodes
 
+
+
 struct BarcodeCard: Codable, Equatable {
     
+    var uid: String
     var title: String?
-    var code: String
-    var codeTypeString: String
-    var codeType: BarcodeCards.barcodeType? {
-        return BarcodeCards.barcodeType(rawValue: codeTypeString)
-    }
-    var barcodeImage: UIImage? {
-        let gen = RSUnifiedCodeGenerator.shared
-        gen.fillColor = UIColor.white
-        gen.strokeColor = UIColor.black
-        
-        print ("generating image with barcode: " + self.code)
-        if let image = gen.generateCode(self.code,
-                                        machineReadableCodeObjectType: self.codeTypeString) {
-            
-            if self.codeType == .QR || self.codeType == .Aztec {
-                let scaledImage = RSAbstractCodeGenerator.resizeImage(image, targetSize: CGSize(width: 250, height: 250), contentMode: .scaleAspectFit)
-                return scaledImage
-            } else {
-                let scaledImage = RSAbstractCodeGenerator.resizeImage(image, targetSize: CGSize(width: 250, height: 100), contentMode: .scaleAspectFit)
-                return scaledImage
-            }
-        }
-        return nil
-    }
+    var code: String?
+    var codeTypeString: String?
+    
+    private var photoData: Data?
+    private var _photoSize: CGSize?
     
     static func == (lhs: BarcodeCard, rhs: BarcodeCard) -> Bool  {
         if  lhs.code == rhs.code,
@@ -48,12 +32,71 @@ struct BarcodeCard: Codable, Equatable {
         return false
     }
     
-    init(title: String?, code: String, codeType: BarcodeCards.barcodeType) {
+    init(title: String? = nil, code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
+        self.uid = UUID().uuidString
         self.title = title
         self.code = code
-        self.codeTypeString = codeType.rawValue
+        self.codeTypeString = codeType?.rawValue
+        
     }
     
+}
+
+extension BarcodeCard {
+    
+    var codeType: BarcodeCards.barcodeType? {
+        guard let codeTypeString = self.codeTypeString else { return nil }
+        return BarcodeCards.barcodeType(rawValue: codeTypeString)
+    }
+    
+    var barcodeImage: UIImage? {
+        
+        guard   let codeTypeString = self.codeTypeString,
+                let code = self.code else { return nil }
+        
+        let gen = RSUnifiedCodeGenerator.shared
+        gen.fillColor = UIColor.white
+        gen.strokeColor = UIColor.black
+    
+        if let image = gen.generateCode(code, machineReadableCodeObjectType: codeTypeString) {
+            
+            if self.codeType == .QR || self.codeType == .Aztec {
+                let scaledImage = RSAbstractCodeGenerator.resizeImage(image, targetSize: CGSize(width: 250, height: 250), contentMode: .scaleToFill)
+                return scaledImage
+            } else {
+                let scaledImage = RSAbstractCodeGenerator.resizeImage(image, targetSize: CGSize(width: 250, height: 100), contentMode: .scaleToFill)
+                return scaledImage
+            }
+        }
+        return nil
+    }
+    
+    private var photoPath: String { return "\(self.uid).png" }
+    
+    var photo: UIImage? {
+        get {
+            guard let imageData = self.photoData else { return nil }
+            return UIImage(data: imageData)
+        }
+        set {
+            guard let imageData = newValue?.pngData() else { return }
+            self.photoData = imageData
+            self._photoSize = newValue?.size
+        }
+    }
+    
+    var photoSize: CGSize? {
+        get {
+            if let setSize = self._photoSize {
+                return setSize
+            }
+            if let newSize = self.photo?.size {
+                return newSize
+            }
+            return nil
+        }
+    }
+
 }
 
 class BarcodeCards {
@@ -166,6 +209,17 @@ class BarcodeCards {
         return false
     }
     
+    /// move card from one position to another
+    ///
+    /// - Parameters:
+    ///   - fromPosition: position to move card from
+    ///   - toPosition: position to move card to
+    /// - Returns: true if saved, false otherwise
+    @discardableResult func moveCard(fromPosition: Int, toPosition: Int) -> Bool {
+        let cardToMove = cards.remove(at: fromPosition)
+        cards.insert(cardToMove, at: toPosition)
+        return saveToFile()
+    }
     
     /// loadFromFile
     ///
@@ -193,3 +247,5 @@ class BarcodeCards {
         }
     }
 }
+
+

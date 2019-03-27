@@ -11,40 +11,49 @@ import Eureka
 
 class NewBarcodeCardViewController: BarcodeCardFormViewController {
     
+    @IBOutlet weak var saveButton: ProgressBarButton!
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         if self.barcodeCard == nil {
-            self.barcodeCard = BarcodeCard(title: nil, code: "0123", codeType: .QR)
+            self.barcodeCard = BarcodeCard()
         }
-        super.viewDidLoad()        
-        self.navigationItem.backBarButtonItem?.title = "Scan Again"
-        form +++ Section()
-            <<< ButtonRow() { row in
-                row.title = "Save"
-                row.onCellSelection(self.saveBarcode)
-        }
+        initButtons()        
     }
     
-    func saveBarcode(cell: ButtonCellOf<String>, row: ButtonRow)  {
-        guard let barcodeToSave = self.barcodeCard else { return }
+}
+
+extension NewBarcodeCardViewController {
+    
+    func initButtons() {
+        saveButton.setupButton(iconName: .check, iconStyle: .solid, iconColor: .white, buttonStyle: .default)
+        saveButton.delegate = self
+        self.view.bringSubviewToFront(saveButton)
+    }
+    
+    func saveBarcode() -> Bool {
+        guard let barcodeToSave = self.barcodeCard else { return false }
         let validationError = self.form.validate()
         if validationError.count > 0 {
             print("invalid form")
-            return
+            return false
         }
         if BarcodeCards.instance.add(barcodeToSave) {
             self.navigationController?.popViewController(animated: true)
         }
+        return true
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension NewBarcodeCardViewController: ProgressBarButtonDelegate {
+ 
+    func onProgressBarButtonComplete(name: String?) {
+        if self.saveBarcode() {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    */
-
+    
+    func onProgressBarButtonReset(name: String?) { }
+    
 }
