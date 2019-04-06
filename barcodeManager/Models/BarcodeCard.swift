@@ -15,18 +15,21 @@ struct BarcodeCard: Codable, Equatable {
     
     var uid: String
     var title: String?
+    var notes: String?
     var code: String?
     var codeTypeString: String?
     
     private var photoData: Data?
     private var _photoSize: CGSize?
     
-    init(title: String? = nil, code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
+    init(title: String? = nil, notes: String? = nil,
+         code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
+        
         self.uid = UUID().uuidString
         self.title = title
+        self.notes = notes
         self.code = code
         self.codeTypeString = codeType?.rawValue
-        
     }
     
 }
@@ -47,6 +50,7 @@ extension BarcodeCard {
         if  lhs.uid == rhs.uid,
             lhs.code == rhs.code,
             lhs.title == rhs.title,
+            lhs.notes == rhs.notes,
             lhs.codeTypeString == rhs.codeTypeString {
             return true
         }
@@ -178,12 +182,7 @@ extension BarcodeCards {
     /// Lists existing BarcodeCards
     ///
     /// - Returns: BarcodeCards that are currently saved
-    @discardableResult func list(completeAfterloading: (() -> Void)? = nil) -> [BarcodeCard] {
-        if completeAfterloading != nil {
-            loadFromFile() { _ in
-                completeAfterloading?()
-            }
-        }
+    @discardableResult func list() -> [BarcodeCard] {
         return cards
     }
     

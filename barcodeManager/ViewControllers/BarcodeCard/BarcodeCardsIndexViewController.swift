@@ -46,10 +46,6 @@ class BarcodeCardsIndexViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarButtons()
-        BarcodeCards.instance.list(completeAfterloading: {
-            self.tableView.reloadData()
-        })
-        
         
         // Required for reorder pod implementation
         tableView.reorder.delegate = self
@@ -65,7 +61,13 @@ class BarcodeCardsIndexViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if BarcodeCards.instance.list().count > 0 {
+            self.tableView.reloadData()
+        } else {
+            BarcodeCards.instance.loadFromFile() { didLoad in
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
