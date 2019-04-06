@@ -13,11 +13,8 @@ class EditBarcodeCardViewController: BarcodeCardFormViewController {
     
     @IBOutlet weak var updateButton: ProgressBarButton!
     
-    var originalBarcodeCard: BarcodeCard?
-    
     override func viewDidLoad() {
-        super.viewDidLoad()        
-        self.originalBarcodeCard = self.barcodeCard
+        super.viewDidLoad()
         self.initButtons()
     }
     
@@ -33,8 +30,7 @@ extension EditBarcodeCardViewController {
     
     func updateBarcode() -> Bool  {
         
-        guard   let barcodeToUpdate = self.originalBarcodeCard,
-            let newBarcodeCard = self.barcodeCard else { return false }
+        guard let updatedBarcodeCard = self.barcodeCard else { return false }
         
         let validationError = self.form.validate()
         
@@ -43,13 +39,15 @@ extension EditBarcodeCardViewController {
             return false
         }
         
-        if BarcodeCards.instance.update(barcodeToUpdate, with: newBarcodeCard) {
-            let i = navigationController?.viewControllers.index(of: self)
-            let previousViewController = navigationController?.viewControllers[i!-1]
-            if let showVC = previousViewController as? ShowBarcodeCardViewController {
-                showVC.barcodeCard = newBarcodeCard
+        BarcodeCards.instance.update(updatedBarcodeCard) { didSave in
+            if didSave {
+                let i = self.navigationController?.viewControllers.index(of: self)
+                let previousViewController = self.navigationController?.viewControllers[i!-1]
+                if let showVC = previousViewController as? ShowBarcodeCardViewController {
+                    showVC.barcodeCard = updatedBarcodeCard
+                }
+                self.navigationController?.popViewController(animated: true)
             }
-            self.navigationController?.popViewController(animated: true)
         }
         return true
     }

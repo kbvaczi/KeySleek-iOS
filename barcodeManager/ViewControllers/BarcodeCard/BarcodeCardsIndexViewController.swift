@@ -17,45 +17,55 @@ class BarcodeCardsIndexViewController: UITableViewController {
     
     // Variables to get swiftReorder to work with variable heights
     var spacerIndexPath: IndexPath? = nil
-    var cellHeights = NSMutableDictionary()
 
     let ShowBarcodeCardSegueIdentifier = "ShowBarcodeCardSegue"
     let EditBarcodeCardSegueIdentifier = "EditBarcodeCardSegue"
     
-    private let editIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(name: .edit,
-                                                                    style: .solid,
-                                                                    textColor: .white,
-                                                                    size: CGSize(width: 100, height: 100)).addCircleBackground(ofColor: .blue, ofSize: CGSize(width: 140, height: 140)).cgImage!,
-                                   scale: 2.0,
-                                   orientation: .up)
-    
-    private let deleteIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(name: .trashAlt,
-                                                                      style: .solid,
-                                                                      textColor: .white,
-                                                                      size: CGSize(width: 100, height: 100)).addCircleBackground(ofColor: .red, ofSize: CGSize(width: 140, height: 140)).cgImage!,
+    private let editIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(
+                                        name: .edit,
+                                        style: .solid,
+                                        textColor: .white,
+                                        size: CGSize(width: 100, height: 100)
+                                        ).addCircleBackground(ofColor: .blue,
+                                                              ofSize: CGSize(width: 140,
+                                                                             height: 140)).cgImage!,
                                      scale: 2.0,
                                      orientation: .up)
     
+    private let deleteIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(
+                                        name: .trashAlt,
+                                        style: .solid,
+                                        textColor: .white,
+                                        size: CGSize(width: 100, height: 100)
+                                        ).addCircleBackground(ofColor: .red,
+                                                              ofSize: CGSize(width: 140,
+                                                                             height: 140)).cgImage!,
+                                    scale: 2.0,
+                                    orientation: .up)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBarButtons()       
-        self.tableView.reloadData()
+        setupNavigationBarButtons()
+        BarcodeCards.instance.list(completeAfterloading: {
+            self.tableView.reloadData()
+        })
+        
         
         // Required for reorder pod implementation
         tableView.reorder.delegate = self
-        tableView.reorder.cellScale = 1.0
+        tableView.reorder.cellScale = 1.05
         tableView.reorder.shadowOpacity = 0
         tableView.reorder.cellOpacity = 0.8
         
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 150
         tableView.estimatedSectionFooterHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,28 +110,37 @@ extension BarcodeCardsIndexViewController {
         return headerView
     }
     
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let barcodeCard = BarcodeCards.instance.list()[indexPath.row]
+        if  let photoSize = barcodeCard.photoSize {
+            let cellWidth = self.tableView.bounds.width + 40
+            return (photoSize.height / photoSize.width) * (cellWidth)
+        }
+        return 50
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         /// Required for reorder pod implementation
         let isSpacerCell = tableView.reorder.spacerCell(for: indexPath) != nil
-        let cellIndexPath = isSpacerCell ? self.spacerIndexPath! : indexPath
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeCell",
-                                                 for: cellIndexPath) as! BarcodeCardTableViewCell
         
-        let barcodeCard = BarcodeCards.instance.list()[cellIndexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeCell",
+                                                 for: indexPath) as! BarcodeCardTableViewCell
+        
+        let barcodeCard = BarcodeCards.instance.list()[indexPath.row]
         
         if  let photoSize = barcodeCard.photoSize {
             let imageWidth = cell.cardPhotoImageView.bounds.size.width
             cell.cardPhotoImageHeightConstraint.constant = (photoSize.height / photoSize.width) * (imageWidth)
         }
     
-        if !isSpacerCell {
+        if isSpacerCell {
+            cell.cardPhotoImageView.image = nil
+        } else {
             cell.cardPhotoImageView.image = barcodeCard.photo
             cell.cardPhotoImageView.layer.cornerRadius = 25
             cell.cardPhotoImageView.clipsToBounds = true
             self.addSwipeButtonsTo(cell, for: barcodeCard)
-        } else {
-            cell.cardPhotoImageView.image = nil
         }
         
         return cell
@@ -129,24 +148,24 @@ extension BarcodeCardsIndexViewController {
     
 }
 
+// MARK: - TableViewReorderDelegate
 extension BarcodeCardsIndexViewController: TableViewReorderDelegate {
     
-    func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath,
+                   to destinationIndexPath: IndexPath) {
         UIImpactFeedbackGenerator().impactOccurred()
-    }
-    
-    func tableViewDidFinishReordering(_ tableView: UITableView, from initialSourceIndexPath: IndexPath, to finalDestinationIndexPath: IndexPath) {
-        UIImpactFeedbackGenerator().impactOccurred()
-        DispatchQueue.global(qos: .background).async {
-            BarcodeCards.instance.moveCard(fromPosition: initialSourceIndexPath.row,
-                                           toPosition: finalDestinationIndexPath.row)
-        }
-        self.spacerIndexPath = nil
+        BarcodeCards.instance.moveCard(fromPosition: sourceIndexPath.row,
+                                       toPosition: destinationIndexPath.row, save: false)
     }
     
     func tableViewDidBeginReordering(_ tableView: UITableView, at indexPath: IndexPath) {
         UIImpactFeedbackGenerator().impactOccurred()
-        self.spacerIndexPath = indexPath
+    }
+    
+    func tableViewDidFinishReordering(_ tableView: UITableView, from initialSourceIndexPath: IndexPath,
+                                      to finalDestinationIndexPath: IndexPath) {
+        UIImpactFeedbackGenerator().impactOccurred()
+        BarcodeCards.instance.saveToFile()
     }
     
 }

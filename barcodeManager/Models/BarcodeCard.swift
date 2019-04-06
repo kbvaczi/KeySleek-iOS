@@ -11,8 +11,6 @@ import AVFoundation
 import Disk
 import RSBarcodes
 
-
-
 struct BarcodeCard: Codable, Equatable {
     
     var uid: String
@@ -22,15 +20,6 @@ struct BarcodeCard: Codable, Equatable {
     
     private var photoData: Data?
     private var _photoSize: CGSize?
-    
-    static func == (lhs: BarcodeCard, rhs: BarcodeCard) -> Bool  {
-        if  lhs.code == rhs.code,
-            lhs.title == rhs.title,
-            lhs.codeTypeString == rhs.codeTypeString {
-            return true
-        }
-        return false
-    }
     
     init(title: String? = nil, code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
         self.uid = UUID().uuidString
@@ -43,6 +32,26 @@ struct BarcodeCard: Codable, Equatable {
 }
 
 extension BarcodeCard {
+    
+    /// Tests whether two BarcodeCard objects have the same UID
+    ///
+    /// - Returns: True if UIDs match, False otherwise
+    static func ~= (lhs: BarcodeCard, rhs: BarcodeCard) -> Bool {
+        return lhs.uid == rhs.uid
+    }
+    
+    /// Tests whether two BarcodeCard objects are exactly the same (does not compare Photo)
+    ///
+    /// - Returns: True if equal, False otherwise
+    static func == (lhs: BarcodeCard, rhs: BarcodeCard) -> Bool  {
+        if  lhs.uid == rhs.uid,
+            lhs.code == rhs.code,
+            lhs.title == rhs.title,
+            lhs.codeTypeString == rhs.codeTypeString {
+            return true
+        }
+        return false
+    }
     
     var codeType: BarcodeCards.barcodeType? {
         guard let codeTypeString = self.codeTypeString else { return nil }
@@ -103,6 +112,9 @@ class BarcodeCards {
     
     static let instance = BarcodeCards()
     
+    private let saveFileName: String = "barcodes.json"
+    private var cards: [BarcodeCard]
+    
     enum barcodeType: String, CustomStringConvertible, CaseIterable {
         case Code39 = "org.iso.Code39"
         case Code39Mod43 = "org.iso.Code39Mod43"
@@ -154,16 +166,24 @@ class BarcodeCards {
         }
     }
     
-    private let saveFileName: String = "barcodes.json"
-    
-    private var cards: [BarcodeCard]
-    
     private init() {
         cards = [BarcodeCard]()
-        loadFromFile()
     }
     
-    func list() -> [BarcodeCard] {
+}
+
+// MARK: - API
+extension BarcodeCards {
+    
+    /// Lists existing BarcodeCards
+    ///
+    /// - Returns: BarcodeCards that are currently saved
+    @discardableResult func list(completeAfterloading: (() -> Void)? = nil) -> [BarcodeCard] {
+        if completeAfterloading != nil {
+            loadFromFile() { _ in
+                completeAfterloading?()
+            }
+        }
         return cards
     }
     
@@ -171,81 +191,117 @@ class BarcodeCards {
     ///
     /// - Parameter cardToRemove: BarcodeCard to remove
     /// - Returns: true if removed, otherwise false
-    @discardableResult func remove(_ cardToRemove: BarcodeCard) -> Bool {
+    func remove(_ cardToRemove: BarcodeCard, callBack: ((Bool) -> Void)? = nil ) {
         for (index, card) in self.cards.enumerated() {
-            if card == cardToRemove {
+            if card ~= cardToRemove {
+                let removedCard = cards[index]
                 cards.remove(at: index)
-                return saveToFile()
+                saveToFile() { didSave in
+                    if didSave {
+                        callBack?(true)
+                    } else { // Revert
+                        self.cards.insert(removedCard, at: index)
+                        callBack?(false)
+                    }
+                }
             }
         }
-        return false
     }
     
-    /// add
-    ///
-    /// - Parameter cardToAdd: Adds a BarcodeCard to BarcodeCards list
-    /// - Returns: true if added, otherwise false
-    @discardableResult func add(_ cardToAdd: BarcodeCard) -> Bool {
-        cards.append(cardToAdd)
-        if saveToFile() {
-            return true
-        } else {
-            cards.removeLast()
-            return false
-        }
-    }
-    
-    /// update
-    ///
-    /// - Parameter cardToAdd: Adds a BarcodeCard to BarcodeCards list
-    /// - Returns: true if added, otherwise false
-    @discardableResult func update(_ cardToUpdate: BarcodeCard, with newCard: BarcodeCard) -> Bool {
-        for (index, card) in self.cards.enumerated() {
-            if card == cardToUpdate {
-                cards[index] = newCard
-                return saveToFile()
-            }
-        }
-        return false
-    }
-    
-    /// move card from one position to another
+    /// Adds new BarcodeCard object to saved BarcodeCards
     ///
     /// - Parameters:
-    ///   - fromPosition: position to move card from
+    ///   - cardToAdd: BarcodeCard object to add
+    ///   - callBack: Performed after save attempt: contains True if saved, false otherwise
+    func add(_ cardToAdd: BarcodeCard, callBack: ((Bool) -> Void)? = nil ) {
+        cards.append(cardToAdd)
+        saveToFile() { didSave in
+            if didSave {
+                callBack?(true)
+            } else { // Revert
+                self.cards.removeLast()
+                callBack?(false)
+            }
+        }
+    }
+    
+    /// Update a saved BarcodeCard object
+    ///
+    /// - Parameters:
+    ///   - updatedCard: Updated card to save
+    ///   - callBack: Performed after save attempt: contains True if saved, false otherwise
+    func update(_ updatedCard: BarcodeCard, callBack: ((Bool) -> Void)? = nil) {
+        for (index, card) in self.cards.enumerated() {
+            if card ~= updatedCard {
+                let oldCard = cards[index]
+                cards[index] = updatedCard
+                saveToFile() { didSave in
+                    if didSave {
+                        callBack?(true)
+                    } else { // Revert
+                        self.cards[index] = oldCard
+                        callBack?(false)
+                    }
+                }
+            }
+        }
+    }
+    
+    /// Moves a BarcodeCard from one position to another
+    ///
+    /// - Parameters:
+    ///   - fromPosition: current position of card to move
     ///   - toPosition: position to move card to
-    /// - Returns: true if saved, false otherwise
-    @discardableResult func moveCard(fromPosition: Int, toPosition: Int) -> Bool {
-        let cardToMove = cards.remove(at: fromPosition)
-        cards.insert(cardToMove, at: toPosition)
-        return saveToFile()
-    }
-    
-    /// loadFromFile
-    ///
-    /// - Returns: loads barcodecards from file
-    @discardableResult private func loadFromFile() -> Bool {
-        do {
-            try self.cards = Disk.retrieve(saveFileName, from: .documents, as: [BarcodeCard].self)
-            return true
-        } catch {
-            print("error loading barcodes from file")
-            return false
+    ///   - callBack: Performed after save attempt - contains true if saved, false otherwise
+    func moveCard(fromPosition: Int, toPosition: Int, save: Bool? = nil,
+                  callBack: ((Bool) -> Void)? = nil) {
+        cards.insert(cards.remove(at: fromPosition), at: toPosition)
+        guard let toPerformSave = save, toPerformSave else { return }
+        saveToFile() { didSave in
+            if didSave {
+                callBack?(true)
+            } else { // Revert
+                self.cards.insert(self.cards.remove(at: toPosition), at: fromPosition)
+                callBack?(false)
+            }
         }
     }
     
-    /// saveToFile
+    /// Loads saved BarcodeCard objects from file
     ///
-    /// - Returns: saves barcode cards to file
-    @discardableResult private func saveToFile() -> Bool {
-        do {
-            try Disk.save(cards, to: .documents, as: saveFileName)
-            return true
-        } catch {
-            print("error saving barcodes to file")
-            return false
+    /// - Parameter callBack: Performed after loading - contains true if loaded, false otherwise
+    func loadFromFile(callBack: ((Bool) -> ())? = nil ) {
+        // Load from main queue to allow in TableView.updateView()
+        let dispatchQueue = DispatchQueue(label: "Loading Barcodes", qos: .background)
+        dispatchQueue.async {
+            do {
+                try self.cards = Disk.retrieve(self.saveFileName,
+                                               from: .documents, as: [BarcodeCard].self)
+                print("loading barcodes from file")
+                DispatchQueue.main.async { callBack?(true) }
+            } catch {
+                print("error loading barcodes from file")
+                DispatchQueue.main.async { callBack?(false) }
+            }
         }
     }
+    
+    /// Save BarcodeCard objects to file
+    ///
+    /// - Parameter callBack: Performed after save attempt - contains true if saved, false otherwise
+    func saveToFile(callBack: ((Bool) -> ())? = nil ) {
+        let dispatchQueue = DispatchQueue(label: "Saving Barcodes", qos: .background)
+        dispatchQueue.async {
+            do {
+                try Disk.save(self.cards, to: .documents, as: self.saveFileName)
+                DispatchQueue.main.async { callBack?(true) }
+            } catch {
+                print("error saving barcodes to file")
+                DispatchQueue.main.async { callBack?(false) }
+            }
+        }
+    }
+    
 }
 
 

@@ -38,7 +38,7 @@ extension NewBarcodeCardViewController {
             print("invalid form")
             return false
         }
-        if BarcodeCards.instance.add(barcodeToSave) {
+        BarcodeCards.instance.add(barcodeToSave) { didSave in 
             self.navigationController?.popViewController(animated: true)
         }
         return true
