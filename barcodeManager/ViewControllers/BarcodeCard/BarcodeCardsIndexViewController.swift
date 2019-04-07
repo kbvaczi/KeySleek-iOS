@@ -148,6 +148,11 @@ extension BarcodeCardsIndexViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let barcodeCell = cell as? BarcodeCardTableViewCell else { return }
+        barcodeCell.animateIn()
+    }
+    
 }
 
 // MARK: - TableViewReorderDelegate
