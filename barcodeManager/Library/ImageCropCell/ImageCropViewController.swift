@@ -16,6 +16,8 @@ open class ImageCropViewController: IGRPhotoTweakViewController  {
         didSet {
             self.horizontalDial?.migneticOption = .none
             self.horizontalDial?.centerMarkWidth = 4.0
+            self.horizontalDial?.maximumValue = 95
+            self.horizontalDial?.minimumValue = -95
         }
     }
     
