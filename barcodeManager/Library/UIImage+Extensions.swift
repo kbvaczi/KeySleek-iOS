@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accelerate
 
 extension UIImageView {
     
@@ -57,6 +58,73 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return newImage
+    }
+    
+    /// Resizes image to fit within a new size while maintaining aspect ratio
+    ///
+    /// - Parameter fitSize: Size to fit image within
+    /// - Returns: Resized image
+    func resizeToFitSquare(ofDimension maxDimension: CGFloat) -> UIImage {
+        var newSize: CGSize
+        let aspectRatio = self.size.width / self.size.height
+        if aspectRatio > 1.0 { // width > height
+            newSize = CGSize(width: maxDimension, height: maxDimension / aspectRatio)
+        } else  { // height > width
+            newSize = CGSize(width: maxDimension * aspectRatio, height: maxDimension)
+        }
+        return self.resize(to: newSize)
+    }
+    
+    /// Resize image to given size using Accelerate Library
+    ///
+    /// - Parameter newSize: Size of the image output.
+    /// - Returns: Resized image.
+    func resize(to newSize: CGSize) -> UIImage {
+        var resultImage = self
+        
+        guard let cgImage = cgImage else { return resultImage }
+        
+        // create a source buffer
+        var format = vImage_CGImageFormat(bitsPerComponent: numericCast(cgImage.bitsPerComponent),
+                                          bitsPerPixel: numericCast(cgImage.bitsPerPixel),
+                                          colorSpace: Unmanaged.passUnretained(cgImage.colorSpace!),
+                                          bitmapInfo: cgImage.bitmapInfo,
+                                          version: 0,
+                                          decode: nil,
+                                          renderingIntent: .defaultIntent)
+        var sourceBuffer = vImage_Buffer()
+        defer {
+            sourceBuffer.data.deallocate()
+        }
+        
+        var error = vImageBuffer_InitWithCGImage(&sourceBuffer, &format, nil, cgImage, numericCast(kvImageNoFlags))
+        guard error == kvImageNoError else { return resultImage }
+        
+        // create a destination buffer
+        let destWidth = Int(newSize.width)
+        let destHeight = Int(newSize.height)
+        let bytesPerPixel = cgImage.bitsPerPixel
+        let destBytesPerRow = destWidth * bytesPerPixel
+        let destData = UnsafeMutablePointer<UInt8>.allocate(capacity: destHeight * destBytesPerRow)
+        defer {
+            destData.deallocate()
+        }
+        var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)
+        
+        // scale the image
+        error = vImageScale_ARGB8888(&sourceBuffer, &destBuffer, nil, numericCast(kvImageHighQualityResampling))
+        guard error == kvImageNoError else { return resultImage }
+        
+        // create a CGImage from vImage_Buffer
+        let destCGImage = vImageCreateCGImageFromBuffer(&destBuffer, &format, nil, nil, numericCast(kvImageNoFlags), &error)?.takeRetainedValue()
+        guard error == kvImageNoError else { return resultImage }
+        
+        // create a UIImage
+        if let scaledImage = destCGImage.flatMap({ UIImage(cgImage: $0) }) {
+            resultImage = scaledImage
+        }
+        
+        return resultImage
     }
     
     

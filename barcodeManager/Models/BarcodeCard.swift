@@ -89,12 +89,16 @@ extension BarcodeCard {
     var photo: UIImage? {
         get {
             guard let imageData = self.photoData else { return nil }
-            return UIImage(data: imageData)
+            let image = UIImage(data: imageData)
+            print(image?.size)
+            return image
+            
         }
         set {
-            guard let imageData = newValue?.pngData() else { return }
+            let newImage = newValue?.resizeToFitSquare(ofDimension: 1000)
+            guard let imageData = newImage?.pngData() else { return }
             self.photoData = imageData
-            self._photoSize = newValue?.size
+            self._photoSize = newImage?.size
         }
     }
     
