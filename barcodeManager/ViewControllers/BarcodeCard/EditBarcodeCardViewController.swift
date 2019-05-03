@@ -41,12 +41,14 @@ extension EditBarcodeCardViewController {
         
         BarcodeCards.instance.update(updatedBarcodeCard) { didSave in
             if didSave {
-                let i = self.navigationController?.viewControllers.index(of: self)
-                let previousViewController = self.navigationController?.viewControllers[i!-1]
-                if let showVC = previousViewController as? ShowBarcodeCardViewController {
-                    showVC.barcodeCard = updatedBarcodeCard
-                }
-                self.navigationController?.popViewController(animated: true)
+                DispatchQueue.main.async {
+                    let i = self.navigationController?.viewControllers.index(of: self)
+                    let previousViewController = self.navigationController?.viewControllers[i!-1]
+                    if let showVC = previousViewController as? ShowBarcodeCardViewController {
+                        showVC.barcodeCard = updatedBarcodeCard
+                    }
+                    self.navigationController?.popViewController(animated: true)
+                }                
             }
         }
         return true

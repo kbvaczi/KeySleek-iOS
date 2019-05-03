@@ -24,7 +24,7 @@ class ProgressBarButton: UIView, NibLoadable {
     @IBAction func buttonTouchDown(_ sender: Any) { beginProgress() }
     @IBAction func buttonTouchUpInside(_ sender: Any) { resetProgress() }
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
-    
+       
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
@@ -124,26 +124,4 @@ protocol ProgressBarButtonDelegate {
 
 }
 
-public protocol NibLoadable {
-    
-    static var nibName: String { get }
-    
-}
 
-public extension NibLoadable where Self: UIView {
-    
-    public static var nibName: String {
-        return String(describing: Self.self) // defaults to the name of the class implementing this protocol.
-    }
-    
-    public static var nib: UINib {
-        let bundle = Bundle(for: Self.self)
-        return UINib(nibName: Self.nibName, bundle: bundle)
-    }
-    
-    func setupFromNib() {
-        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = true
-    }
-}

@@ -11,8 +11,11 @@
 		BE14DD6F2241C48D0070B25A /* HorizontalDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14DD6E2241C48D0070B25A /* HorizontalDial.swift */; };
 		BE26622E22263A12003436EC /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */; };
 		BE266231222ACEBE003436EC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE266230222ACEBE003436EC /* RoundButton.swift */; };
+		BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */; };
 		BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */; };
 		BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AC2207497B00D8B941 /* TabBarController.swift */; };
+		BE8CA2F3226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */; };
+		BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */; };
 		BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */; };
 		BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */; };
 		BEB2FCF621FD192700EB7EC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FCF521FD192700EB7EC0 /* AppDelegate.swift */; };
@@ -20,8 +23,6 @@
 		BEB2FCFB21FD192700EB7EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB2FCF921FD192700EB7EC0 /* Main.storyboard */; };
 		BEB2FCFD21FD192800EB7EC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB2FCFC21FD192800EB7EC0 /* Assets.xcassets */; };
 		BEB2FD0021FD192800EB7EC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB2FCFE21FD192800EB7EC0 /* LaunchScreen.storyboard */; };
-		BEB2FD1821FD1D5200EB7EC0 /* RSBarcodes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB2FD1321FD199200EB7EC0 /* RSBarcodes.framework */; };
-		BEB2FD1921FD1D5200EB7EC0 /* RSBarcodes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEB2FD1321FD199200EB7EC0 /* RSBarcodes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEB2FD2121FE4A2600EB7EC0 /* BarcodeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FD2021FE4A2600EB7EC0 /* BarcodeCard.swift */; };
 		BEB2FD2721FE51B100EB7EC0 /* NewBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FD2621FE51B100EB7EC0 /* NewBarcodeCardViewController.swift */; };
 		BEB2FD2B21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FD2A21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift */; };
@@ -40,37 +41,6 @@
 		BEFD1491222C7E0A006C12F0 /* BarcodeImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEFD148F222C7E0A006C12F0 /* BarcodeImageCell.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		BEB2FD1221FD199200EB7EC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D08336371A202E81004EE128;
-			remoteInfo = RSBarcodes;
-		};
-		BEB2FD1621FD1BB700EB7EC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D08336361A202E81004EE128;
-			remoteInfo = RSBarcodes;
-		};
-		BEB2FD1A21FD1D5200EB7EC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D08336361A202E81004EE128;
-			remoteInfo = RSBarcodes;
-		};
-		BEFADD3D22481CB9008F4D05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BEFADD3922481CB9008F4D05 /* RSBarcodes.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D08336371A202E81004EE128;
-			remoteInfo = RSBarcodes;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		BEB2FD1C21FD1D5200EB7EC0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -78,7 +48,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEB2FD1921FD1D5200EB7EC0 /* RSBarcodes.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,8 +60,11 @@
 		BE14DD6E2241C48D0070B25A /* HorizontalDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalDial.swift; sourceTree = "<group>"; };
 		BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
 		BE266230222ACEBE003436EC /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCards.swift; sourceTree = "<group>"; };
 		BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BE7853AC2207497B00D8B941 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarcodeCardsIndexHeaderView.xib; sourceTree = "<group>"; };
+		BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarButton.xib; sourceTree = "<group>"; };
 		BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarButton.swift; sourceTree = "<group>"; };
 		BEB2FCF221FD192700EB7EC0 /* barcodeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barcodeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +74,6 @@
 		BEB2FCFC21FD192800EB7EC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEB2FCFF21FD192800EB7EC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEB2FD0121FD192800EB7EC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RSBarcodes.xcodeproj; path = RSBarcodes_Swift/RSBarcodes.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BEB2FD2021FE4A2600EB7EC0 /* BarcodeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCard.swift; sourceTree = "<group>"; };
 		BEB2FD2621FE51B100EB7EC0 /* NewBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BEB2FD2A21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCardFormViewController.swift; sourceTree = "<group>"; };
@@ -116,7 +87,6 @@
 		BEC190F4221F74AD0050C324 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		BEC190F622205A5A0050C324 /* BarcodeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCardTableViewCell.swift; sourceTree = "<group>"; };
 		BEFADD37224816C0008F4D05 /* AspectRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectRatio.swift; sourceTree = "<group>"; };
-		BEFADD3922481CB9008F4D05 /* RSBarcodes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RSBarcodes.xcodeproj; path = RSBarcodes_Swift/RSBarcodes.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BEFADD3F22481D05008F4D05 /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		BEFD148E222C7E0A006C12F0 /* BarcodeImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarcodeImageCell.swift; path = barcodeManager/Library/BarcodeImageCell/BarcodeImageCell.swift; sourceTree = SOURCE_ROOT; };
 		BEFD148F222C7E0A006C12F0 /* BarcodeImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BarcodeImageCell.xib; path = barcodeManager/Library/BarcodeImageCell/BarcodeImageCell.xib; sourceTree = SOURCE_ROOT; };
@@ -128,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEB2FD1821FD1D5200EB7EC0 /* RSBarcodes.framework in Frameworks */,
 				35CBC7A3E8319DB51811773E /* Pods_barcodeManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +112,23 @@
 				026B1EB818AE22B083354B83 /* Pods-barcodeManager.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE8CA2F4226CBF3A00935F16 /* BarcodeCard */ = {
+			isa = PBXGroup;
+			children = (
+				BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */,
+			);
+			path = BarcodeCard;
+			sourceTree = "<group>";
+		};
+		BE8CA2F7226CFFD600935F16 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				BEB2FD2C21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift */,
+				BEC190F622205A5A0050C324 /* BarcodeCardTableViewCell.swift */,
+			);
+			path = Index;
 			sourceTree = "<group>";
 		};
 		BE9686F42222CB9400094FF8 /* ProgressBarButton */ = {
@@ -178,7 +164,6 @@
 			children = (
 				BEB2FCF521FD192700EB7EC0 /* AppDelegate.swift */,
 				BEB2FCFC21FD192800EB7EC0 /* Assets.xcassets */,
-				BEFADD3922481CB9008F4D05 /* RSBarcodes.xcodeproj */,
 				BEB2FD0121FD192800EB7EC0 /* Info.plist */,
 				BEB2FD1E21FE49B600EB7EC0 /* Models */,
 				BEB2FD302207276D00EB7EC0 /* Views */,
@@ -198,18 +183,10 @@
 				BEC190F4221F74AD0050C324 /* UIImage+Extensions.swift */,
 				BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */,
 				BEFADD37224816C0008F4D05 /* AspectRatio.swift */,
-				BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */,
 				BEFADD3F22481D05008F4D05 /* NSLayoutConstraint+Extensions.swift */,
+				BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		BEB2FD0F21FD199100EB7EC0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BEB2FD1321FD199200EB7EC0 /* RSBarcodes.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BEB2FD1421FD1A5000EB7EC0 /* Frameworks */ = {
@@ -224,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BEB2FD2021FE4A2600EB7EC0 /* BarcodeCard.swift */,
+				BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +220,7 @@
 			children = (
 				BEB2FCFE21FD192800EB7EC0 /* LaunchScreen.storyboard */,
 				BEB2FCF921FD192700EB7EC0 /* Main.storyboard */,
+				BE8CA2F4226CBF3A00935F16 /* BarcodeCard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,13 +228,12 @@
 		BEB2FD342207289600EB7EC0 /* BarcodeCard */ = {
 			isa = PBXGroup;
 			children = (
+				BE8CA2F7226CFFD600935F16 /* Index */,
 				BEB2FD2E220287EE00EB7EC0 /* ShowBarcodeCardViewController.swift */,
 				BEB2FD2621FE51B100EB7EC0 /* NewBarcodeCardViewController.swift */,
 				BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */,
 				BEB2FD2A21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift */,
-				BEB2FD2C21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift */,
 				BEB2FCF721FD192700EB7EC0 /* ScanViewController.swift */,
-				BEC190F622205A5A0050C324 /* BarcodeCardTableViewCell.swift */,
 			);
 			path = BarcodeCard;
 			sourceTree = "<group>";
@@ -270,14 +248,6 @@
 				BEC190EC221D869F0050C324 /* ImageCropViewController.xib */,
 			);
 			path = ImageCropCell;
-			sourceTree = "<group>";
-		};
-		BEFADD3A22481CB9008F4D05 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BEFADD3E22481CB9008F4D05 /* RSBarcodes.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BEFD148D222C7DD9006C12F0 /* BarcodeImageCell */ = {
@@ -307,8 +277,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BEB2FD1721FD1BB700EB7EC0 /* PBXTargetDependency */,
-				BEB2FD1B21FD1D5200EB7EC0 /* PBXTargetDependency */,
 			);
 			name = barcodeManager;
 			productName = barcodeManager;
@@ -341,39 +309,12 @@
 			mainGroup = BEB2FCE921FD192700EB7EC0;
 			productRefGroup = BEB2FCF321FD192700EB7EC0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BEB2FD0F21FD199100EB7EC0 /* Products */;
-					ProjectRef = BEB2FD0E21FD199100EB7EC0 /* RSBarcodes.xcodeproj */;
-				},
-				{
-					ProductGroup = BEFADD3A22481CB9008F4D05 /* Products */;
-					ProjectRef = BEFADD3922481CB9008F4D05 /* RSBarcodes.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BEB2FCF121FD192700EB7EC0 /* barcodeManager */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BEB2FD1321FD199200EB7EC0 /* RSBarcodes.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RSBarcodes.framework;
-			remoteRef = BEB2FD1221FD199200EB7EC0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BEFADD3E22481CB9008F4D05 /* RSBarcodes.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RSBarcodes.framework;
-			remoteRef = BEFADD3D22481CB9008F4D05 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BEB2FCF021FD192700EB7EC0 /* Resources */ = {
@@ -386,6 +327,7 @@
 				BEB2FCFD21FD192800EB7EC0 /* Assets.xcassets in Resources */,
 				BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */,
 				BEB2FCFB21FD192700EB7EC0 /* Main.storyboard in Resources */,
+				BE8CA2F3226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +372,7 @@
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/RSBarcodes_Swift/RSBarcodes_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftReorder/SwiftReorder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -443,6 +386,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSBarcodes_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftReorder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +405,7 @@
 				BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */,
 				BEB2FD2B21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift in Sources */,
 				BE14DD6F2241C48D0070B25A /* HorizontalDial.swift in Sources */,
+				BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */,
 				BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */,
 				BEC190F5221F74AD0050C324 /* UIImage+Extensions.swift in Sources */,
 				BEB2FD2D21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift in Sources */,
@@ -473,6 +418,7 @@
 				BEB2FD2F220287EE00EB7EC0 /* ShowBarcodeCardViewController.swift in Sources */,
 				BEC190EB221A55610050C324 /* ImageCropViewController.swift in Sources */,
 				BEC190F722205A5A0050C324 /* BarcodeCardTableViewCell.swift in Sources */,
+				BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */,
 				BE266231222ACEBE003436EC /* RoundButton.swift in Sources */,
 				BEFADD38224816C0008F4D05 /* AspectRatio.swift in Sources */,
 				BEC190E7221A45790050C324 /* ImageCropCell.swift in Sources */,
@@ -483,19 +429,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		BEB2FD1721FD1BB700EB7EC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RSBarcodes;
-			targetProxy = BEB2FD1621FD1BB700EB7EC0 /* PBXContainerItemProxy */;
-		};
-		BEB2FD1B21FD1D5200EB7EC0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RSBarcodes;
-			targetProxy = BEB2FD1A21FD1D5200EB7EC0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BEB2FCF921FD192700EB7EC0 /* Main.storyboard */ = {

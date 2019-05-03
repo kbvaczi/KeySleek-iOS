@@ -38,8 +38,10 @@ extension NewBarcodeCardViewController {
             print("invalid form")
             return false
         }
-        BarcodeCards.instance.add(barcodeToSave) { didSave in 
-            self.navigationController?.popViewController(animated: true)
+        BarcodeCards.instance.add(barcodeToSave) { didSave in
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }            
         }
         return true
     }

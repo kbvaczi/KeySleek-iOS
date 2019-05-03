@@ -45,7 +45,7 @@ open class IGRPhotoTweakViewController: UIViewController {
     
     //MARK: - Private VARs
     
-    internal lazy var photoView: IGRPhotoTweakView! = { [unowned self] by in
+    public lazy var photoView: IGRPhotoTweakView! = { [unowned self] by in
         
         let photoView = IGRPhotoTweakView(frame: self.view.bounds,
                                           image: self.image,
@@ -113,7 +113,7 @@ open class IGRPhotoTweakViewController: UIViewController {
         let translation: CGPoint = self.photoView.photoTranslation
         transform = transform.translatedBy(x: translation.x, y: translation.y)
         // rotate
-        transform = transform.rotated(by: self.photoView.angle)
+        transform = transform.rotated(by: self.photoView.radians)
         // scale
         
         let t: CGAffineTransform = self.photoView.photoContentView.transform
@@ -123,8 +123,8 @@ open class IGRPhotoTweakViewController: UIViewController {
         
         if let fixedImage = self.image.cgImageWithFixedOrientation() {
             let imageRef = fixedImage.transformedImage(transform,
+                                                       zoomScale: self.photoView.scrollView.zoomScale,
                                                        sourceSize: self.image.size,
-                                                       outputWidth: self.image.size.width,
                                                        cropSize: self.photoView.cropView.frame.size,
                                                        imageViewSize: self.photoView.photoContentView.bounds.size)
             
@@ -155,6 +155,14 @@ open class IGRPhotoTweakViewController: UIViewController {
     
     open func customCornerBorderLength() -> CGFloat {
         return kCropViewCornerLength
+    }
+    
+    open func customCropLinesCount() -> Int {
+        return kCropLinesCount
+    }
+    
+    open func customGridLinesCount() -> Int {
+        return kGridLinesCount
     }
     
     open func customIsHighlightMask() -> Bool {

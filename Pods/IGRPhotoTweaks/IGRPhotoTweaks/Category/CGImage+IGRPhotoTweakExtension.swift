@@ -1,5 +1,5 @@
 //
-//  CGImage+IGRPhonoTweakExtension.swift
+//  CGImage+IGRPhotoTweakExtension.swift
 //  Pods
 //
 //  Created by Vitalii Parovishnyk on 4/26/17.
@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import CoreGraphics
 
 extension CGImage {
     
-    func transformedImage(_ transform: CGAffineTransform, sourceSize: CGSize, outputWidth: CGFloat, cropSize: CGSize, imageViewSize: CGSize) -> CGImage {
-        
-        let aspect: CGFloat = cropSize.height / cropSize.width
-        let outputSize = CGSize(width: outputWidth, height: (outputWidth * aspect))
+    func transformedImage(_ transform: CGAffineTransform, zoomScale: CGFloat, sourceSize: CGSize, cropSize: CGSize, imageViewSize: CGSize) -> CGImage {
+        let expectedWidth = floor(sourceSize.width / imageViewSize.width * cropSize.width) / zoomScale
+        let expectedHeight = floor(sourceSize.height / imageViewSize.height * cropSize.height) / zoomScale
+        let outputSize = CGSize(width: expectedWidth, height: expectedHeight)
         let bitmapBytesPerRow = 0
         
         let context = CGContext(data: nil,
@@ -22,7 +23,7 @@ extension CGImage {
                                 bitsPerComponent: self.bitsPerComponent,
                                 bytesPerRow: bitmapBytesPerRow,
                                 space: self.colorSpace!,
-                                bitmapInfo: self.bitmapInfo.rawValue)
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
         context?.setFillColor(UIColor.clear.cgColor)
         context?.fill(CGRect(x: CGFloat.zero,
                              y: CGFloat.zero,
@@ -38,9 +39,9 @@ extension CGImage {
         context?.concatenate(transform)
         context?.scaleBy(x: 1.0, y: -1.0)
         context?.draw(self, in: CGRect(x: (-imageViewSize.width.half),
-                                              y: (-imageViewSize.height.half),
-                                              width: imageViewSize.width,
-                                              height: imageViewSize.height))
+                                       y: (-imageViewSize.height.half),
+                                       width: imageViewSize.width,
+                                       height: imageViewSize.height))
         
         let result = context!.makeImage()!
         

@@ -10,6 +10,7 @@ target 'barcodeManager' do
   pod 'Eureka', '~> 4.3.1'
   pod 'ImageRow', '~> 3.0'
   pod 'IGRPhotoTweaks', '~> 1.0.0'
+  pod 'RSBarcodes_Swift', '~> 4.2.1'
   pod 'Disk', '~> 0.4.0'
   pod 'MBCircularProgressBar', '~> 0.3.5'
   pod 'MGSwipeTableCell', '~> 1.6.8'

@@ -40,7 +40,7 @@ extension ImageCropViewController: HorizontalDialDelegate {
     public func horizontalDialDidValueChanged(_ horizontalDial: HorizontalDial) {
         let degrees = horizontalDial.value
         let radians = IGRRadianAngle.toRadians(CGFloat(degrees))
-        self.changedAngle(value: radians)
+        self.changeAngle(radians: radians)
     }
     
     public func horizontalDialDidEndScroll(_ horizontalDial: HorizontalDial) {

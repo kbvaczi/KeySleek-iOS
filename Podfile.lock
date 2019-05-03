@@ -2,11 +2,12 @@ PODS:
   - Disk (0.4.0)
   - Eureka (4.3.1)
   - FontAwesome.swift (1.4.9)
-  - IGRPhotoTweaks (1.0.7)
+  - IGRPhotoTweaks (1.0.8)
   - ImageRow (3.2.0):
     - Eureka (~> 4.3)
   - MBCircularProgressBar (0.3.5)
   - MGSwipeTableCell (1.6.8)
+  - RSBarcodes_Swift (4.2.1)
   - SwiftReorder (6.0.2)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - ImageRow (~> 3.0)
   - MBCircularProgressBar (~> 0.3.5)
   - MGSwipeTableCell (~> 1.6.8)
+  - RSBarcodes_Swift (~> 4.2.1)
   - SwiftReorder (~> 6.0)
 
 SPEC REPOS:
@@ -28,18 +30,20 @@ SPEC REPOS:
     - ImageRow
     - MBCircularProgressBar
     - MGSwipeTableCell
+    - RSBarcodes_Swift
     - SwiftReorder
 
 SPEC CHECKSUMS:
   Disk: ef2956657d5bb56034b38b29b352170165226440
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FontAwesome.swift: 7f831846e85b93d32ded5d86983804b749921760
-  IGRPhotoTweaks: 8fe6b62c6599238d860b19b46a85a454e202f502
+  IGRPhotoTweaks: e348cec1dfc7afc36ff0f10115637bc3b03836fa
   ImageRow: 03681b3ef8034b5a649440325f5d5ba7b22c1b0a
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
+  RSBarcodes_Swift: c58d107e6d2149cc34a23f02828d400dbb708101
   SwiftReorder: 60ef1faf6446cf68f9a647cb975530db8efd6620
 
-PODFILE CHECKSUM: eca5a3095e46ce76a01c01aa75b1f8e5837a7d8f
+PODFILE CHECKSUM: e17641eb13911ae5e6191301c8a76f818fc59304
 
 COCOAPODS: 1.5.3

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RSBarcodes
+import RSBarcodes_Swift
 import AVFoundation
 import FontAwesome_swift
 
@@ -23,6 +23,7 @@ class ShowBarcodeCardViewController: UIViewController {
     var baselineBrightness: CGFloat = UIScreen.main.brightness
     
     override func viewDidLoad() {
+        print("show loading")
         super.viewDidLoad()
         updateView()
         initBackButton()
@@ -43,6 +44,7 @@ class ShowBarcodeCardViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
         resetBrightness()
     }
     
@@ -75,8 +77,11 @@ extension ShowBarcodeCardViewController {
     private func updateView() {
         guard let barcodeCard = self.barcodeCard else { return }
         self.titleLabel.text = (barcodeCard.photo == nil) ? barcodeCard.title : nil
-        self.photoImageView.image = barcodeCard.photo
-        self.photoImageView.roundCornersForAspectFit(radius: 20)
+        
+        barcodeCard.loadPhotoFromFile(callBack: { loadedPhoto in
+            self.photoImageView.image = loadedPhoto
+            self.photoImageView.roundCornersForAspectFit(radius: 20)
+        })
         
         guard let codeType = barcodeCard.codeType else { return }
         switch codeType {

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import AVFoundation
+import RSBarcodes_Swift
 import Disk
-import RSBarcodes
 
 struct BarcodeCard: Codable, Equatable {
     
@@ -19,8 +18,8 @@ struct BarcodeCard: Codable, Equatable {
     var code: String?
     var codeTypeString: String?
     
-    private var photoData: Data?
     private var _photoSize: CGSize?
+    private var _photoWrapped: imageWrapper = imageWrapper()
     
     init(title: String? = nil, notes: String? = nil,
          code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
@@ -34,6 +33,16 @@ struct BarcodeCard: Codable, Equatable {
     
 }
 
+
+// MARK: - Private functions
+private extension BarcodeCard {
+    
+    /// Generates a consisten file name based on uid
+    private var photoFileName: String { return "\(self.uid)_photo.png" }
+    
+}
+
+// MARK: - Public API
 extension BarcodeCard {
     
     /// Tests whether two BarcodeCard objects have the same UID
@@ -84,21 +93,60 @@ extension BarcodeCard {
         return nil
     }
     
-    private var photoPath: String { return "\(self.uid).png" }
-    
+    /// Synchronously accesses photo, does not save photo to file if assigned a value
     var photo: UIImage? {
         get {
-            guard let imageData = self.photoData else { return nil }
-            let image = UIImage(data: imageData)
-            print(image?.size)
-            return image
-            
+            if let photoAlreadyLoaded = _photoWrapped.image { return photoAlreadyLoaded }
+            guard Disk.exists(self.photoFileName, in: .documents) else { return nil }
+            do {
+                let image = try Disk.retrieve(self.photoFileName, from: .documents, as: UIImage.self)
+                _photoWrapped.image = image
+                return image
+            } catch {
+                print("error loading photo for BarcodeCard UID \(self.uid) from file")
+                return nil
+            }
         }
         set {
-            let newImage = newValue?.resizeToFitSquare(ofDimension: 1000)
-            guard let imageData = newImage?.pngData() else { return }
-            self.photoData = imageData
-            self._photoSize = newImage?.size
+            if let newPhoto = newValue?.resizeToFitSquare(ofDimension: 1000) {
+                _photoSize = newPhoto.size
+                _photoWrapped.image = newPhoto
+            }
+        }
+    }
+    
+    /// Asyncronhously loads photo
+    ///
+    /// - Parameter callBack: performed after photo loaded, contains photo if exists
+    func loadPhotoFromFile(callBack: ((UIImage?) -> Void)? = nil) {
+        if let photo = _photoWrapped.image { callBack?(photo); return }
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                let image = try Disk.retrieve(self.photoFileName, from: .documents, as: UIImage.self)
+                self._photoWrapped.image = image
+                callBack?(image)
+            } catch {
+                print("error loading photo for BarcodeCard UID \(self.uid) from file")
+                callBack?(nil)
+            }
+        }
+    }
+    
+    /// Asyncronously saves photo
+    ///
+    /// - Parameters:
+    ///   - image: image to save
+    ///   - callBack: performed after saving, contains true if successful, false otherwise
+    func savePhotoToFile(callBack:  ((Bool) -> Void)? = nil ) {
+        guard let imageData = photo?.pngData() else { callBack?(true); return }
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                try Disk.save(imageData, to: .documents, as: self.photoFileName)
+                callBack?(true)
+            } catch {
+                print("error saving photo for BarcodeCard UID \(self.uid) to file")
+                callBack?(false)
+            }
         }
     }
     
@@ -107,204 +155,22 @@ extension BarcodeCard {
             if let setSize = self._photoSize {
                 return setSize
             }
-            if let newSize = self.photo?.size {
-                return newSize
-            }
             return nil
         }
     }
 
 }
 
-class BarcodeCards {
+
+/// Provides a transient wrapper for UIImage that conforms to Codable, but does not encode/decode any data
+class imageWrapper: Codable {
     
-    static let instance = BarcodeCards()
+    var image: UIImage? = nil
     
-    private let saveFileName: String = "barcodes.json"
-    private var cards: [BarcodeCard]
+    init() {}
     
-    enum barcodeType: String, CustomStringConvertible, CaseIterable {
-        case Code39 = "org.iso.Code39"
-        case Code39Mod43 = "org.iso.Code39Mod43"
-        case Code93 = "com.intermec.Code93"
-        case Code128 = "org.iso.Code128"
-        case UPCE = "org.gs1.UPC-E"
-        case EAN8 = "org.gs1.EAN-8"
-        case EAN13 = "org.gs1.EAN-13"
-        case ITF14 = "org.gs1.ITF14"
-        case Interleaved2of5 = "org.ansi.Interleaved2of5"
-        case DataMatrix = "org.iso.DataMatrix"
-        case PDF417 = "org.iso.PDF417"
-        case QR = "org.iso.QRCode"
-        case Aztec = "org.iso.Aztec"
-        
-        var description: String {
-            switch self {
-            case .Code39:
-                return "Code 39"
-            case .Code39Mod43:
-                return "Code 39 (Mod 43)"
-            case .Code93:
-                return "Code 93"
-            case .Code128:
-                return "Code 128"
-            case .UPCE:
-                return "UPCE"
-            case .EAN8:
-                return "EAN-8"
-            case .EAN13:
-                return "EAN-13"
-            case .ITF14:
-                return "ITF-14"
-            case .Interleaved2of5:
-                return "ITF (Interleaved 2 of 5)"
-            case .DataMatrix:
-                return "Data Matrix"
-            case .PDF417:
-                return "PDF417"
-            case .QR:
-                return "QR Code"
-            case .Aztec:
-                return "Aztec"
-            }
-        }
-        
-        var metaDataObjectType: AVMetadataObject.ObjectType {
-            return AVMetadataObject.ObjectType.init(rawValue: self.rawValue)
-        }
-    }
+    required init(from decoder: Decoder) throws { }
     
-    private init() {
-        cards = [BarcodeCard]()
-    }
+    func encode(to encoder: Encoder) throws { }
     
 }
-
-// MARK: - API
-extension BarcodeCards {
-    
-    /// Lists existing BarcodeCards
-    ///
-    /// - Returns: BarcodeCards that are currently saved
-    @discardableResult func list() -> [BarcodeCard] {
-        return cards
-    }
-    
-    /// remove
-    ///
-    /// - Parameter cardToRemove: BarcodeCard to remove
-    /// - Returns: true if removed, otherwise false
-    func remove(_ cardToRemove: BarcodeCard, callBack: ((Bool) -> Void)? = nil ) {
-        for (index, card) in self.cards.enumerated() {
-            if card ~= cardToRemove {
-                let removedCard = cards[index]
-                cards.remove(at: index)
-                saveToFile() { didSave in
-                    if didSave {
-                        callBack?(true)
-                    } else { // Revert
-                        self.cards.insert(removedCard, at: index)
-                        callBack?(false)
-                    }
-                }
-            }
-        }
-    }
-    
-    /// Adds new BarcodeCard object to saved BarcodeCards
-    ///
-    /// - Parameters:
-    ///   - cardToAdd: BarcodeCard object to add
-    ///   - callBack: Performed after save attempt: contains True if saved, false otherwise
-    func add(_ cardToAdd: BarcodeCard, callBack: ((Bool) -> Void)? = nil ) {
-        cards.append(cardToAdd)
-        saveToFile() { didSave in
-            if didSave {
-                callBack?(true)
-            } else { // Revert
-                self.cards.removeLast()
-                callBack?(false)
-            }
-        }
-    }
-    
-    /// Update a saved BarcodeCard object
-    ///
-    /// - Parameters:
-    ///   - updatedCard: Updated card to save
-    ///   - callBack: Performed after save attempt: contains True if saved, false otherwise
-    func update(_ updatedCard: BarcodeCard, callBack: ((Bool) -> Void)? = nil) {
-        for (index, card) in self.cards.enumerated() {
-            if card ~= updatedCard {
-                let oldCard = cards[index]
-                cards[index] = updatedCard
-                saveToFile() { didSave in
-                    if didSave {
-                        callBack?(true)
-                    } else { // Revert
-                        self.cards[index] = oldCard
-                        callBack?(false)
-                    }
-                }
-            }
-        }
-    }
-    
-    /// Moves a BarcodeCard from one position to another
-    ///
-    /// - Parameters:
-    ///   - fromPosition: current position of card to move
-    ///   - toPosition: position to move card to
-    ///   - callBack: Performed after save attempt - contains true if saved, false otherwise
-    func moveCard(fromPosition: Int, toPosition: Int, save: Bool? = nil,
-                  callBack: ((Bool) -> Void)? = nil) {
-        cards.insert(cards.remove(at: fromPosition), at: toPosition)
-        guard let toPerformSave = save, toPerformSave else { return }
-        saveToFile() { didSave in
-            if didSave {
-                callBack?(true)
-            } else { // Revert
-                self.cards.insert(self.cards.remove(at: toPosition), at: fromPosition)
-                callBack?(false)
-            }
-        }
-    }
-    
-    /// Loads saved BarcodeCard objects from file
-    ///
-    /// - Parameter callBack: Performed after loading - contains true if loaded, false otherwise
-    func loadFromFile(callBack: ((Bool) -> ())? = nil ) {
-        // Load from main queue to allow in TableView.updateView()
-        let dispatchQueue = DispatchQueue(label: "Loading Barcodes", qos: .background)
-        dispatchQueue.async {
-            do {
-                try self.cards = Disk.retrieve(self.saveFileName,
-                                               from: .documents, as: [BarcodeCard].self)
-                print("loading barcodes from file")
-                DispatchQueue.main.async { callBack?(true) }
-            } catch {
-                print("error loading barcodes from file")
-                DispatchQueue.main.async { callBack?(false) }
-            }
-        }
-    }
-    
-    /// Save BarcodeCard objects to file
-    ///
-    /// - Parameter callBack: Performed after save attempt - contains true if saved, false otherwise
-    func saveToFile(callBack: ((Bool) -> ())? = nil ) {
-        let dispatchQueue = DispatchQueue(label: "Saving Barcodes", qos: .background)
-        dispatchQueue.async {
-            do {
-                try Disk.save(self.cards, to: .documents, as: self.saveFileName)
-                DispatchQueue.main.async { callBack?(true) }
-            } catch {
-                print("error saving barcodes to file")
-                DispatchQueue.main.async { callBack?(false) }
-            }
-        }
-    }
-    
-}
-
-
