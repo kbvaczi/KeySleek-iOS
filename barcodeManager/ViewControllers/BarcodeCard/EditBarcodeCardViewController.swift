@@ -36,6 +36,7 @@ extension EditBarcodeCardViewController {
         
         if validationError.count > 0 {
             print("invalid form")
+            displayValidationErrorPopup()
             return false
         }
         

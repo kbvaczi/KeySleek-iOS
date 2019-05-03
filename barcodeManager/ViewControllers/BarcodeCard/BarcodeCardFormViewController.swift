@@ -26,6 +26,7 @@ class BarcodeCardFormViewController: FormViewController {
 extension BarcodeCardFormViewController {
     
     func setupForm() {
+        
         form +++ Section("General")
             <<< TextRow(){ row in
                 row.title = "Name"
@@ -43,6 +44,8 @@ extension BarcodeCardFormViewController {
                 row.title = "Front Photo"
                 row.allowEditor = false
                 row.value = barcodeCard?.photo
+                row.add(rule: RuleRequired())
+                row.validationOptions = .validatesOnChange
                 row.placeholderImage = UIImage.fontAwesomeIcon(name: .camera,
                                                                style: .solid,
                                                                textColor: .lightGray,
@@ -51,6 +54,8 @@ extension BarcodeCardFormViewController {
                 cell.height = ( { return 80 } )
             }.onChange { row in
                 self.barcodeCard?.photo = row.value
+            }.cellUpdate { cell, row in
+                if !row.isValid { cell.textLabel?.textColor = .red }
             }
             +++ Section("Barcode")
             <<< BarcodeImageRow() { row in
@@ -59,9 +64,9 @@ extension BarcodeCardFormViewController {
             }.onCellSelection { cell, row in
                 self.performSegue(withIdentifier: self.scanSegueIdentifier, sender: nil)
             }.cellSetup { (cell, row) in
-                cell.height = ( { return row.value?.size.height ?? 55 } )
+                cell.height = ( { return row.value?.size.height ?? 75 } )
             }.onChange { row in
-                row.cell.height = ( { return row.value?.size.height ?? 80 } )
+                row.cell.height = ( { return row.value?.size.height ?? 75 } )
             }
             <<< TextRow(){ row in
                 row.title = "Data"
@@ -111,6 +116,18 @@ extension BarcodeCardFormViewController {
             }.onChange { row in
                 self.barcodeCard?.notes = row.value
             }
+            // Extra space for circular button at the bottom of form
+            +++ Section("") { section in
+                section.header?.height = { 100.0 }
+            }
+        
+    }
+    
+    func displayValidationErrorPopup() {
+        
+        let alert = UIAlertController(title: "Missing fields", message: "Please fill out required fields", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
         
     }
     

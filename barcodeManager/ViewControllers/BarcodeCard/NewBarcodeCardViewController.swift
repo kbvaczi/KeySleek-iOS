@@ -36,6 +36,7 @@ extension NewBarcodeCardViewController {
         let validationError = self.form.validate()
         if validationError.count > 0 {
             print("invalid form")
+            displayValidationErrorPopup()
             return false
         }
         BarcodeCards.instance.add(barcodeToSave) { didSave in
