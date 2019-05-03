@@ -14,7 +14,7 @@ DEPENDENCIES:
   - Disk (~> 0.4.0)
   - Eureka (~> 4.3.1)
   - FontAwesome.swift (~> 1.4.8)
-  - IGRPhotoTweaks (~> 1.0.0)
+  - IGRPhotoTweaks (~> 1.0.8)
   - ImageRow (~> 3.0)
   - MBCircularProgressBar (~> 0.3.5)
   - MGSwipeTableCell (~> 1.6.8)
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   RSBarcodes_Swift: c58d107e6d2149cc34a23f02828d400dbb708101
   SwiftReorder: 60ef1faf6446cf68f9a647cb975530db8efd6620
 
-PODFILE CHECKSUM: e17641eb13911ae5e6191301c8a76f818fc59304
+PODFILE CHECKSUM: 17b90b50c338ab5a7383e18014082541418f25d0
 
 COCOAPODS: 1.5.3
