@@ -72,6 +72,25 @@
             </objects>
             <point key="canvasLocation" x="2788" y="-638.2308845577212"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="dbl-OL-dEU">
+            <objects>
+                <viewController id="HNf-Iv-pP5" customClass="SettingsViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QKo-jF-XN4"/>
+                        <viewControllerLayoutGuide type="bottom" id="ACU-27-bUN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uvx-hT-G0I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="I0W-ie-4tj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uoh-Jc-caK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1849" y="-1731"/>
+        </scene>
         <!--New Card-->
         <scene sceneID="OWB-we-yAY">
             <objects>
@@ -102,6 +121,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Card" id="vNL-K5-FsN"/>
+                    <navigationItem key="navigationItem" title="New Card" id="duy-zy-P80"/>
                     <connections>
                         <outlet property="saveButton" destination="PF1-0F-Vga" id="4ln-H5-cE6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="YAU-Bf-JhH"/>
@@ -226,7 +246,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Settings" id="eA6-aH-jtd">
                                 <connections>
-                                    <segue destination="Ueg-d9-XyE" kind="show" id="JZ6-bi-bgV"/>
+                                    <segue destination="HNf-Iv-pP5" kind="show" id="0kH-8a-sex"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="New" id="Ydu-9N-UoK">
@@ -324,7 +344,7 @@
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="176.76161919040482"/>
         </scene>
-        <!--Edit Barcode Card View Controller-->
+        <!--Edit Card-->
         <scene sceneID="l0N-Uf-NZT">
             <objects>
                 <viewController id="9zR-LU-ihy" customClass="EditBarcodeCardViewController" customModule="barcodeManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,6 +373,7 @@
                             <constraint firstItem="vPl-Pi-6a8" firstAttribute="centerX" secondItem="rel-f5-Ts6" secondAttribute="centerX" id="vrf-LU-ERw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Card" id="TDh-pN-fPc"/>
                     <connections>
                         <outlet property="updateButton" destination="vPl-Pi-6a8" id="9eH-bv-RI3"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="Ler-48-gUK"/>
@@ -362,42 +383,8 @@
             </objects>
             <point key="canvasLocation" x="1846" y="-235"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="f4a-wu-ywg">
-            <objects>
-                <tableViewController id="Ueg-d9-XyE" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="U5U-M6-927">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="kAZ-xl-Lcl">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        </navigationBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Settings Cell" id="Gb6-36-UIr">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gb6-36-UIr" id="L4T-cu-BK2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ueg-d9-XyE" id="tqR-9x-tBR"/>
-                            <outlet property="delegate" destination="Ueg-d9-XyE" id="YCf-x0-NCj"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Settings" id="Odr-DZ-uhd"/>
-                    <navigationItem key="navigationItem" title="Settings" id="ZGJ-DL-I8o"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="baE-eN-zRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="-1693"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ler-48-gUK"/>
+        <segue reference="YAU-Bf-JhH"/>
     </inferredMetricsTieBreakers>
 </document>

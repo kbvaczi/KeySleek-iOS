@@ -12,6 +12,8 @@
 		BE26622E22263A12003436EC /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */; };
 		BE266231222ACEBE003436EC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE266230222ACEBE003436EC /* RoundButton.swift */; };
 		BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */; };
+		BE7369E2227E186700890D27 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E1227E186700890D27 /* SettingsViewController.swift */; };
+		BE7369E4227E1AAE00890D27 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E3227E1AAE00890D27 /* AppManager.swift */; };
 		BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */; };
 		BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AC2207497B00D8B941 /* TabBarController.swift */; };
 		BE8CA2F3226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */; };
@@ -61,6 +63,8 @@
 		BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
 		BE266230222ACEBE003436EC /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCards.swift; sourceTree = "<group>"; };
+		BE7369E1227E186700890D27 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BE7369E3227E1AAE00890D27 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BE7853AC2207497B00D8B941 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarcodeCardsIndexHeaderView.xib; sourceTree = "<group>"; };
@@ -112,6 +116,14 @@
 				026B1EB818AE22B083354B83 /* Pods-barcodeManager.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE7369E0227E184400890D27 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				BE7369E1227E186700890D27 /* SettingsViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		BE8CA2F4226CBF3A00935F16 /* BarcodeCard */ = {
@@ -202,6 +214,7 @@
 			children = (
 				BEB2FD2021FE4A2600EB7EC0 /* BarcodeCard.swift */,
 				BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */,
+				BE7369E3227E1AAE00890D27 /* AppManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 		BEB2FD1F21FE49CA00EB7EC0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE7369E0227E184400890D27 /* Settings */,
 				BE7853AC2207497B00D8B941 /* TabBarController.swift */,
 				BEB2FD342207289600EB7EC0 /* BarcodeCard */,
 			);
@@ -409,6 +423,7 @@
 				BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */,
 				BEC190F5221F74AD0050C324 /* UIImage+Extensions.swift in Sources */,
 				BEB2FD2D21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift in Sources */,
+				BE7369E2227E186700890D27 /* SettingsViewController.swift in Sources */,
 				BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */,
 				BE26622E22263A12003436EC /* UIButton+BackgroundColor.swift in Sources */,
 				BEB2FD2721FE51B100EB7EC0 /* NewBarcodeCardViewController.swift in Sources */,
@@ -419,6 +434,7 @@
 				BEC190EB221A55610050C324 /* ImageCropViewController.swift in Sources */,
 				BEC190F722205A5A0050C324 /* BarcodeCardTableViewCell.swift in Sources */,
 				BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */,
+				BE7369E4227E1AAE00890D27 /* AppManager.swift in Sources */,
 				BE266231222ACEBE003436EC /* RoundButton.swift in Sources */,
 				BEFADD38224816C0008F4D05 /* AspectRatio.swift in Sources */,
 				BEC190E7221A45790050C324 /* ImageCropCell.swift in Sources */,

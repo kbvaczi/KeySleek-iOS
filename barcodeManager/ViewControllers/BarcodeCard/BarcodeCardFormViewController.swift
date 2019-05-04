@@ -72,9 +72,8 @@ extension BarcodeCardFormViewController {
                 row.title = "Data"
                 row.tag = "barcodeData"
                 row.value = self.barcodeCard?.code
-                row.disabled = true
-                row.hidden = Condition.function(["barcodeImage"], { form in
-                    return ((form.rowBy(tag: "barcodeImage") as? BarcodeImageRow)?.value != nil ? false : true)
+                row.hidden = Condition.function([], { form in
+                    return !AppManager.instance.settings.toAllowBarcodeEditing
                 })
             }.onChange { row in
                 if  let newCode = row.value,
@@ -90,8 +89,9 @@ extension BarcodeCardFormViewController {
                 row.title = "Type"
                 row.tag = "barcodeType"
                 row.options = BarcodeCards.barcodeType.allCases
-                row.disabled = true
-                row.hidden = true
+                row.hidden = Condition.function([], { form in
+                    return !AppManager.instance.settings.toAllowBarcodeEditing
+                })
                 if let codeTypeString = self.barcodeCard?.codeTypeString {
                     row.value = BarcodeCards.barcodeType(rawValue: codeTypeString)
                 }

@@ -15,6 +15,7 @@ class NewBarcodeCardViewController: BarcodeCardFormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForAbilityToAddMoreCards()
         if self.barcodeCard == nil {
             self.barcodeCard = BarcodeCard()
         }
@@ -45,6 +46,24 @@ extension NewBarcodeCardViewController {
             }            
         }
         return true
+    }
+    
+    func checkForAbilityToAddMoreCards() {
+        
+        let maxNumberOfCards = AppManager.instance.settings.maxNumberOfCards
+        let currentNumberOfCards = BarcodeCards.instance.numberOfSavedCards()
+        
+        let popUp = UIAlertController(title: "Number of Cards Exceeded",
+                                      message: "You cannot add any more cards",
+                                      preferredStyle: .alert)
+        popUp.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        guard maxNumberOfCards > currentNumberOfCards else {
+            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.present(popUp, animated: true)
+            return
+        }
+        
     }
     
 }
