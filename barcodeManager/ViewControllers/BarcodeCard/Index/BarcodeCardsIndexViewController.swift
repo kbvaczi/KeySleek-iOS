@@ -188,7 +188,7 @@ extension BarcodeCardsIndexViewController {
     
     func setupNavigationBarButtons() {
                 
-        let logoImage = UIImage.init(named: "logo")
+        let logoImage = UIImage.init(named: "logoTop")
         let logoImageView = UIImageView.init(image: logoImage)
         logoImageView.frame = CGRect(x: -40, y: 0, width: 150, height: 25)
         logoImageView.contentMode = .scaleAspectFit

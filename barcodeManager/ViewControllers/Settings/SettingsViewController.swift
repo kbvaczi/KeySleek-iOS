@@ -36,7 +36,8 @@ extension SettingsViewController {
             +++ Section("Configuration")
             <<< maxNumberOfCardsDisplayRow()
             <<< barcodesEditableToggleRow()
-        
+            +++ Section("Donations")
+            <<< donationsRow()        
     }
     
     func barcodesEditableToggleRow() -> SwitchRow {
@@ -57,6 +58,11 @@ extension SettingsViewController {
             row.value = String(AppManager.instance.settings.maxNumberOfCards)
             row.disabled = true
         }
+        return row
+    }
+    
+    func donationsRow() -> TextRow {
+        let row = TextRow()
         return row
     }
     

@@ -16,7 +16,6 @@
 		BE7369E4227E1AAE00890D27 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E3227E1AAE00890D27 /* AppManager.swift */; };
 		BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */; };
 		BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AC2207497B00D8B941 /* TabBarController.swift */; };
-		BE8CA2F3226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */; };
 		BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */; };
 		BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */; };
 		BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */; };
@@ -67,7 +66,6 @@
 		BE7369E3227E1AAE00890D27 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BE7853AC2207497B00D8B941 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BarcodeCardsIndexHeaderView.xib; sourceTree = "<group>"; };
 		BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarButton.xib; sourceTree = "<group>"; };
 		BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarButton.swift; sourceTree = "<group>"; };
@@ -129,7 +127,7 @@
 		BE8CA2F4226CBF3A00935F16 /* BarcodeCard */ = {
 			isa = PBXGroup;
 			children = (
-				BE8CA2F2226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib */,
+				BEFD148D222C7DD9006C12F0 /* BarcodeImageCell */,
 			);
 			path = BarcodeCard;
 			sourceTree = "<group>";
@@ -188,10 +186,6 @@
 		BEB2FD0D21FD198C00EB7EC0 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				BEFD148D222C7DD9006C12F0 /* BarcodeImageCell */,
-				BEC190E5221A45580050C324 /* ImageCropCell */,
-				BE9686F42222CB9400094FF8 /* ProgressBarButton */,
-				BE266230222ACEBE003436EC /* RoundButton.swift */,
 				BEC190F4221F74AD0050C324 /* UIImage+Extensions.swift */,
 				BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */,
 				BEFADD37224816C0008F4D05 /* AspectRatio.swift */,
@@ -235,6 +229,9 @@
 				BEB2FCFE21FD192800EB7EC0 /* LaunchScreen.storyboard */,
 				BEB2FCF921FD192700EB7EC0 /* Main.storyboard */,
 				BE8CA2F4226CBF3A00935F16 /* BarcodeCard */,
+				BEC190E5221A45580050C324 /* ImageCropCell */,
+				BE9686F42222CB9400094FF8 /* ProgressBarButton */,
+				BE266230222ACEBE003436EC /* RoundButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,7 +268,7 @@
 				BEFD148F222C7E0A006C12F0 /* BarcodeImageCell.xib */,
 			);
 			name = BarcodeImageCell;
-			path = "New Group";
+			path = "../../Library/New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +338,6 @@
 				BEB2FCFD21FD192800EB7EC0 /* Assets.xcassets in Resources */,
 				BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */,
 				BEB2FCFB21FD192700EB7EC0 /* Main.storyboard in Resources */,
-				BE8CA2F3226CBF3200935F16 /* BarcodeCardsIndexHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
