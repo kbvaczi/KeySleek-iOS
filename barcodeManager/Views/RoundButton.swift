@@ -103,6 +103,14 @@ extension RoundButton {
         
     }
     
+    /// Set background image for button
+    ///
+    /// - Parameter image: image to set as background
+    public func setButtonImage(image: UIImage) {
+        self.setImage(image, for: .normal)
+        self.setImage(image, for: .highlighted)
+    }
+    
 }
 
 protocol RoundButtonDelegate {
