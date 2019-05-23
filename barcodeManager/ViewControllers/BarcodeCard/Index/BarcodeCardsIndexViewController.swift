@@ -162,6 +162,21 @@ extension BarcodeCardsIndexViewController {
     
 }
 
+// MARK: - MGSwipeTableCellDelegate
+extension BarcodeCardsIndexViewController: MGSwipeTableCellDelegate {
+    
+    func swipeTableCell(_ cell: MGSwipeTableCell, didChange state: MGSwipeState, gestureIsActive: Bool) {
+        // Prevent cell reordering while cell is swiped
+        switch state {
+        case .swipingRightToLeft:
+            self.tableView.reorder.isEnabled = false
+        default:
+            self.tableView.reorder.isEnabled = true
+        }
+    }
+    
+}
+
 // MARK: - TableViewReorderDelegate
 extension BarcodeCardsIndexViewController: TableViewReorderDelegate {
     
@@ -253,7 +268,7 @@ extension BarcodeCardsIndexViewController {
         
         cell.rightButtons = [deleteSwipeButton, editSwipeButton]
         cell.rightSwipeSettings.transition = .drag
-        
+        cell.delegate = self
     }
     
 }
