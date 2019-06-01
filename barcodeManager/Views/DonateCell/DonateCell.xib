@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="DonateCell" customModule="barcodeManager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your support level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g64-4U-9Hm">
+                    <rect key="frame" x="0.0" y="20" width="414" height="24"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCp-Xx-kvV" userLabel="BottomView">
+                    <rect key="frame" x="0.0" y="147" width="414" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Make a donation and unlock extra features!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-RP-Rvx">
+                            <rect key="frame" x="0.0" y="20" width="414" height="14.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk5-oj-jDb">
+                            <rect key="frame" x="158" y="44.5" width="98" height="25.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                            <state key="normal" title="I already donated"/>
+                            <connections>
+                                <action selector="alreadyDonatedButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Sd-I2-qSc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="vk5-oj-jDb" secondAttribute="bottom" constant="10" id="9gd-dC-YJE"/>
+                        <constraint firstAttribute="height" constant="80" id="T7o-tg-dkQ"/>
+                        <constraint firstItem="SKc-RP-Rvx" firstAttribute="leading" secondItem="uCp-Xx-kvV" secondAttribute="leading" id="bEW-Hv-x5d"/>
+                        <constraint firstItem="SKc-RP-Rvx" firstAttribute="top" secondItem="uCp-Xx-kvV" secondAttribute="top" constant="20" id="dfm-sA-L65"/>
+                        <constraint firstItem="vk5-oj-jDb" firstAttribute="top" secondItem="SKc-RP-Rvx" secondAttribute="bottom" constant="10" id="oYy-Cw-J9k"/>
+                        <constraint firstItem="vk5-oj-jDb" firstAttribute="centerX" secondItem="uCp-Xx-kvV" secondAttribute="centerX" id="t9n-nB-a1Q"/>
+                        <constraint firstAttribute="trailing" secondItem="SKc-RP-Rvx" secondAttribute="trailing" id="yuY-jC-SJD"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-Pr-XdY" userLabel="ButtonView">
+                    <rect key="frame" x="0.0" y="64" width="414" height="83"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2To-Qr-E7I" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                            <rect key="frame" x="172" y="6.5" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="YzX-PG-L3z"/>
+                                <constraint firstAttribute="width" constant="70" id="vPt-yH-5g7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="donateButton2Tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="rgt-Aj-0VA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-iN-eRt" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                            <rect key="frame" x="293" y="6.5" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="ZXC-Td-nZE"/>
+                                <constraint firstAttribute="height" constant="70" id="ofg-MA-xAR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="donateButton3Tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="tin-ZT-nOl"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIo-ZX-gmN" userLabel="spacerView1">
+                            <rect key="frame" x="0.0" y="0.0" width="51" height="83"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvZ-Nx-afB" userLabel="spacerView2">
+                            <rect key="frame" x="121" y="0.0" width="51" height="83"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dS8-Hc-adC" userLabel="spacerView3">
+                            <rect key="frame" x="242" y="0.0" width="51" height="83"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRW-Ug-JNL" userLabel="spacerView4">
+                            <rect key="frame" x="363" y="0.0" width="51" height="83"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwH-GP-RRW" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                            <rect key="frame" x="51" y="6.5" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="CuM-h0-MXK"/>
+                                <constraint firstAttribute="height" constant="70" id="THf-ay-4uc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="donateButton1Tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="2u2-89-JY7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="XRW-Ug-JNL" firstAttribute="width" secondItem="mIo-ZX-gmN" secondAttribute="width" id="1bW-O6-G4L"/>
+                        <constraint firstItem="3UZ-iN-eRt" firstAttribute="top" secondItem="fwH-GP-RRW" secondAttribute="top" id="1wa-kV-3CE"/>
+                        <constraint firstItem="fwH-GP-RRW" firstAttribute="centerY" secondItem="ffH-Pr-XdY" secondAttribute="centerY" id="5we-bQ-ql1"/>
+                        <constraint firstItem="XRW-Ug-JNL" firstAttribute="top" secondItem="ffH-Pr-XdY" secondAttribute="top" id="5xc-A3-Lsy"/>
+                        <constraint firstItem="qvZ-Nx-afB" firstAttribute="leading" secondItem="fwH-GP-RRW" secondAttribute="trailing" id="6sC-fe-jP4"/>
+                        <constraint firstItem="qvZ-Nx-afB" firstAttribute="top" secondItem="ffH-Pr-XdY" secondAttribute="top" id="833-xD-GRb"/>
+                        <constraint firstItem="dS8-Hc-adC" firstAttribute="top" secondItem="ffH-Pr-XdY" secondAttribute="top" id="A9i-8d-tWV"/>
+                        <constraint firstAttribute="bottom" secondItem="XRW-Ug-JNL" secondAttribute="bottom" id="ARw-0j-plm"/>
+                        <constraint firstAttribute="bottom" secondItem="qvZ-Nx-afB" secondAttribute="bottom" id="FtM-Bd-F2h"/>
+                        <constraint firstItem="dS8-Hc-adC" firstAttribute="width" secondItem="mIo-ZX-gmN" secondAttribute="width" id="K4A-sb-6t1"/>
+                        <constraint firstAttribute="bottom" secondItem="mIo-ZX-gmN" secondAttribute="bottom" id="Kk4-Pe-Gpk"/>
+                        <constraint firstItem="mIo-ZX-gmN" firstAttribute="top" secondItem="ffH-Pr-XdY" secondAttribute="top" id="Mel-tH-wfF"/>
+                        <constraint firstItem="2To-Qr-E7I" firstAttribute="leading" secondItem="qvZ-Nx-afB" secondAttribute="trailing" id="OVx-nQ-n7I"/>
+                        <constraint firstItem="dS8-Hc-adC" firstAttribute="leading" secondItem="2To-Qr-E7I" secondAttribute="trailing" id="QRP-QO-1qF"/>
+                        <constraint firstAttribute="bottom" secondItem="dS8-Hc-adC" secondAttribute="bottom" id="UcH-xW-wdU"/>
+                        <constraint firstItem="mIo-ZX-gmN" firstAttribute="leading" secondItem="ffH-Pr-XdY" secondAttribute="leading" id="VA5-VS-cO0"/>
+                        <constraint firstAttribute="trailing" secondItem="XRW-Ug-JNL" secondAttribute="trailing" id="W8G-CZ-o2v"/>
+                        <constraint firstItem="fwH-GP-RRW" firstAttribute="leading" secondItem="mIo-ZX-gmN" secondAttribute="trailing" id="adt-Zx-4PX"/>
+                        <constraint firstItem="2To-Qr-E7I" firstAttribute="top" secondItem="fwH-GP-RRW" secondAttribute="top" id="eAs-S3-PTr"/>
+                        <constraint firstItem="3UZ-iN-eRt" firstAttribute="leading" secondItem="dS8-Hc-adC" secondAttribute="trailing" id="hY6-ed-5iZ"/>
+                        <constraint firstItem="XRW-Ug-JNL" firstAttribute="leading" secondItem="3UZ-iN-eRt" secondAttribute="trailing" id="yLs-9u-N6v"/>
+                        <constraint firstItem="qvZ-Nx-afB" firstAttribute="width" secondItem="mIo-ZX-gmN" secondAttribute="width" id="zT3-3C-L9l"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ffH-Pr-XdY" firstAttribute="top" secondItem="g64-4U-9Hm" secondAttribute="bottom" constant="20" id="2JE-2O-luC"/>
+                <constraint firstItem="uCp-Xx-kvV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7g6-FN-xf4"/>
+                <constraint firstAttribute="trailing" secondItem="g64-4U-9Hm" secondAttribute="trailing" id="BQ0-5U-dE5"/>
+                <constraint firstItem="g64-4U-9Hm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IKN-VR-0Jy"/>
+                <constraint firstItem="uCp-Xx-kvV" firstAttribute="top" secondItem="ffH-Pr-XdY" secondAttribute="bottom" id="Rtq-SM-xa7"/>
+                <constraint firstAttribute="trailing" secondItem="ffH-Pr-XdY" secondAttribute="trailing" id="UtN-ea-3hM"/>
+                <constraint firstAttribute="trailing" secondItem="uCp-Xx-kvV" secondAttribute="trailing" id="hDJ-Du-MVy"/>
+                <constraint firstItem="g64-4U-9Hm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="hKd-aL-SQJ"/>
+                <constraint firstAttribute="bottom" secondItem="uCp-Xx-kvV" secondAttribute="bottom" id="pBv-SU-JjJ"/>
+                <constraint firstItem="ffH-Pr-XdY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wBt-ZM-A6a"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="alreadyDonatedButton" destination="vk5-oj-jDb" id="TKj-jS-s1y"/>
+                <outlet property="donateButton1" destination="fwH-GP-RRW" id="LdQ-WG-pbD"/>
+                <outlet property="donateButton2" destination="2To-Qr-E7I" id="66U-st-YAi"/>
+                <outlet property="donateButton3" destination="3UZ-iN-eRt" id="efs-Z7-04y"/>
+                <outlet property="unlockFeaturesLabel" destination="SKc-RP-Rvx" id="N7S-vb-hDC"/>
+            </connections>
+            <point key="canvasLocation" x="92.753623188405811" y="73.995535714285708"/>
+        </view>
+    </objects>
+</document>

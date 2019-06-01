@@ -29,6 +29,7 @@ class SettingsViewController: FormViewController {
 
 }
 
+// MARK: - Form setup
 extension SettingsViewController {
     
     func setupForm() {
@@ -36,34 +37,68 @@ extension SettingsViewController {
             +++ Section("Configuration")
             <<< maxNumberOfCardsDisplayRow()
             <<< barcodesEditableToggleRow()
-            +++ Section("Donations")
-            <<< donationsRow()        
+            +++ Section("Donate Now")
+            <<< donationsRow()
     }
     
     func barcodesEditableToggleRow() -> SwitchRow {
         let row = SwitchRow("Allow editing barcodes") { row in      // initializer
+            row.tag = barcodesEditableToggleRowTag
             row.title = "Editable barcodes"
             row.value = AppManager.instance.settings.toAllowBarcodeEditing
+            row.disabled = Condition.function([], { form in
+                return !AppManager.instance.settings.isAppUnlocked
+            })
             }.onChange { row in
                 if let newValue = row.value {
                     AppManager.instance.settings.toAllowBarcodeEditing = newValue
                 }
+            }.onCellSelection { cell, row in
+                if !AppManager.instance.settings.isAppUnlocked {
+                    self.presentDonatePopup()
+                }
             }
         return row
     }
+    private var barcodesEditableToggleRowTag: String { return "barcodesEditableToggleRow" }
     
     func maxNumberOfCardsDisplayRow() -> TextRow {
         let row = TextRow("Max number of cards") { row in
+            row.tag = maxNumberOfCardsDisplayRowTag
             row.title = "Max number of cards"
             row.value = String(AppManager.instance.settings.maxNumberOfCards)
             row.disabled = true
-        }
+            }.onCellSelection { cell, row in
+                if !AppManager.instance.settings.isAppUnlocked {
+                    self.presentDonatePopup()
+                }
+            }.cellUpdate { cell, row in
+                row.value = String(AppManager.instance.settings.maxNumberOfCards)
+            }
+        return row
+    }
+    private var maxNumberOfCardsDisplayRowTag: String { return "maxNumberOfCardsDisplayRow" }
+    
+    func donationsRow() -> DonateRow {
+        let row = DonateRow()
         return row
     }
     
-    func donationsRow() -> TextRow {
-        let row = TextRow()
-        return row
+    func updateForm() {        
+        self.form.rowBy(tag: self.barcodesEditableToggleRowTag)?.evaluateDisabled()
+        self.form.rowBy(tag: self.maxNumberOfCardsDisplayRowTag)?.updateCell()
+        self.form.rowBy(tag: self.maxNumberOfCardsDisplayRowTag)?.updateCell()
+    }
+    
+}
+
+// MARK: - Misc functions
+extension SettingsViewController {
+    
+    func presentDonatePopup() {
+        let popup = UIAlertController(title: "Like this app?", message: "Make a donation to support this app and unlock additional features!", preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(popup, animated: true, completion: nil)
     }
     
 }

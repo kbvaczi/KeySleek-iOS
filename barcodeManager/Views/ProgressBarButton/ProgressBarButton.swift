@@ -63,7 +63,7 @@ extension ProgressBarButton {
     ///   - iconName: FontAwesome icon name
     ///   - iconStyle: FontAwesome icon style
     ///   - iconColor: FontAwesome icon color
-    public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid, iconColor: UIColor = .white, buttonStyle: UIAlertAction.Style = .default) {
+    public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid, iconColor: UIColor = .white, buttonStyle: RoundButton.Style = .default) {
         
         self.button.setButtonIcon(iconName: iconName, iconStyle: iconStyle, iconColor: iconColor)
         self.button.buttonStyle = buttonStyle

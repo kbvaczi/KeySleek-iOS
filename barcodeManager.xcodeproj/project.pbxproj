@@ -14,6 +14,11 @@
 		BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */; };
 		BE7369E2227E186700890D27 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E1227E186700890D27 /* SettingsViewController.swift */; };
 		BE7369E4227E1AAE00890D27 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E3227E1AAE00890D27 /* AppManager.swift */; };
+		BE7369E72288694E00890D27 /* DonateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7369E62288694E00890D27 /* DonateCell.xib */; };
+		BE7369E922886B4C00890D27 /* DonateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369E822886B4C00890D27 /* DonateCell.swift */; };
+		BE7369EB228EE95700890D27 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369EA228EE95700890D27 /* IAPManager.swift */; };
+		BE7369ED228EEAEF00890D27 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369EC228EEAEF00890D27 /* IAPProducts.swift */; };
+		BE7369EF228EF73F00890D27 /* SKProduct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */; };
 		BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */; };
 		BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AC2207497B00D8B941 /* TabBarController.swift */; };
 		BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */; };
@@ -64,6 +69,11 @@
 		BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCards.swift; sourceTree = "<group>"; };
 		BE7369E1227E186700890D27 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BE7369E3227E1AAE00890D27 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		BE7369E62288694E00890D27 /* DonateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonateCell.xib; sourceTree = "<group>"; };
+		BE7369E822886B4C00890D27 /* DonateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateCell.swift; sourceTree = "<group>"; };
+		BE7369EA228EE95700890D27 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		BE7369EC228EEAEF00890D27 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+Extensions.swift"; sourceTree = "<group>"; };
 		BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BE7853AC2207497B00D8B941 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
@@ -124,12 +134,13 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		BE8CA2F4226CBF3A00935F16 /* BarcodeCard */ = {
+		BE7369E52288692D00890D27 /* DonateCell */ = {
 			isa = PBXGroup;
 			children = (
-				BEFD148D222C7DD9006C12F0 /* BarcodeImageCell */,
+				BE7369E62288694E00890D27 /* DonateCell.xib */,
+				BE7369E822886B4C00890D27 /* DonateCell.swift */,
 			);
-			path = BarcodeCard;
+			path = DonateCell;
 			sourceTree = "<group>";
 		};
 		BE8CA2F7226CFFD600935F16 /* Index */ = {
@@ -186,11 +197,15 @@
 		BEB2FD0D21FD198C00EB7EC0 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				BE266230222ACEBE003436EC /* RoundButton.swift */,
+				BE7369E3227E1AAE00890D27 /* AppManager.swift */,
+				BE7369EA228EE95700890D27 /* IAPManager.swift */,
 				BEC190F4221F74AD0050C324 /* UIImage+Extensions.swift */,
 				BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */,
 				BEFADD37224816C0008F4D05 /* AspectRatio.swift */,
 				BEFADD3F22481D05008F4D05 /* NSLayoutConstraint+Extensions.swift */,
 				BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */,
+				BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -208,7 +223,7 @@
 			children = (
 				BEB2FD2021FE4A2600EB7EC0 /* BarcodeCard.swift */,
 				BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */,
-				BE7369E3227E1AAE00890D27 /* AppManager.swift */,
+				BE7369EC228EEAEF00890D27 /* IAPProducts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -226,12 +241,12 @@
 		BEB2FD302207276D00EB7EC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE7369E52288692D00890D27 /* DonateCell */,
 				BEB2FCFE21FD192800EB7EC0 /* LaunchScreen.storyboard */,
 				BEB2FCF921FD192700EB7EC0 /* Main.storyboard */,
-				BE8CA2F4226CBF3A00935F16 /* BarcodeCard */,
+				BEFD148D222C7DD9006C12F0 /* BarcodeImageCell */,
 				BEC190E5221A45580050C324 /* ImageCropCell */,
 				BE9686F42222CB9400094FF8 /* ProgressBarButton */,
-				BE266230222ACEBE003436EC /* RoundButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,7 +283,7 @@
 				BEFD148F222C7E0A006C12F0 /* BarcodeImageCell.xib */,
 			);
 			name = BarcodeImageCell;
-			path = "../../Library/New Group";
+			path = "../Library/New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +350,7 @@
 				BEB2FD0021FD192800EB7EC0 /* LaunchScreen.storyboard in Resources */,
 				BEC190ED221D869F0050C324 /* ImageCropViewController.xib in Resources */,
 				BEFD1491222C7E0A006C12F0 /* BarcodeImageCell.xib in Resources */,
+				BE7369E72288694E00890D27 /* DonateCell.xib in Resources */,
 				BEB2FCFD21FD192800EB7EC0 /* Assets.xcassets in Resources */,
 				BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */,
 				BEB2FCFB21FD192700EB7EC0 /* Main.storyboard in Resources */,
@@ -411,11 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7369EB228EE95700890D27 /* IAPManager.swift in Sources */,
 				BEFD1490222C7E0A006C12F0 /* BarcodeImageCell.swift in Sources */,
 				BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */,
 				BEB2FD2B21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift in Sources */,
 				BE14DD6F2241C48D0070B25A /* HorizontalDial.swift in Sources */,
+				BE7369EF228EF73F00890D27 /* SKProduct+Extensions.swift in Sources */,
 				BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */,
+				BE7369E922886B4C00890D27 /* DonateCell.swift in Sources */,
 				BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */,
 				BEC190F5221F74AD0050C324 /* UIImage+Extensions.swift in Sources */,
 				BEB2FD2D21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift in Sources */,
@@ -427,6 +446,7 @@
 				BEB2FCF621FD192700EB7EC0 /* AppDelegate.swift in Sources */,
 				BEC190E9221A4D020050C324 /* ImageCropRow.swift in Sources */,
 				BEB2FD2F220287EE00EB7EC0 /* ShowBarcodeCardViewController.swift in Sources */,
+				BE7369ED228EEAEF00890D27 /* IAPProducts.swift in Sources */,
 				BEC190EB221A55610050C324 /* ImageCropViewController.swift in Sources */,
 				BEC190F722205A5A0050C324 /* BarcodeCardTableViewCell.swift in Sources */,
 				BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */,
@@ -592,7 +612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vaczoway.barcodeManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vaczoway.barcodeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -613,7 +633,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = vaczoway.barcodeManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vaczoway.barcodeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
