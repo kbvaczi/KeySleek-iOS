@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
             <connections>
                 <outlet property="button" destination="Uvr-Kt-j5V" id="QSV-Dw-RH4"/>
+                <outlet property="pressHoldLabel" destination="1am-qJ-IYv" id="NSP-ty-9C2"/>
                 <outlet property="progressBar" destination="91H-qD-8pf" id="50t-WA-Veo"/>
             </connections>
         </placeholder>
@@ -32,6 +33,13 @@
                                 <action selector="buttonTouchUpInside:" destination="-1" eventType="touchUpInside" id="oIG-VL-Ntb"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press &amp; Hold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1am-qJ-IYv">
+                            <rect key="frame" x="26" y="106.5" width="68" height="13.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration">
@@ -40,6 +48,8 @@
                     <constraints>
                         <constraint firstItem="Uvr-Kt-j5V" firstAttribute="leading" secondItem="91H-qD-8pf" secondAttribute="leading" constant="25" id="27M-2I-PUp"/>
                         <constraint firstAttribute="bottom" secondItem="Uvr-Kt-j5V" secondAttribute="bottom" constant="25" id="8Og-9C-31d"/>
+                        <constraint firstItem="1am-qJ-IYv" firstAttribute="centerX" secondItem="91H-qD-8pf" secondAttribute="centerX" id="GwK-Cb-Fn6"/>
+                        <constraint firstAttribute="bottom" secondItem="1am-qJ-IYv" secondAttribute="bottom" id="P4E-Dm-WTJ"/>
                         <constraint firstAttribute="trailing" secondItem="Uvr-Kt-j5V" secondAttribute="trailing" constant="25" id="SBy-I3-h20"/>
                         <constraint firstItem="Uvr-Kt-j5V" firstAttribute="top" secondItem="91H-qD-8pf" secondAttribute="top" constant="25" id="Sct-An-kww"/>
                     </constraints>

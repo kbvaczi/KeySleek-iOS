@@ -24,7 +24,8 @@ class ProgressBarButton: UIView, NibLoadable {
     @IBAction func buttonTouchDown(_ sender: Any) { beginProgress() }
     @IBAction func buttonTouchUpInside(_ sender: Any) { resetProgress() }
     @IBOutlet weak var progressBar: MBCircularProgressBarView!
-       
+    @IBOutlet weak var pressHoldLabel: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
@@ -63,19 +64,20 @@ extension ProgressBarButton {
     ///   - iconName: FontAwesome icon name
     ///   - iconStyle: FontAwesome icon style
     ///   - iconColor: FontAwesome icon color
-    public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid, iconColor: UIColor = .white, buttonStyle: RoundButton.Style = .default) {
+    public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid, iconColor: UIColor = .white, buttonStyle: RoundButton.Style = .default, labelColor: UIColor = .black) {
         
         self.button.setButtonIcon(iconName: iconName, iconStyle: iconStyle, iconColor: iconColor)
         self.button.buttonStyle = buttonStyle
         self.progressBar.progressColor = self.button.backgroundColor
         self.progressBar.alpha = self.button.alpha
-    
+        self.pressHoldLabel.textColor = labelColor
     }
     
     /// Function called when button pressed
     private func beginProgress() {
         
         UIImpactFeedbackGenerator().impactOccurred()
+        pressHoldLabel.isHidden = true
         UIView.animate(withDuration: 1, animations: { () -> Void in
             self.progressBar.value = 100
         }, completion: { (didFinish: Bool) -> Void in
@@ -89,16 +91,16 @@ extension ProgressBarButton {
     
     /// Function called when button is no long pressed
     private func resetProgress() {
-
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.progressBar.value = 0
         }, completion: { (Bool) -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                self.pressHoldLabel.isHidden = false
+            }
             self.delegate?.onProgressBarButtonReset(name: self.name)
         })
         
     }
-    
-
     
 }
 
@@ -123,5 +125,3 @@ protocol ProgressBarButtonDelegate {
     func onProgressBarButtonReset(name: String?)
 
 }
-
-

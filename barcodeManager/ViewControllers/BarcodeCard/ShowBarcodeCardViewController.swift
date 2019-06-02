@@ -70,7 +70,7 @@ class ShowBarcodeCardViewController: UIViewController {
 extension ShowBarcodeCardViewController {
    
     private func initBackButton() {
-        backButton.setupButton(iconName: .home)
+        backButton.setupButton(iconName: .home, labelColor: .white)
         backButton.delegate = self
     }
     
