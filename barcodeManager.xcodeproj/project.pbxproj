@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		35CBC7A3E8319DB51811773E /* Pods_barcodeManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F05DA090D8BEF0FFBDEE4E /* Pods_barcodeManager.framework */; };
 		BE14DD6F2241C48D0070B25A /* HorizontalDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14DD6E2241C48D0070B25A /* HorizontalDial.swift */; };
+		BE1C341A22A411A4007A2732 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1C341922A411A4007A2732 /* AppColors.swift */; };
 		BE26622E22263A12003436EC /* UIButton+BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */; };
 		BE266231222ACEBE003436EC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE266230222ACEBE003436EC /* RoundButton.swift */; };
 		BE58CFB6225A4F390001DFDE /* BarcodeCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */; };
@@ -64,6 +65,7 @@
 		026B1EB818AE22B083354B83 /* Pods-barcodeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-barcodeManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-barcodeManager/Pods-barcodeManager.release.xcconfig"; sourceTree = "<group>"; };
 		03F05DA090D8BEF0FFBDEE4E /* Pods_barcodeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_barcodeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE14DD6E2241C48D0070B25A /* HorizontalDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalDial.swift; sourceTree = "<group>"; };
+		BE1C341922A411A4007A2732 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		BE26622D22263A12003436EC /* UIButton+BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BackgroundColor.swift"; sourceTree = "<group>"; };
 		BE266230222ACEBE003436EC /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		BE58CFB5225A4F390001DFDE /* BarcodeCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCards.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				BEFADD3F22481D05008F4D05 /* NSLayoutConstraint+Extensions.swift */,
 				BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */,
 				BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */,
+				BE1C341922A411A4007A2732 /* AppColors.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				BE7369EB228EE95700890D27 /* IAPManager.swift in Sources */,
 				BEFD1490222C7E0A006C12F0 /* BarcodeImageCell.swift in Sources */,
 				BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */,
+				BE1C341A22A411A4007A2732 /* AppColors.swift in Sources */,
 				BEB2FD2B21FE64EE00EB7EC0 /* BarcodeCardFormViewController.swift in Sources */,
 				BE14DD6F2241C48D0070B25A /* HorizontalDial.swift in Sources */,
 				BE7369EF228EF73F00890D27 /* SKProduct+Extensions.swift in Sources */,

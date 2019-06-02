@@ -154,7 +154,8 @@ open class _ImageCropRow<Cell: CellType>: OptionsRow<Cell>, PresenterRowType, Im
 
         // Now that we know the number of sources aren't empty, let the user select the source
         let sourceActionSheet = UIAlertController(title: nil, message: selectorTitle, preferredStyle: .actionSheet)
-
+        sourceActionSheet.view.tintColor = .appTurqoise
+        
         guard let tableView = cell.formViewController()?.tableView  else { fatalError() }
 
         if let popView = sourceActionSheet.popoverPresentationController {

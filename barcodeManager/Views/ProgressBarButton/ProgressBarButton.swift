@@ -66,8 +66,7 @@ extension ProgressBarButton {
     ///   - iconColor: FontAwesome icon color
     public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid, iconColor: UIColor = .white, buttonStyle: RoundButton.Style = .default, labelColor: UIColor = .black) {
         
-        self.button.setButtonIcon(iconName: iconName, iconStyle: iconStyle, iconColor: iconColor)
-        self.button.buttonStyle = buttonStyle
+        self.button.setupButton(iconName: iconName, iconStyle: iconStyle, iconColor: iconColor, buttonStyle: buttonStyle)
         self.progressBar.progressColor = self.button.backgroundColor
         self.progressBar.alpha = self.button.alpha
         self.pressHoldLabel.textColor = labelColor
@@ -77,7 +76,7 @@ extension ProgressBarButton {
     private func beginProgress() {
         
         UIImpactFeedbackGenerator().impactOccurred()
-        pressHoldLabel.isHidden = true
+        pressHoldLabel.alpha = 0
         UIView.animate(withDuration: 1, animations: { () -> Void in
             self.progressBar.value = 100
         }, completion: { (didFinish: Bool) -> Void in
@@ -91,12 +90,13 @@ extension ProgressBarButton {
     
     /// Function called when button is no long pressed
     private func resetProgress() {
+        
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.progressBar.value = 0
         }, completion: { (Bool) -> Void in
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                self.pressHoldLabel.isHidden = false
-            }
+            UIView.animate(withDuration: 1.5, animations: { () -> Void in
+                self.pressHoldLabel.alpha = 1
+            })
             self.delegate?.onProgressBarButtonReset(name: self.name)
         })
         

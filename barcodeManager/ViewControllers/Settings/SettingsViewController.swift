@@ -42,9 +42,9 @@ extension SettingsViewController {
     }
     
     func barcodesEditableToggleRow() -> SwitchRow {
-        let row = SwitchRow("Allow editing barcodes") { row in      // initializer
+        let row = SwitchRow("Custom barcodes") { row in      // initializer
             row.tag = barcodesEditableToggleRowTag
-            row.title = "Editable barcodes"
+            row.title = "Custom barcodes"
             row.value = AppManager.instance.settings.toAllowBarcodeEditing
             row.disabled = Condition.function([], { form in
                 return !AppManager.instance.settings.isAppUnlocked
@@ -55,7 +55,7 @@ extension SettingsViewController {
                 }
             }.onCellSelection { cell, row in
                 if !AppManager.instance.settings.isAppUnlocked {
-                    self.presentDonatePopup()
+                    self.presentCustomBarcodesPopup()
                 }
             }
         return row
@@ -95,8 +95,22 @@ extension SettingsViewController {
 // MARK: - Misc functions
 extension SettingsViewController {
     
+    func donatePitchString() -> String {
+        return "Make a donation supporting this app to access this advanced feature."
+    }
+    
+    func presentCustomBarcodesPopup() {
+        let popup = UIAlertController(title: "Need custom barcodes?",
+                                      message: "With custom barcodes you can edit existing barcodes or create barcodes from scratch. \(donatePitchString())",
+                                      preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(popup, animated: true, completion: nil)
+    }
+    
     func presentDonatePopup() {
-        let popup = UIAlertController(title: "Like this app?", message: "Make a donation to support this app and unlock additional features!", preferredStyle: .alert)
+        let popup = UIAlertController(title: "Need to store more cards?",
+                                      message: donatePitchString(),
+                                      preferredStyle: .alert)
         popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(popup, animated: true, completion: nil)
     }

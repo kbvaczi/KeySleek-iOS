@@ -69,15 +69,13 @@ extension ScanViewController {
     }
     
     func setupCancelButton() {
-        cancelButton.setupButton(iconName: .ban, iconStyle: .solid, iconColor: .white, buttonStyle: .cancel)
+        cancelButton.setupButton(iconName: .undoAlt, iconStyle: .solid, iconColor: .white, buttonStyle: .cancel, labelColor: .white)
         cancelButton.delegate = self
     }
     
     func setupTorchButton() {
-        self.torchButton.setButtonIcon(iconName: .bolt, iconStyle: .solid, iconColor: .white)
+        torchButton.setupButton(iconName: .bolt, iconStyle: .solid, iconColor: .white, buttonStyle: .default)
         self.torchButton.isToggleButton = true
-        self.torchButton.buttonStyle = .default
-        self.torchButton.titleLabel?.text = nil
     }
     
 }

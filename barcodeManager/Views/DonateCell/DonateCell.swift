@@ -65,33 +65,29 @@ extension DonateCell {
             setButtonStylePurchased(donateButton1)
         } else {
             let bronzeColor = UIColor(displayP3Red: 240/255, green: 160/255, blue: 90/255, alpha: 1)
-            donateButton1.setButtonIcon(iconName: .trophy, iconStyle: .solid, iconColor: .white, size: CGSize(width: 40, height: 40))
-            donateButton1.buttonStyle = .custom
+            donateButton1.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 40, height: 40))
             donateButton1.setCustomButtonColors(bgColor: bronzeColor, bgColorSelected: .darkGray, tintColor: .white)
         }
         if IAPProducts.store.isProductPurchased(IAPProducts.donateLevel2) {
             setButtonStylePurchased(donateButton2)
         } else {
             let silverColor = UIColor(displayP3Red: 200/255, green: 200/255, blue: 210/255, alpha: 1)
-            donateButton2.setButtonIcon(iconName: .trophy, iconStyle: .solid, iconColor: .white, size: CGSize(width: 45, height: 45))
-            donateButton2.buttonStyle = .custom
+            donateButton2.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 45, height: 45))
             donateButton2.setCustomButtonColors(bgColor: silverColor, bgColorSelected: .darkGray, tintColor: .white)
         }
         if IAPProducts.store.isProductPurchased(IAPProducts.donateLevel3) {
             setButtonStylePurchased(donateButton3)
         } else {
             let goldColor = UIColor(displayP3Red: 252/255, green: 194/255, blue: 0, alpha: 1)
-            donateButton3.setButtonIcon(iconName: .trophy, iconStyle: .solid, iconColor: .white, size: CGSize(width: 50, height: 50))
-            donateButton3.buttonStyle = .custom
+            donateButton3.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 50, height: 50))
             donateButton3.setCustomButtonColors(bgColor: goldColor, bgColorSelected: .darkGray, tintColor: .white)
         }
     }
     
     private func setButtonStylePurchased(_ button: RoundButton) {
         let greenColor = UIColor(displayP3Red: 0, green: 200, blue: 0, alpha: 1)
-        button.buttonStyle = .custom
+        button.setupButton(iconName: .check, iconStyle: .solid, iconColor: .black, buttonStyle: .custom)
         button.setCustomButtonColors(bgColor: .white, bgColorSelected: .white, tintColor: greenColor )
-        button.setButtonIcon(iconName: .check, iconStyle: .solid, iconColor: .black)
         button.isUserInteractionEnabled = false
     }
     

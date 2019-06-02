@@ -20,7 +20,7 @@ class RoundButton: UIButton {
     var isToggleButton: Bool = false
     private var hasBeenToggled: Bool = false
     
-    private var bgColor: UIColor = UIColor.blue
+    private var bgColor: UIColor = UIColor.appTurqoise
     private var bgColorSelected: UIColor = UIColor.darkGray
     
     var delegate: RoundButtonDelegate? = nil
@@ -74,10 +74,11 @@ extension RoundButton {
         self.layer.cornerRadius = self.bounds.size.width / 2
         self.clipsToBounds = true
         self.alpha = 1
+        self.tintColor = .white
         
         switch buttonStyle {
         case .default:
-            self.bgColor = .blue
+            self.bgColor = .appTurqoise
             self.bgColorSelected = .darkGray
             self.backgroundColor = bgColor
         case .cancel:
@@ -99,14 +100,15 @@ extension RoundButton {
     ///   - iconName: FontAwesome icon name
     ///   - iconStyle: FontAwesome icon style
     ///   - iconColor: FontAwesome icon color
-    public func setButtonIcon(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid,
-                              iconColor: UIColor = .white, size: CGSize = CGSize(width: 50, height: 50)) {
+    public func setupButton(iconName: FontAwesome, iconStyle: FontAwesomeStyle = .solid,
+                            iconColor: UIColor = .white, buttonStyle: RoundButton.Style = .default,
+                            size: CGSize = CGSize(width: 50, height: 50)) {
         
         let bgImage = UIImage.fontAwesomeIcon(name: iconName,
                                               style: iconStyle,
                                               textColor: iconColor,
                                               size: size)
-        
+        self.buttonStyle = buttonStyle
         self.setImage(bgImage, for: .normal)
         self.setImage(bgImage, for: .highlighted)
         

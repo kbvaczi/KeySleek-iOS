@@ -23,7 +23,7 @@ class BarcodeCardsIndexViewController: UITableViewController {
                                         style: .solid,
                                         textColor: .white,
                                         size: CGSize(width: 200, height: 200)
-                                        ).addCircleBackground(ofColor: .blue,
+                                        ).addCircleBackground(ofColor: .appTurqoise,
                                                               ofSize: CGSize(width: 280,
                                                                              height: 280)).cgImage!,
                                      scale: 4.0,
@@ -46,6 +46,7 @@ class BarcodeCardsIndexViewController: UITableViewController {
         BarcodeCards.instance.loadCardsIndex()
         
         setupNavigationBarButtons()
+        
         
         // Required for reorder pod implementation
         tableView.reorder.delegate = self
@@ -211,7 +212,6 @@ extension BarcodeCardsIndexViewController {
         let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 60)
         widthConstraint.isActive = true
         navigationItem.leftBarButtonItem = imageItem
-        
         
         let setupIcon = UIImage.fontAwesomeIcon(name: .cog,
                                                 style: .solid,
