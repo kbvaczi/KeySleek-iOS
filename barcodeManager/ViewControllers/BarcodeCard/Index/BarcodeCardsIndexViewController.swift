@@ -23,7 +23,7 @@ class BarcodeCardsIndexViewController: UITableViewController {
                                         style: .solid,
                                         textColor: .white,
                                         size: CGSize(width: 200, height: 200)
-                                        ).addCircleBackground(ofColor: .appTurqoise,
+                                        ).addCircleBackground(ofColor: .lightGray,
                                                               ofSize: CGSize(width: 280,
                                                                              height: 280)).cgImage!,
                                      scale: 4.0,
