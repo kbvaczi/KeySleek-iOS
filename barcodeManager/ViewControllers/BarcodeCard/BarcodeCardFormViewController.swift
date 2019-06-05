@@ -31,7 +31,7 @@ extension BarcodeCardFormViewController {
             <<< TextRow(){ row in
                 row.title = "Name"
                 row.tag = "Name"
-                row.placeholder = "Enter title here"
+                row.placeholder = "Enter name"
                 row.value = barcodeCard?.title
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
@@ -57,6 +57,15 @@ extension BarcodeCardFormViewController {
             }.cellUpdate { cell, row in
                 if !row.isValid { cell.textLabel?.textColor = .red }
             }
+            <<< TextRow(){ row in
+                row.title = "Account"
+                row.tag = "Account"
+                row.placeholder = "Add account number"
+                row.value = barcodeCard?.account
+                row.validationOptions = .validatesOnChange
+                }.onChange { row in
+                    self.barcodeCard?.account = row.value
+                }
             +++ Section("Barcode")
             <<< BarcodeImageRow() { row in
                 row.tag = "barcodeImage"

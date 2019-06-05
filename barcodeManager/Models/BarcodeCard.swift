@@ -15,6 +15,7 @@ struct BarcodeCard: Codable, Equatable {
     var uid: String
     var title: String?
     var notes: String?
+    var account: String?
     var code: String?
     var codeTypeString: String?
     
@@ -22,11 +23,13 @@ struct BarcodeCard: Codable, Equatable {
     private var _photoWrapped: imageWrapper = imageWrapper()
     
     init(title: String? = nil, notes: String? = nil,
-         code: String? = nil, codeType: BarcodeCards.barcodeType? = nil) {
+         code: String? = nil, account: String? = nil,
+         codeType: BarcodeCards.barcodeType? = nil) {
         
         self.uid = UUID().uuidString
         self.title = title
         self.notes = notes
+        self.account = account
         self.code = code
         self.codeTypeString = codeType?.rawValue
     }
@@ -59,6 +62,7 @@ extension BarcodeCard {
         if  lhs.uid == rhs.uid,
             lhs.code == rhs.code,
             lhs.title == rhs.title,
+            lhs.account == rhs.account,
             lhs.notes == rhs.notes,
             lhs.codeTypeString == rhs.codeTypeString {
             return true

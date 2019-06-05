@@ -18,12 +18,13 @@ class ShowBarcodeCardViewController: UIViewController {
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var backButton: ProgressBarButton!
+    @IBOutlet weak var barcodeWrapperView: UIView!
+    @IBOutlet weak var accountLabel: UILabel!
     
     var barcodeCard: BarcodeCard?
     var baselineBrightness: CGFloat = UIScreen.main.brightness
     
     override func viewDidLoad() {
-        print("show loading")
         super.viewDidLoad()
         updateView()
         initBackButton()
@@ -77,6 +78,7 @@ extension ShowBarcodeCardViewController {
     private func updateView() {
         guard let barcodeCard = self.barcodeCard else { return }
         self.titleLabel.text = (barcodeCard.photo == nil) ? barcodeCard.title : nil
+        self.accountLabel.text = barcodeCard.account
         
         barcodeCard.loadPhotoFromFile(callBack: { loadedPhoto in
             self.photoImageView.image = loadedPhoto
@@ -87,10 +89,18 @@ extension ShowBarcodeCardViewController {
         switch codeType {
         case .QR:
             self.qrCodeImageView.image = barcodeCard.barcodeImage
-            addBackground(to: qrCodeImageView)
+            if barcodeCard.account != nil {
+                addBackground(to: barcodeWrapperView)
+            } else {
+                addBackground(to: qrCodeImageView)
+            }
         default:
             self.barcodeImageView.image = barcodeCard.barcodeImage
-            addBackground(to: barcodeImageView)
+            if barcodeCard.account != nil {
+                addBackground(to: barcodeWrapperView)
+            } else {
+                addBackground(to: barcodeImageView)
+            }
         }
         
     }
@@ -104,12 +114,16 @@ extension ShowBarcodeCardViewController {
     }
     
     private func addBackground(to fgView: UIView, outSet: CGFloat = 18) {
+        
+        guard fgView.isDescendant(of: self.view) else { return }
+        
         //TODO: why does frame not line up? have to add 22 to dy?
-        let frame = fgView.frame.insetBy(dx: -outSet, dy: -outSet).offsetBy(dx: 0, dy: 22)
+        let bounds = fgView.bounds.insetBy(dx: -outSet, dy: -outSet).offsetBy(dx: 0, dy: 22)
+        let frame = self.view.subviews.contains(fgView.superview!) ? self.view.convert(bounds, from: fgView.superview!) : self.view.convert(bounds, from: fgView)
         let bgView = UIView(frame: frame)
         bgView.backgroundColor = .white
         bgView.layer.cornerRadius = 20
-        view.insertSubview(bgView, belowSubview: fgView)
+        view.insertSubview(bgView, at: 0)
     }
     
 }

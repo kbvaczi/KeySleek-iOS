@@ -283,12 +283,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-X9-m1y">
-                                <rect key="frame" x="40" y="291" width="295" height="125"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="5vI-EO-uVg"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-In-FT4" userLabel="Photo Image View">
                                 <rect key="frame" x="20" y="60" width="335" height="201"/>
                                 <constraints>
@@ -303,28 +297,55 @@
                                     <constraint firstAttribute="width" constant="120" id="bdJ-3K-2wS"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRx-7F-Ru6" userLabel="QRCode Image View">
-                                <rect key="frame" x="80" y="291" width="215" height="215"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vai-9q-sLz" userLabel="Barcode Wrapper View">
+                                <rect key="frame" x="40" y="291" width="295" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="mbG-zV-Dw9" userLabel="Account Label">
+                                        <rect key="frame" x="5" y="136" width="285" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="at8-X9-m1y">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="5vI-EO-uVg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRx-7F-Ru6" userLabel="QRCode Image View">
+                                        <rect key="frame" x="85" y="0.0" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="BRx-7F-Ru6" secondAttribute="height" multiplier="1:1" id="znS-e2-qfL"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="BRx-7F-Ru6" secondAttribute="height" multiplier="1:1" id="znS-e2-qfL"/>
+                                    <constraint firstAttribute="trailing" secondItem="mbG-zV-Dw9" secondAttribute="trailing" constant="5" id="27a-Kv-ds3"/>
+                                    <constraint firstItem="BRx-7F-Ru6" firstAttribute="bottom" secondItem="at8-X9-m1y" secondAttribute="bottom" id="76L-BG-C0P"/>
+                                    <constraint firstItem="mbG-zV-Dw9" firstAttribute="leading" secondItem="Vai-9q-sLz" secondAttribute="leading" constant="5" id="Jed-Js-Uyg"/>
+                                    <constraint firstItem="BRx-7F-Ru6" firstAttribute="centerX" secondItem="Vai-9q-sLz" secondAttribute="centerX" id="OhR-ZZ-ZAN"/>
+                                    <constraint firstItem="at8-X9-m1y" firstAttribute="leading" secondItem="Vai-9q-sLz" secondAttribute="leading" id="TA7-yJ-ckf"/>
+                                    <constraint firstAttribute="height" constant="160" id="WDO-bB-3yh"/>
+                                    <constraint firstItem="BRx-7F-Ru6" firstAttribute="top" secondItem="Vai-9q-sLz" secondAttribute="top" id="YXe-mI-HYu"/>
+                                    <constraint firstAttribute="trailing" secondItem="at8-X9-m1y" secondAttribute="trailing" id="lq4-5p-CN4"/>
+                                    <constraint firstAttribute="bottom" secondItem="mbG-zV-Dw9" secondAttribute="bottom" id="mrh-BV-vfo"/>
+                                    <constraint firstItem="at8-X9-m1y" firstAttribute="top" secondItem="Vai-9q-sLz" secondAttribute="top" id="n2d-xV-bDC"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5OC-mI-TeO" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="06c-fF-8ef"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="66o-gm-wxc"/>
-                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="6Iz-Db-qKe"/>
                             <constraint firstItem="AJs-A0-69o" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="6Vk-ry-fI6"/>
-                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="top" secondItem="3aQ-In-FT4" secondAttribute="bottom" constant="30" id="MBX-VO-4Wh"/>
+                            <constraint firstItem="Vai-9q-sLz" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="40" id="I1I-cs-9Sm"/>
                             <constraint firstItem="3aQ-In-FT4" firstAttribute="top" secondItem="eaH-lm-yY8" secondAttribute="bottom" constant="40" id="Qq8-dy-Tji"/>
                             <constraint firstItem="3aQ-In-FT4" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="RlT-bR-EdM"/>
-                            <constraint firstItem="BRx-7F-Ru6" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="80" id="Tqf-UM-WdI"/>
+                            <constraint firstItem="Vai-9q-sLz" firstAttribute="top" secondItem="3aQ-In-FT4" secondAttribute="bottom" constant="30" id="ajN-Zi-cJ2"/>
                             <constraint firstItem="AJs-A0-69o" firstAttribute="top" secondItem="eaH-lm-yY8" secondAttribute="bottom" constant="72" id="fzo-k4-jRx"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="top" secondItem="3aQ-In-FT4" secondAttribute="bottom" constant="30" id="hXz-T8-FKW"/>
+                            <constraint firstItem="Vai-9q-sLz" firstAttribute="centerX" secondItem="HlM-Ok-S6y" secondAttribute="centerX" id="g0L-Zu-DxP"/>
                             <constraint firstItem="pjW-nh-dU9" firstAttribute="top" secondItem="5OC-mI-TeO" secondAttribute="bottom" constant="8" symbolic="YES" id="lNX-aQ-tFB"/>
                             <constraint firstItem="3aQ-In-FT4" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="20" symbolic="YES" id="s15-Eu-fhX"/>
-                            <constraint firstItem="at8-X9-m1y" firstAttribute="leading" secondItem="HlM-Ok-S6y" secondAttribute="leading" constant="40" id="yDV-eE-YA3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8K3-AI-6Uz">
@@ -332,8 +353,10 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="w3i-wE-3b4"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="accountLabel" destination="mbG-zV-Dw9" id="YR9-fW-Wsg"/>
                         <outlet property="backButton" destination="5OC-mI-TeO" id="5iH-Yr-jtc"/>
                         <outlet property="barcodeImageView" destination="at8-X9-m1y" id="fAx-MB-FJo"/>
+                        <outlet property="barcodeWrapperView" destination="Vai-9q-sLz" id="IDN-fg-VUq"/>
                         <outlet property="photoImageView" destination="3aQ-In-FT4" id="pHS-Oj-mQQ"/>
                         <outlet property="qrCodeImageView" destination="BRx-7F-Ru6" id="IP6-HZ-xSH"/>
                         <outlet property="titleLabel" destination="AJs-A0-69o" id="bBF-91-mDH"/>
