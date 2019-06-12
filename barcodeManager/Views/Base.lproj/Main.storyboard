@@ -301,7 +301,7 @@
                                 <rect key="frame" x="40" y="291" width="295" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="mbG-zV-Dw9" userLabel="Account Label">
-                                        <rect key="frame" x="5" y="136" width="285" height="24"/>
+                                        <rect key="frame" x="5" y="130" width="285" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -331,6 +331,7 @@
                                     <constraint firstAttribute="trailing" secondItem="at8-X9-m1y" secondAttribute="trailing" id="lq4-5p-CN4"/>
                                     <constraint firstAttribute="bottom" secondItem="mbG-zV-Dw9" secondAttribute="bottom" id="mrh-BV-vfo"/>
                                     <constraint firstItem="at8-X9-m1y" firstAttribute="top" secondItem="Vai-9q-sLz" secondAttribute="top" id="n2d-xV-bDC"/>
+                                    <constraint firstItem="mbG-zV-Dw9" firstAttribute="top" secondItem="at8-X9-m1y" secondAttribute="bottom" constant="5" id="uEL-Tg-W9M"/>
                                 </constraints>
                             </view>
                         </subviews>

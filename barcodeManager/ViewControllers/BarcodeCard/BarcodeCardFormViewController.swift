@@ -62,7 +62,6 @@ extension BarcodeCardFormViewController {
                 row.tag = "Account"
                 row.placeholder = "Add account number"
                 row.value = barcodeCard?.account
-                row.validationOptions = .validatesOnChange
                 }.onChange { row in
                     self.barcodeCard?.account = row.value
                 }
