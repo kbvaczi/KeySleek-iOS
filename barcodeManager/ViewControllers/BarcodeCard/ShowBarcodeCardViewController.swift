@@ -13,7 +13,6 @@ import FontAwesome_swift
 
 class ShowBarcodeCardViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var barcodeImageView: UIImageView!
     @IBOutlet weak var qrCodeImageView: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -26,9 +25,11 @@ class ShowBarcodeCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNeedsStatusBarAppearanceUpdate()
         updateView()
         initBackButton()
         setBackground()
+        self.modalPresentationCapturesStatusBarAppearance = true
         
         //Register observer for app to enter background
         NotificationCenter.default.addObserver(self, selector: #selector(resetBrightness),
@@ -37,6 +38,10 @@ class ShowBarcodeCardViewController: UIViewController {
         //Register observer for app to return from background
         NotificationCenter.default.addObserver(self, selector: #selector(increaseBrightness),
                                                name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,13 +82,11 @@ extension ShowBarcodeCardViewController {
     
     private func updateView() {
         guard let barcodeCard = self.barcodeCard else { return }
-        self.titleLabel.text = (barcodeCard.photo == nil) ? barcodeCard.title : nil
+        
         self.accountLabel.text = barcodeCard.account
         
-        barcodeCard.loadPhotoFromFile(callBack: { loadedPhoto in
-            self.photoImageView.image = loadedPhoto
-            self.photoImageView.roundCornersForAspectFit(radius: 20)
-        })
+        self.photoImageView.image = barcodeCard.photo
+        self.photoImageView.roundCornersForAspectFit(radius: 20)
         
         guard let codeType = barcodeCard.codeType else { return }
         switch codeType {
@@ -113,7 +116,7 @@ extension ShowBarcodeCardViewController {
         view.insertSubview(blurEffectView, at: 0)
     }
     
-    private func addBackground(to fgView: UIView, outSet: CGFloat = 18) {
+    private func addBackground(to fgView: UIView, outSet: CGFloat = 20) {
         
         guard fgView.isDescendant(of: self.view) else { return }
         
