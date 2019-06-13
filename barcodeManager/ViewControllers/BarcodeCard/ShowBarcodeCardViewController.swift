@@ -28,7 +28,7 @@ class ShowBarcodeCardViewController: UIViewController {
         self.setNeedsStatusBarAppearanceUpdate()
         updateView()
         initBackButton()
-        setBackground()
+        addBlurBackground(to: self.view, style: .dark)
         self.modalPresentationCapturesStatusBarAppearance = true
         
         //Register observer for app to enter background
@@ -40,18 +40,20 @@ class ShowBarcodeCardViewController: UIViewController {
                                                name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         increaseBrightness()
+        self.barcodeWrapperView.backgroundColor = UIColor.white
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         resetBrightness()
+        self.barcodeWrapperView.backgroundColor = UIColor.clear        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,46 +89,24 @@ extension ShowBarcodeCardViewController {
         
         self.photoImageView.image = barcodeCard.photo
         self.photoImageView.roundCornersForAspectFit(radius: 20)
-        
+        barcodeWrapperView.layer.cornerRadius = 20
+                
         guard let codeType = barcodeCard.codeType else { return }
         switch codeType {
         case .QR:
             self.qrCodeImageView.image = barcodeCard.barcodeImage
-            if barcodeCard.account != nil {
-                addBackground(to: barcodeWrapperView)
-            } else {
-                addBackground(to: qrCodeImageView)
-            }
         default:
             self.barcodeImageView.image = barcodeCard.barcodeImage
-            if barcodeCard.account != nil {
-                addBackground(to: barcodeWrapperView)
-            } else {
-                addBackground(to: barcodeImageView)
-            }
         }
         
     }
     
-    private func setBackground() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+    private func addBlurBackground(to view: UIView, style: UIBlurEffect.Style) {
+        let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurEffectView, at: 0)
-    }
-    
-    private func addBackground(to fgView: UIView, outSet: CGFloat = 20) {
-        
-        guard fgView.isDescendant(of: self.view) else { return }
-        
-        //TODO: why does frame not line up? have to add 22 to dy?
-        let bounds = fgView.bounds.insetBy(dx: -outSet, dy: -outSet).offsetBy(dx: 0, dy: 22)
-        let frame = self.view.subviews.contains(fgView.superview!) ? self.view.convert(bounds, from: fgView.superview!) : self.view.convert(bounds, from: fgView)
-        let bgView = UIView(frame: frame)
-        bgView.backgroundColor = .white
-        bgView.layer.cornerRadius = 20
-        view.insertSubview(bgView, at: 0)
     }
     
 }

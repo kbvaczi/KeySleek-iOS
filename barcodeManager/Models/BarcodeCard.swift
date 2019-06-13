@@ -81,7 +81,7 @@ extension BarcodeCard {
                 let code = self.code else { return nil }
         
         let gen = RSUnifiedCodeGenerator.shared
-        gen.fillColor = UIColor.white
+        gen.fillColor = UIColor.clear
         gen.strokeColor = UIColor.black
     
         if let image = gen.generateCode(code, machineReadableCodeObjectType: codeTypeString) {
