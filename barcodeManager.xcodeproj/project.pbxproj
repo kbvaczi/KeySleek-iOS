@@ -22,6 +22,7 @@
 		BE7369EF228EF73F00890D27 /* SKProduct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */; };
 		BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */; };
 		BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7853AC2207497B00D8B941 /* TabBarController.swift */; };
+		BE86D47222BFB31600F35731 /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE86D47122BFB31600F35731 /* AppStoreReviewManager.swift */; };
 		BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */; };
 		BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */; };
 		BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */; };
@@ -78,6 +79,7 @@
 		BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+Extensions.swift"; sourceTree = "<group>"; };
 		BE7853AA22073E9C00D8B941 /* EditBarcodeCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBarcodeCardViewController.swift; sourceTree = "<group>"; };
 		BE7853AC2207497B00D8B941 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BE86D47122BFB31600F35731 /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
 		BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarButton.xib; sourceTree = "<group>"; };
 		BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarButton.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */,
 				BE7369EE228EF73F00890D27 /* SKProduct+Extensions.swift */,
 				BE1C341922A411A4007A2732 /* AppColors.swift */,
+				BE86D47122BFB31600F35731 /* AppStoreReviewManager.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				BE26622E22263A12003436EC /* UIButton+BackgroundColor.swift in Sources */,
 				BEB2FD2721FE51B100EB7EC0 /* NewBarcodeCardViewController.swift in Sources */,
 				BEB2FCF821FD192700EB7EC0 /* ScanViewController.swift in Sources */,
+				BE86D47222BFB31600F35731 /* AppStoreReviewManager.swift in Sources */,
 				BEB2FCF621FD192700EB7EC0 /* AppDelegate.swift in Sources */,
 				BEC190E9221A4D020050C324 /* ImageCropRow.swift in Sources */,
 				BEB2FD2F220287EE00EB7EC0 /* ShowBarcodeCardViewController.swift in Sources */,

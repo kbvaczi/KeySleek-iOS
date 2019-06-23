@@ -65,6 +65,10 @@ class BarcodeCardsIndexViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        AppStoreReviewManager.requestReviewIfAppropriate()
+    }
 
     // MARK: - Navigation
 
