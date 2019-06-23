@@ -41,10 +41,10 @@
                     <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </toolbar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bl0-bN-W5G" customClass="HorizontalDial" customModule="barcodeManager">
-                    <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="543" width="375" height="80"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="Qh8-gn-6KY"/>
+                        <constraint firstAttribute="height" constant="80" id="Qh8-gn-6KY"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
