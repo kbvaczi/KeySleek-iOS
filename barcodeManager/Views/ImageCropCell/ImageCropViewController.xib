@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageCropViewController" customModule="barcodeManager" customModuleProvider="target">
             <connections>
                 <outlet property="horizontalDial" destination="bl0-bN-W5G" id="nvb-Tk-H8A"/>
+                <outlet property="navBar" destination="hLg-Io-vTG" id="ReH-i7-w3Z"/>
                 <outlet property="view" destination="iN0-l3-epB" id="plw-2Y-Yku"/>
             </connections>
         </placeholder>
@@ -90,14 +91,23 @@
                         <outlet property="delegate" destination="-1" id="OSf-Ak-ssB"/>
                     </connections>
                 </view>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="hLg-Io-vTG">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <items>
+                        <navigationItem title="Crop Front Photo" id="qbN-Oy-UJM"/>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="hLg-Io-vTG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1tR-US-lgk"/>
                 <constraint firstItem="bl0-bN-W5G" firstAttribute="baseline" secondItem="8a1-d3-MXm" secondAttribute="firstBaseline" symbolType="layoutAnchor" id="ABX-aw-eNR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bl0-bN-W5G" secondAttribute="trailing" id="DXE-mp-rB5"/>
                 <constraint firstItem="8a1-d3-MXm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G54-er-oQv"/>
                 <constraint firstItem="bl0-bN-W5G" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Swd-0e-X5S"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8a1-d3-MXm" secondAttribute="trailing" id="a4J-jS-jkd"/>
+                <constraint firstItem="hLg-Io-vTG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="lfp-aE-MZv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hLg-Io-vTG" secondAttribute="trailing" id="vN2-Dy-4Cx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8a1-d3-MXm" secondAttribute="bottom" id="wnp-r3-HMG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

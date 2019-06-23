@@ -12,6 +12,8 @@ import IGRPhotoTweaks
 
 open class ImageCropViewController: IGRPhotoTweakViewController  {
 
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     @IBOutlet weak var horizontalDial: HorizontalDial! {
         didSet {
             self.horizontalDial?.migneticOption = .none
@@ -31,8 +33,9 @@ open class ImageCropViewController: IGRPhotoTweakViewController  {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        navBar.delegate = self
     }
-    
+
 }
 
 extension ImageCropViewController: HorizontalDialDelegate {
@@ -46,5 +49,14 @@ extension ImageCropViewController: HorizontalDialDelegate {
     public func horizontalDialDidEndScroll(_ horizontalDial: HorizontalDial) {
         self.stopChangeAngle()
     }
+    
+}
+
+extension ImageCropViewController: UINavigationBarDelegate {
+    
+    public func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.topAttached
+    }
+    
     
 }
