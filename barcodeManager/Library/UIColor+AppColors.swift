@@ -19,7 +19,7 @@ extension UIColor {
     }
     
     static var appTurqoise: UIColor {
-        return UIColor(hex6: 0x44DFA9)
+        return UIColor(hex6: 0x159F6E)
     }
     
     static var appPurple: UIColor {

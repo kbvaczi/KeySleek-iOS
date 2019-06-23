@@ -398,5 +398,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ler-48-gUK"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.25468626618385315" green="0.85554695129394531" blue="0.64664071798324585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.1166676059" green="0.66669178009999996" blue="0.47801065440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
