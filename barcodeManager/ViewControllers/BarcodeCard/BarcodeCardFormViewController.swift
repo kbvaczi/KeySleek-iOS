@@ -159,7 +159,6 @@ extension BarcodeCardFormViewController: BarcodeScanDelegate {
             imageRow.updateCell()
         }
         if let dataRow = self.form.rowBy(tag: "barcodeData") as? TextRow {
-            print("yes")
             dataRow.value = code
             dataRow.updateCell()
         }
