@@ -70,7 +70,7 @@ extension SettingsViewController {
             row.disabled = true
             }.onCellSelection { cell, row in
                 if !AppManager.instance.settings.isAppUnlocked {
-                    self.presentDonatePopup()
+                    self.presentCardLimitReachedPopup()
                 }
             }.cellUpdate { cell, row in
                 row.value = String(AppManager.instance.settings.maxNumberOfCards)
@@ -92,27 +92,40 @@ extension SettingsViewController {
     
 }
 
+// MARK: - Static extension
+extension SettingsViewController {
+    
+    static func donatePitchString() -> String {
+        return "Make a donation to support this app and access additional functionality."
+    }
+    
+    static func cardLimitReachedPopup() -> UIAlertController {
+        let popup = UIAlertController(title: "Need to store more cards?",
+                                      message: SettingsViewController.donatePitchString(),
+                                      preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return popup
+    }
+    
+    static func customBarcodesPopup() -> UIAlertController {
+        let popup = UIAlertController(title: "Need custom barcodes?",
+                                      message: "With custom barcodes you can edit existing barcodes or create barcodes from scratch. \(SettingsViewController.donatePitchString())",
+            preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return popup
+    }
+    
+}
+
 // MARK: - Misc functions
 extension SettingsViewController {
     
-    func donatePitchString() -> String {
-        return "Make a donation supporting this app to access this advanced feature."
-    }
-    
     func presentCustomBarcodesPopup() {
-        let popup = UIAlertController(title: "Need custom barcodes?",
-                                      message: "With custom barcodes you can edit existing barcodes or create barcodes from scratch. \(donatePitchString())",
-                                      preferredStyle: .alert)
-        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(popup, animated: true, completion: nil)
+        self.present(SettingsViewController.customBarcodesPopup(), animated: true, completion: nil)
     }
     
-    func presentDonatePopup() {
-        let popup = UIAlertController(title: "Need to store more cards?",
-                                      message: donatePitchString(),
-                                      preferredStyle: .alert)
-        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(popup, animated: true, completion: nil)
+    func presentCardLimitReachedPopup() {
+        self.present(SettingsViewController.cardLimitReachedPopup(), animated: true, completion: nil)
     }
     
 }

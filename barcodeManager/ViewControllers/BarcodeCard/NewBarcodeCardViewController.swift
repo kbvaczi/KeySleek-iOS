@@ -53,13 +53,14 @@ extension NewBarcodeCardViewController {
         let maxNumberOfCards = AppManager.instance.settings.maxNumberOfCards
         let currentNumberOfCards = BarcodeCards.instance.numberOfSavedCards()
         
-        let popUp = UIAlertController(title: "Number of Cards Exceeded",
-                                      message: "You cannot add any more cards",
+        let popUp = UIAlertController(title: "Need to store more cards?",
+                                      message: SettingsViewController.donatePitchString(),
                                       preferredStyle: .alert)
         popUp.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         guard maxNumberOfCards > currentNumberOfCards else {
             self.navigationController?.popViewController(animated: true)
+            self.performSegue(withIdentifier: "newToSettingsSegue", sender: nil)
             self.navigationController?.present(popUp, animated: true)
             return
         }

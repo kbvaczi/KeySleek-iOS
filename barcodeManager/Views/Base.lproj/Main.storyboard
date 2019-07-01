@@ -125,6 +125,7 @@
                     <connections>
                         <outlet property="saveButton" destination="PF1-0F-Vga" id="4ln-H5-cE6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="YAU-Bf-JhH"/>
+                        <segue destination="HNf-Iv-pP5" kind="show" identifier="newToSettingsSegue" id="gei-j0-veI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adR-hv-SpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,12 +246,12 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Settings" id="eA6-aH-jtd">
                                 <connections>
-                                    <segue destination="HNf-Iv-pP5" kind="show" id="0kH-8a-sex"/>
+                                    <segue destination="HNf-Iv-pP5" kind="show" identifier="SettingsSegue" id="0kH-8a-sex"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="New" id="Ydu-9N-UoK">
                                 <connections>
-                                    <segue destination="mF5-ak-kpS" kind="show" id="QSl-o7-iwo"/>
+                                    <segue destination="mF5-ak-kpS" kind="show" identifier="NewBarcodeCardSegue" id="QSl-o7-iwo"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -396,7 +397,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ler-48-gUK"/>
+        <segue reference="0kH-8a-sex"/>
+        <segue reference="YAU-Bf-JhH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1166676059" green="0.66669178009999996" blue="0.47801065440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -64,15 +64,15 @@ extension DonateCell {
         if IAPProducts.store.isProductPurchased(IAPProducts.donateLevel1) {
             setButtonStylePurchased(donateButton1)
         } else {
-            let bronzeColor = UIColor(displayP3Red: 240/255, green: 160/255, blue: 90/255, alpha: 1)
-            donateButton1.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 40, height: 40))
+            let bronzeColor = UIColor(displayP3Red: 225/255, green: 147/255, blue: 70/255, alpha: 1)
+            donateButton1.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 35, height: 34))
             donateButton1.setCustomButtonColors(bgColor: bronzeColor, bgColorSelected: .darkGray, tintColor: .white)
         }
         if IAPProducts.store.isProductPurchased(IAPProducts.donateLevel2) {
             setButtonStylePurchased(donateButton2)
         } else {
             let silverColor = UIColor(displayP3Red: 200/255, green: 200/255, blue: 210/255, alpha: 1)
-            donateButton2.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 45, height: 45))
+            donateButton2.setupButton(iconName: .trophy, iconStyle: .solid, iconColor: .white, buttonStyle: .custom, size: CGSize(width: 43, height: 43))
             donateButton2.setCustomButtonColors(bgColor: silverColor, bgColorSelected: .darkGray, tintColor: .white)
         }
         if IAPProducts.store.isProductPurchased(IAPProducts.donateLevel3) {

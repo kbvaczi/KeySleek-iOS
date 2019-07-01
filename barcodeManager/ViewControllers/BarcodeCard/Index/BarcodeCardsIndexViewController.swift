@@ -15,8 +15,10 @@ import SwiftReorder
 
 class BarcodeCardsIndexViewController: UITableViewController {
 
-    let ShowBarcodeCardSegueIdentifier = "ShowBarcodeCardSegue"
-    let EditBarcodeCardSegueIdentifier = "EditBarcodeCardSegue"
+    let showBarcodeCardSegueIdentifier  = "ShowBarcodeCardSegue"
+    let editBarcodeCardSegueIdentifier  = "EditBarcodeCardSegue"
+    let newBarcodeCardSegueIdentifier   = "NewBarcodeCardSegue"
+    let settingsSegueIdentifier         = "SettingsSegue"
     
     private let editIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(
                                         name: .edit,
@@ -74,20 +76,39 @@ class BarcodeCardsIndexViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if  segue.identifier == ShowBarcodeCardSegueIdentifier,
+        if  segue.identifier == showBarcodeCardSegueIdentifier,
             let destination = segue.destination as? ShowBarcodeCardViewController,
             let cardToShow = sender as? BarcodeCard {
             
             destination.barcodeCard = cardToShow
         }
         
-        if  segue.identifier == EditBarcodeCardSegueIdentifier,
+        if  segue.identifier == editBarcodeCardSegueIdentifier,
             let destination = segue.destination as? EditBarcodeCardViewController,
             let cardToEdit = sender as? BarcodeCard {
             
             destination.barcodeCard = cardToEdit
         }
         
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == newBarcodeCardSegueIdentifier {
+            
+            let maxNumberOfCards = AppManager.instance.settings.maxNumberOfCards
+            let currentNumberOfCards = BarcodeCards.instance.numberOfSavedCards()
+            
+            let tooManyCards = currentNumberOfCards >= maxNumberOfCards
+            if tooManyCards {
+                self.performSegue(withIdentifier: settingsSegueIdentifier, sender: nil)
+                self.navigationController?.present(SettingsViewController.cardLimitReachedPopup(), animated: true)
+            }
+            
+            return !tooManyCards
+        }
+        
+        return true // Allow all other segues to proceed
     }
 
 }
@@ -159,7 +180,7 @@ extension BarcodeCardsIndexViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let barcodeToShow = BarcodeCards.instance.loadCard(withIndex: indexPath.row) {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: self.ShowBarcodeCardSegueIdentifier,
+                self.performSegue(withIdentifier: self.showBarcodeCardSegueIdentifier,
                                   sender: barcodeToShow)
             }
         }
@@ -265,7 +286,7 @@ extension BarcodeCardsIndexViewController {
                                             callback: { _ in
                                                 
             UIImpactFeedbackGenerator().impactOccurred()
-            self.performSegue(withIdentifier: self.EditBarcodeCardSegueIdentifier, sender: barcodeCard)
+            self.performSegue(withIdentifier: self.editBarcodeCardSegueIdentifier, sender: barcodeCard)
             return true
                                                 
         })

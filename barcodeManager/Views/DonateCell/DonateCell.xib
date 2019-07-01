@@ -55,25 +55,23 @@
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-Pr-XdY" userLabel="ButtonView">
                     <rect key="frame" x="0.0" y="64" width="414" height="83"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2To-Qr-E7I" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2To-Qr-E7I" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
                             <rect key="frame" x="172" y="6.5" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="YzX-PG-L3z"/>
                                 <constraint firstAttribute="width" constant="70" id="vPt-yH-5g7"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="donateButton2Tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="rgt-Aj-0VA"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-iN-eRt" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-iN-eRt" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
                             <rect key="frame" x="293" y="6.5" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="ZXC-Td-nZE"/>
                                 <constraint firstAttribute="height" constant="70" id="ofg-MA-xAR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="donateButton3Tapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="tin-ZT-nOl"/>
@@ -95,13 +93,12 @@
                             <rect key="frame" x="363" y="0.0" width="51" height="83"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwH-GP-RRW" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwH-GP-RRW" customClass="RoundButton" customModule="barcodeManager" customModuleProvider="target">
                             <rect key="frame" x="51" y="6.5" width="70" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="70" id="CuM-h0-MXK"/>
                                 <constraint firstAttribute="height" constant="70" id="THf-ay-4uc"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
