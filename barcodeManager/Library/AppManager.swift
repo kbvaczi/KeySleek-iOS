@@ -45,7 +45,7 @@ class AppSettings {
     private let toAllowBarcodeEditingKey = "toAllowBarcodeEditing"
     
     /// Maximum number of cards that can be created, default is 5
-    var maxNumberOfCards: Int = 5 {
+    var maxNumberOfCards: Int = 3 {
         didSet {
             UserDefaults.standard.set(maxNumberOfCards, forKey: maxNumberOfCardsKey)
         }
