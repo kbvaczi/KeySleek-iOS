@@ -70,7 +70,9 @@ extension BarcodeCardFormViewController {
                 row.tag = "barcodeImage"
                 if self.barcodeCard != nil { row.value = self.barcodeCard?.barcodeImage }
             }.onCellSelection { cell, row in
-                self.performSegue(withIdentifier: self.scanSegueIdentifier, sender: nil)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.scanSegueIdentifier, sender: nil)
+                }
             }.cellSetup { (cell, row) in
                 cell.height = ( { return row.value?.size.height ?? 75 } )
             }.onChange { row in
