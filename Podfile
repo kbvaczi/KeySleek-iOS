@@ -7,11 +7,11 @@ target 'barcodeManager' do
 
   # Pods for barcodeManager
   pod 'FontAwesome.swift', '~> 1.4.8'
-  pod 'Eureka', '~> 4.3.1'
-  pod 'ImageRow', '~> 3.0'
+  pod 'Eureka', '~> 5.0'
+  pod 'ImageRow', '~> 4.0'
   pod 'IGRPhotoTweaks', '~> 1.0.8'
   pod 'RSBarcodes_Swift', '~> 4.2.1'
-  pod 'Disk', '~> 0.4.0'
+  pod 'Disk', '~> 0.5.0'
   pod 'MBCircularProgressBar', '~> 0.3.5'
   pod 'MGSwipeTableCell', '~> 1.6.8'
   pod 'SwiftReorder', '~> 6.0'
