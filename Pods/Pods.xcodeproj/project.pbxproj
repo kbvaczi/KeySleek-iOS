@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -306,8 +306,8 @@
 
 /* Begin PBXFileReference section */
 		0054FC909C005D59730278F94F4AB386 /* UIImage+IGRPhotoTweakExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+IGRPhotoTweakExtension.swift"; path = "IGRPhotoTweaks/Category/UIImage+IGRPhotoTweakExtension.swift"; sourceTree = "<group>"; };
-		0098B7CF5549458BA8696A6AD5CEB30C /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Eureka.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0150FD83EA224B1C1072FB86776EBE2B /* SwiftReorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftReorder.framework; path = SwiftReorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0098B7CF5549458BA8696A6AD5CEB30C /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0150FD83EA224B1C1072FB86776EBE2B /* SwiftReorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftReorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0193FBD34B0B2F881E3AD4AC7260A9FB /* IGRCropGridLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IGRCropGridLine.swift; path = IGRPhotoTweaks/PhotoTweakView/CropView/Lines/IGRCropGridLine.swift; sourceTree = "<group>"; };
 		051C09D4C93CE6643B72B3F1D889FD4F /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Source/Core/Cell.swift; sourceTree = "<group>"; };
 		05CD976037F70FAFA3594358F6F312A5 /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
@@ -348,8 +348,8 @@
 		20FE12EFF018C1753507952A4E568645 /* MGSwipeTableCell-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MGSwipeTableCell-umbrella.h"; sourceTree = "<group>"; };
 		211E9006F95036BCF9A2CA512AAC25B9 /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
 		2231B2D13D670E4E42B3EF7269B7E123 /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
-		224CD0EFEC22900170BE9CC09C114BED /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Disk.framework; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24390EFD555DD124430DFF9724065945 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		224CD0EFEC22900170BE9CC09C114BED /* Disk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Disk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24390EFD555DD124430DFF9724065945 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		263B5FBBB745DFA9E79D07DB9E0C6F6E /* DateRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRow.swift; path = Source/Rows/DateRow.swift; sourceTree = "<group>"; };
 		26918B4F01B6C69E56C190B698BAF2A9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28C25A8C7819FBB93925D6458001980D /* RSBarcodes_Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RSBarcodes_Swift.modulemap; sourceTree = "<group>"; };
@@ -363,7 +363,7 @@
 		38D8190DF311C54BFFF9A08379D74321 /* MGSwipeTableCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MGSwipeTableCell-dummy.m"; sourceTree = "<group>"; };
 		3BFF9FA5C9E5C9FF4D132043D640AC34 /* Disk.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Disk.modulemap; sourceTree = "<group>"; };
 		3C8D43239023F027A3F5BF911E352AAB /* IGRPhotoTweakView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakView+NSLayoutConstraint.swift"; path = "IGRPhotoTweaks/PhotoTweakView/IGRPhotoTweakView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
-		426384ED511D641019CB87B5745C4CBE /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FontAwesome.swift.bundle; path = "FontAwesome.swift-FontAwesome.swift.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		426384ED511D641019CB87B5745C4CBE /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontAwesome.swift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		42752A6A129A98E7AB3B1438D65C624A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		43F51CFA3B8A76AC8320CF229EAE20DB /* Disk.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Disk.xcconfig; sourceTree = "<group>"; };
 		441FA0E65D27449C023E8E3AB3C3EAA3 /* RSCodeDataMatrixGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSCodeDataMatrixGenerator.swift; path = Source/RSCodeDataMatrixGenerator.swift; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 		59F6C84D6232FE465B4A113C376142EF /* IGRCropView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRCropView+NSLayoutConstraint.swift"; path = "IGRPhotoTweaks/PhotoTweakView/CropView/IGRCropView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		5A78917AA16B0292504E892802D3B981 /* IGRPhotoTweakViewController+Customization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakViewController+Customization.swift"; path = "IGRPhotoTweaks/IGRPhotoTweakViewController+Customization.swift"; sourceTree = "<group>"; };
 		5B3456A9A3BE18675D870183A441240B /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
-		5B9D96D8431127357A29526B6FEE0AA0 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_swift.framework; path = FontAwesome.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9D96D8431127357A29526B6FEE0AA0 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesome_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB0631EA26EDEC0966D91ED2FBA8FD4 /* IGRPhotoTweakViewController+Angle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakViewController+Angle.swift"; path = "IGRPhotoTweaks/IGRPhotoTweakViewController+Angle.swift"; sourceTree = "<group>"; };
 		5C649188ECEE7DBC8F9B09CD4570DA72 /* IGRPhotoTweakView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IGRPhotoTweakView.swift; path = IGRPhotoTweaks/PhotoTweakView/IGRPhotoTweakView.swift; sourceTree = "<group>"; };
 		5C835E363286D2D923E97604AB1A95A6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 		66546C3A8868DB254AE42D38126B8B77 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6676464EB3F29D7079A3387DD208841C /* RSBarcodes_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RSBarcodes_Swift-dummy.m"; sourceTree = "<group>"; };
 		66B21386CF3F35403DD53613B58C4077 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66E3CE9127C60D1F71756596DD260F5B /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "FontAwesome/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		66E3CE9127C60D1F71756596DD260F5B /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Font Awesome 5 Brands-Regular-400.otf"; path = "FontAwesome/Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		66EF9B81ED4C89884645DA3E4FEDC209 /* IGRCropLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IGRCropLine.swift; path = IGRPhotoTweaks/PhotoTweakView/CropView/Lines/IGRCropLine.swift; sourceTree = "<group>"; };
 		6764EDC3160972E99CA2A11CCC9300DF /* Pods-barcodeManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-barcodeManager.release.xcconfig"; sourceTree = "<group>"; };
 		67D3279DA49C711507D05E5A1CE95041 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MGSwipeTableCell.h; path = MGSwipeTableCell/MGSwipeTableCell.h; sourceTree = "<group>"; };
@@ -430,7 +430,7 @@
 		7DC011EAFEB21B5131D8865754949778 /* Disk+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Data.swift"; path = "Sources/Disk+Data.swift"; sourceTree = "<group>"; };
 		82BE3A8347846820EA88B96CFBE5337D /* ContextMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ContextMaker.m; path = Source/ContextMaker.m; sourceTree = "<group>"; };
 		82F1DCAC91C721C51EFF0D1D7F7E7C25 /* Disk+[UIImage].swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+[UIImage].swift"; path = "Sources/Disk+[UIImage].swift"; sourceTree = "<group>"; };
-		84F7810962473C7F516D61F3CDEFB7DF /* ImageRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ImageRow.framework; path = ImageRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84F7810962473C7F516D61F3CDEFB7DF /* ImageRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E7DFE86859FA9FE20744FDEE374E15 /* RSCodeLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSCodeLayer.swift; path = Source/RSCodeLayer.swift; sourceTree = "<group>"; };
 		86570B7169EAB735746FD4043E3E0307 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
 		869A6107FD206F555C353B80CCCE9E1D /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
@@ -441,11 +441,11 @@
 		8996B582EB1C970CB28BA95DD2464B0C /* DoublePickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DoublePickerInputRow.swift; path = Source/Rows/DoublePickerInputRow.swift; sourceTree = "<group>"; };
 		8AD015761F1C9DA0404639134787E55F /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
 		8BE72298E66FCA2EC5C07CDE41508259 /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
-		8C92C1C06AC4112268568C590603F1FE /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Font Awesome 5 Free-Regular-400.otf"; path = "FontAwesome/Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		8C92C1C06AC4112268568C590603F1FE /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Font Awesome 5 Free-Regular-400.otf"; path = "FontAwesome/Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		8FB967788C396E156A544D3EA896BB08 /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
 		90380E855D6F7304CE78DFDD8468E182 /* Disk+Errors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Disk+Errors.swift"; path = "Sources/Disk+Errors.swift"; sourceTree = "<group>"; };
 		91A05360F434A77F96CB95FC24DB75B9 /* IGRPhotoTweakView+Angle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakView+Angle.swift"; path = "IGRPhotoTweaks/PhotoTweakView/IGRPhotoTweakView+Angle.swift"; sourceTree = "<group>"; };
-		936978857231191EFFF63ED4BE709378 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MGSwipeTableCell.framework; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		936978857231191EFFF63ED4BE709378 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MGSwipeTableCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97B267587AB166CAD8F04E1FE1A9FD52 /* Disk-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-prefix.pch"; sourceTree = "<group>"; };
 		99857E72CA5915B2E437A0FA477B7F85 /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
 		9A23E5CA5DD87169EECB65524A518F21 /* MGSwipeButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MGSwipeButton.m; path = MGSwipeTableCell/MGSwipeButton.m; sourceTree = "<group>"; };
@@ -472,7 +472,7 @@
 		AA880CE160E9FA67CC23A77146FD54AA /* PickerInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInputRow.swift; path = Source/Rows/PickerInputRow.swift; sourceTree = "<group>"; };
 		AAADEC5EFAAB0E8AE8D9007634B2A9CE /* MBCircularProgressBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBCircularProgressBar-prefix.pch"; sourceTree = "<group>"; };
 		AC0A3613E37641D2C5EC7F8BD51D02DD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC16DDEA48943B4223504BFC912C5D13 /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MBCircularProgressBar.framework; path = MBCircularProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC16DDEA48943B4223504BFC912C5D13 /* MBCircularProgressBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBCircularProgressBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC67E7ED480D104CFCEF9831FB1995E9 /* IGRPhotoTweaks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGRPhotoTweaks-umbrella.h"; sourceTree = "<group>"; };
 		AD2D5236C1DBB2465E36FD03DB459598 /* IGRPhotoTweakViewController+PHPhotoLibrary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakViewController+PHPhotoLibrary.swift"; path = "IGRPhotoTweaks/IGRPhotoTweakViewController+PHPhotoLibrary.swift"; sourceTree = "<group>"; };
 		AD6CFAFC2258D0E41BC9B11D6CD5D192 /* RSExtendedCode39Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSExtendedCode39Generator.swift; path = Source/RSExtendedCode39Generator.swift; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 		BCA4490876108BDD3B76F9E47CE32EDF /* IGRCropView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IGRCropView.swift; path = IGRPhotoTweaks/PhotoTweakView/CropView/IGRCropView.swift; sourceTree = "<group>"; };
 		BCBB58383BA95F977BC9976B14C12B09 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
 		BCF91BD146F26512B8AEF459EAF40FD8 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
-		BD57EFEC6F44B97BFB7B72F2BC1F3D57 /* MBCircularProgressBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MBCircularProgressBar.bundle; path = "MBCircularProgressBar-MBCircularProgressBar.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD57EFEC6F44B97BFB7B72F2BC1F3D57 /* MBCircularProgressBar.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBCircularProgressBar.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1A8CBE49C5ADC9E3F43AD047731C5F /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
 		BE6BCD9FB5C143F6E24CE21906A0CB46 /* IGRPhotoTweaks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IGRPhotoTweaks.modulemap; sourceTree = "<group>"; };
 		BEC0F9B6539A4EDE23EC0B780F608969 /* CheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRow.swift; path = Source/Rows/CheckRow.swift; sourceTree = "<group>"; };
@@ -517,14 +517,14 @@
 		D32DEC119478D126B926EDCC534B2ACB /* RSBarcodes-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RSBarcodes-Bridging-Header.h"; path = "Source/RSBarcodes-Bridging-Header.h"; sourceTree = "<group>"; };
 		D3FC3ED3730C7F6C291774BF95C6C722 /* SwiftReorder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftReorder.modulemap; sourceTree = "<group>"; };
 		D4DB3BFAA3A709FC1F5EE3C9B229147D /* Pods-barcodeManager-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-barcodeManager-resources.sh"; sourceTree = "<group>"; };
-		D5623C83DC93BC63D7914B70B789FC78 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Font Awesome 5 Free-Solid-900.otf"; path = "FontAwesome/Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		D5623C83DC93BC63D7914B70B789FC78 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = "Font Awesome 5 Free-Solid-900.otf"; path = "FontAwesome/Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
 		D5C906C145A9F99E7132D9FFA1CBBB05 /* TriplePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriplePickerRow.swift; path = Source/Rows/TriplePickerRow.swift; sourceTree = "<group>"; };
 		D6BDB9F1E8DD285EE513C144A358D492 /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
 		D7DC62E8990E71B1B2BB6AC7CC4DFC3E /* ReorderController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReorderController.swift; path = Source/ReorderController.swift; sourceTree = "<group>"; };
 		D817408A8A31736698B5B1BBE0B5D20A /* IGRPhotoTweakView+AspectRatio.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakView+AspectRatio.swift"; path = "IGRPhotoTweaks/PhotoTweakView/IGRPhotoTweakView+AspectRatio.swift"; sourceTree = "<group>"; };
 		D9F42965C26DE9E0B5B47BF6C95C6E8D /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
 		DA5FF09294BBC6906A776899DD63F8F3 /* IGRPhotoTweakView+Mask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IGRPhotoTweakView+Mask.swift"; path = "IGRPhotoTweaks/PhotoTweakView/IGRPhotoTweakView+Mask.swift"; sourceTree = "<group>"; };
-		DAAD3F9CD8B289E2021BBD5856468614 /* Pods_barcodeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_barcodeManager.framework; path = "Pods-barcodeManager.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAAD3F9CD8B289E2021BBD5856468614 /* Pods_barcodeManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_barcodeManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBBB8AEE8E4AC56D8E99700CE9F14DF /* MBCircularProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBCircularProgressBar-dummy.m"; sourceTree = "<group>"; };
 		DD9B52AA8DA547EEDE66F1C9E3B0AB9E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		DE85C1AF85C8F50111EA704EF6F43DF8 /* ImageRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = Sources/ImageRow.swift; sourceTree = "<group>"; };
@@ -543,7 +543,7 @@
 		EA201BCC9100F888891C87C251E2CEBE /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
 		EA8B882A99D6F8300BCCE48DEB99863E /* IGRPhotoTweakViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IGRPhotoTweakViewController.swift; path = IGRPhotoTweaks/IGRPhotoTweakViewController.swift; sourceTree = "<group>"; };
 		EB729BA7236530F1516F43EE1C191C0C /* SwipeActions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActions.swift; path = Source/Core/SwipeActions.swift; sourceTree = "<group>"; };
-		EC447F65EF10D6E6254A87E34CC9634A /* IGRPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IGRPhotoTweaks.framework; path = IGRPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC447F65EF10D6E6254A87E34CC9634A /* IGRPhotoTweaks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGRPhotoTweaks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE71FF6C45DD44B4DA7D96B6A27B6082 /* SwiftReorder.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftReorder.xcconfig; sourceTree = "<group>"; };
 		F029AE05BDF093C1995543B2638E42D8 /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
 		F05A34D1DE725FA9302CA42E8A2628C1 /* RSUnifiedCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RSUnifiedCodeGenerator.swift; path = Source/RSUnifiedCodeGenerator.swift; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 		F1CA03548929959FBF84DCC094D03B8F /* CGFloat+IGRPhotoTweakExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGFloat+IGRPhotoTweakExtension.swift"; path = "IGRPhotoTweaks/Category/CGFloat+IGRPhotoTweakExtension.swift"; sourceTree = "<group>"; };
 		F2D106D8AF9849C10FCEE0ADFDF64CE2 /* Disk-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Disk-umbrella.h"; sourceTree = "<group>"; };
 		F36CBB7ACF5316859917F462FCC60FCC /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
-		F60D49175CA4E559A83D87AB86CE0483 /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RSBarcodes_Swift.framework; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F60D49175CA4E559A83D87AB86CE0483 /* RSBarcodes_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSBarcodes_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73EF658E2597EECD1F2BA2A393D5F7B /* MBCircularProgressBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBCircularProgressBar.xcconfig; sourceTree = "<group>"; };
 		F7E930765100322D5A79911CCE875642 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F80B541BC40F81A358B99B2B00C44BCB /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
@@ -770,7 +770,6 @@
 				ED647C02384E006B2089EC9A622E3F68 /* Resources */,
 				D7040C32C1B183CA62A818F592DEF623 /* Support Files */,
 			);
-			name = Eureka;
 			path = Eureka;
 			sourceTree = "<group>";
 		};
@@ -815,7 +814,6 @@
 				E2447DBDC5F4AC456107D3DFC8819E6B /* UIColorExtension.swift */,
 				BD05DE679E7208820F5C16845DE9075D /* Support Files */,
 			);
-			name = RSBarcodes_Swift;
 			path = RSBarcodes_Swift;
 			sourceTree = "<group>";
 		};
@@ -846,7 +844,6 @@
 				E3B4B94F8BE43ED39C5ABCCAB52E2409 /* MGSwipeTableCell.m */,
 				8DA22A26A09921049F6A286523F8B1C1 /* Support Files */,
 			);
-			name = MGSwipeTableCell;
 			path = MGSwipeTableCell;
 			sourceTree = "<group>";
 		};
@@ -861,7 +858,6 @@
 				C77D28762FC528AEAA636C66E5CF8ED3 /* UITableView+Reorder.swift */,
 				9C64AE5CAAD710D1661AF549A925BAFF /* Support Files */,
 			);
-			name = SwiftReorder;
 			path = SwiftReorder;
 			sourceTree = "<group>";
 		};
@@ -882,7 +878,6 @@
 				EB2CF2EDF8D17663AD88B458AC2751C9 /* Resources */,
 				092C60BDF1F190A815A570E818486458 /* Support Files */,
 			);
-			name = FontAwesome.swift;
 			path = FontAwesome.swift;
 			sourceTree = "<group>";
 		};
@@ -925,7 +920,6 @@
 				0054FC909C005D59730278F94F4AB386 /* UIImage+IGRPhotoTweakExtension.swift */,
 				1C1B7F25636B80767B044FC775C023BE /* Support Files */,
 			);
-			name = IGRPhotoTweaks;
 			path = IGRPhotoTweaks;
 			sourceTree = "<group>";
 		};
@@ -1047,7 +1041,6 @@
 				DE85C1AF85C8F50111EA704EF6F43DF8 /* ImageRow.swift */,
 				DD8F174BADD69DA53CA364F90B2CB02E /* Support Files */,
 			);
-			name = ImageRow;
 			path = ImageRow;
 			sourceTree = "<group>";
 		};
@@ -1067,7 +1060,6 @@
 				9E4362E6EBE9837CF8EDCB0A262144C3 /* Disk+VolumeInformation.swift */,
 				28557BDFB2243654044E8493554A1CE9 /* Support Files */,
 			);
-			name = Disk;
 			path = Disk;
 			sourceTree = "<group>";
 		};
@@ -1106,7 +1098,6 @@
 				E3F8DA7CDCBFC389F03573E5502A9942 /* Resources */,
 				6536A37F44946807B109BD6FDFE3700D /* Support Files */,
 			);
-			name = MBCircularProgressBar;
 			path = MBCircularProgressBar;
 			sourceTree = "<group>";
 		};
@@ -1491,14 +1482,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 9887AF4011E63CA5007ACEE682CAAD28 /* Products */;
@@ -1958,11 +1950,7 @@
 				INFOPLIST_FILE = "Target Support Files/MGSwipeTableCell/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MGSwipeTableCell/MGSwipeTableCell.modulemap";
 				PRODUCT_MODULE_NAME = MGSwipeTableCell;
 				PRODUCT_NAME = MGSwipeTableCell;
@@ -1993,11 +1981,7 @@
 				INFOPLIST_FILE = "Target Support Files/Disk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
 				PRODUCT_MODULE_NAME = Disk;
 				PRODUCT_NAME = Disk;
@@ -2028,11 +2012,7 @@
 				INFOPLIST_FILE = "Target Support Files/MGSwipeTableCell/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MGSwipeTableCell/MGSwipeTableCell.modulemap";
 				PRODUCT_MODULE_NAME = MGSwipeTableCell;
 				PRODUCT_NAME = MGSwipeTableCell;
@@ -2064,11 +2044,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftReorder/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftReorder/SwiftReorder.modulemap";
 				PRODUCT_MODULE_NAME = SwiftReorder;
 				PRODUCT_NAME = SwiftReorder;
@@ -2100,11 +2076,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-barcodeManager/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-barcodeManager/Pods-barcodeManager.modulemap";
 				OTHER_LDFLAGS = "";
@@ -2138,11 +2110,7 @@
 				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
 				PRODUCT_MODULE_NAME = Eureka;
 				PRODUCT_NAME = Eureka;
@@ -2173,11 +2141,7 @@
 				INFOPLIST_FILE = "Target Support Files/MBCircularProgressBar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MBCircularProgressBar/MBCircularProgressBar.modulemap";
 				PRODUCT_MODULE_NAME = MBCircularProgressBar;
 				PRODUCT_NAME = MBCircularProgressBar;
@@ -2224,11 +2188,7 @@
 				INFOPLIST_FILE = "Target Support Files/RSBarcodes_Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RSBarcodes_Swift/RSBarcodes_Swift.modulemap";
 				PRODUCT_MODULE_NAME = RSBarcodes_Swift;
 				PRODUCT_NAME = RSBarcodes_Swift;
@@ -2261,11 +2221,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-barcodeManager/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-barcodeManager/Pods-barcodeManager.modulemap";
 				OTHER_LDFLAGS = "";
@@ -2298,11 +2254,7 @@
 				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap";
 				PRODUCT_MODULE_NAME = FontAwesome_swift;
 				PRODUCT_NAME = FontAwesome_swift;
@@ -2320,6 +2272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2399,11 +2352,7 @@
 				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
 				PRODUCT_MODULE_NAME = Eureka;
 				PRODUCT_NAME = Eureka;
@@ -2435,11 +2384,7 @@
 				INFOPLIST_FILE = "Target Support Files/ImageRow/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ImageRow/ImageRow.modulemap";
 				PRODUCT_MODULE_NAME = ImageRow;
 				PRODUCT_NAME = ImageRow;
@@ -2471,11 +2416,7 @@
 				INFOPLIST_FILE = "Target Support Files/MBCircularProgressBar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MBCircularProgressBar/MBCircularProgressBar.modulemap";
 				PRODUCT_MODULE_NAME = MBCircularProgressBar;
 				PRODUCT_NAME = MBCircularProgressBar;
@@ -2523,11 +2464,7 @@
 				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap";
 				PRODUCT_MODULE_NAME = FontAwesome_swift;
 				PRODUCT_NAME = FontAwesome_swift;
@@ -2559,11 +2496,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftReorder/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftReorder/SwiftReorder.modulemap";
 				PRODUCT_MODULE_NAME = SwiftReorder;
 				PRODUCT_NAME = SwiftReorder;
@@ -2596,11 +2529,7 @@
 				INFOPLIST_FILE = "Target Support Files/IGRPhotoTweaks/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/IGRPhotoTweaks/IGRPhotoTweaks.modulemap";
 				PRODUCT_MODULE_NAME = IGRPhotoTweaks;
 				PRODUCT_NAME = IGRPhotoTweaks;
@@ -2632,11 +2561,7 @@
 				INFOPLIST_FILE = "Target Support Files/Disk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Disk/Disk.modulemap";
 				PRODUCT_MODULE_NAME = Disk;
 				PRODUCT_NAME = Disk;
@@ -2668,11 +2593,7 @@
 				INFOPLIST_FILE = "Target Support Files/RSBarcodes_Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/RSBarcodes_Swift/RSBarcodes_Swift.modulemap";
 				PRODUCT_MODULE_NAME = RSBarcodes_Swift;
 				PRODUCT_NAME = RSBarcodes_Swift;
@@ -2736,11 +2657,7 @@
 				INFOPLIST_FILE = "Target Support Files/IGRPhotoTweaks/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/IGRPhotoTweaks/IGRPhotoTweaks.modulemap";
 				PRODUCT_MODULE_NAME = IGRPhotoTweaks;
 				PRODUCT_NAME = IGRPhotoTweaks;
@@ -2771,11 +2688,7 @@
 				INFOPLIST_FILE = "Target Support Files/ImageRow/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/ImageRow/ImageRow.modulemap";
 				PRODUCT_MODULE_NAME = ImageRow;
 				PRODUCT_NAME = ImageRow;
@@ -2793,6 +2706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2844,8 +2758,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
