@@ -23,6 +23,19 @@ class AppManager {
 
 class AppSettings {
     
+    /// Disallow external instances of this class
+    fileprivate init() {
+        if UserDefaults.standard.value(forKey: isAppUnlockedKey) != nil {
+            isAppUnlocked = UserDefaults.standard.bool(forKey: isAppUnlockedKey)
+        }
+        if UserDefaults.standard.value(forKey: toAllowBarcodeEditingKey) != nil {
+            toAllowBarcodeEditing = UserDefaults.standard.bool(forKey: toAllowBarcodeEditingKey)
+        }
+        if UserDefaults.standard.value(forKey: maxNumberOfCardsKey) != nil {
+            maxNumberOfCards = UserDefaults.standard.integer(forKey: maxNumberOfCardsKey)
+        }
+    }
+    
     /// True if app is unlocked, false if not
     var isAppUnlocked: Bool = false {
         didSet {
@@ -45,7 +58,7 @@ class AppSettings {
     private let toAllowBarcodeEditingKey = "toAllowBarcodeEditing"
     
     /// Maximum number of cards that can be created, default is 5
-    var maxNumberOfCards: Int = 3 {
+    var maxNumberOfCards: Int = 5 {
         didSet {
             UserDefaults.standard.set(maxNumberOfCards, forKey: maxNumberOfCardsKey)
         }
@@ -53,17 +66,6 @@ class AppSettings {
     
     private let maxNumberOfCardsKey = "maxNumberOfCards"
     
-    /// Disallow external instances of this class
-    fileprivate init() {
-        if UserDefaults.standard.value(forKey: isAppUnlockedKey) != nil {
-            isAppUnlocked = UserDefaults.standard.bool(forKey: isAppUnlockedKey)
-        }
-        if UserDefaults.standard.value(forKey: toAllowBarcodeEditingKey) != nil {
-            toAllowBarcodeEditing = UserDefaults.standard.bool(forKey: toAllowBarcodeEditingKey)
-        }
-        if UserDefaults.standard.value(forKey: maxNumberOfCardsKey) != nil {
-            maxNumberOfCards = UserDefaults.standard.integer(forKey: maxNumberOfCardsKey)
-        }
-    }
+    
     
 }
