@@ -34,9 +34,12 @@ class AppSettings {
         if UserDefaults.standard.value(forKey: maxNumberOfCardsKey) != nil {
             maxNumberOfCards = UserDefaults.standard.integer(forKey: maxNumberOfCardsKey)
         }
+        if UserDefaults.standard.value(forKey: toIncreaseBrightnessForBarcodesKey) != nil {
+            toIncreaseBrightnessForBarcodes = UserDefaults.standard.bool(forKey: toIncreaseBrightnessForBarcodesKey)
+        }
     }
     
-    /// True if app is unlocked, false if not
+    /// Global Setting: Determines whether the app has been unlocked or not
     var isAppUnlocked: Bool = false {
         didSet {
             UserDefaults.standard.set(isAppUnlocked, forKey: isAppUnlockedKey)
@@ -49,7 +52,7 @@ class AppSettings {
     }
     private let isAppUnlockedKey = "isAppUnlocked"
     
-    /// When set to true, allows manually editing barcodes, default is false
+    /// Global Setting: When set to true, allows manually editing barcodes, default is false
     var toAllowBarcodeEditing: Bool = false {
         didSet {
             UserDefaults.standard.set(toAllowBarcodeEditing, forKey: toAllowBarcodeEditingKey)
@@ -57,15 +60,21 @@ class AppSettings {
     }
     private let toAllowBarcodeEditingKey = "toAllowBarcodeEditing"
     
-    /// Maximum number of cards that can be created, default is 5
+    /// Global Setting: Maximum number of cards that can be created, default is 5
     var maxNumberOfCards: Int = 5 {
         didSet {
             UserDefaults.standard.set(maxNumberOfCards, forKey: maxNumberOfCardsKey)
         }
     }
-    
     private let maxNumberOfCardsKey = "maxNumberOfCards"
     
     
+    /// Global Setting: Determines whether to increase brightness upon displaying barcodes
+    var toIncreaseBrightnessForBarcodes: Bool = true {
+        didSet {
+            UserDefaults.standard.set(toIncreaseBrightnessForBarcodes, forKey: toIncreaseBrightnessForBarcodesKey)
+        }
+    }
+    private let toIncreaseBrightnessForBarcodesKey = "toIncreaseBrightnessForBarcodes"
     
 }

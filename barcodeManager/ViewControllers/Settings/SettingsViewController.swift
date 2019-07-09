@@ -34,12 +34,28 @@ extension SettingsViewController {
     
     func setupForm() {
         form
-            +++ Section("Configuration")
+            +++ Section("")
+            <<< increaseBrightnessRow()
+            +++ Section("Additional Functionality")
             <<< maxNumberOfCardsDisplayRow()
             <<< barcodesEditableToggleRow()
             +++ Section("Donate Now")
             <<< donationsRow()
     }
+    
+    func increaseBrightnessRow() -> SwitchRow {
+        let row = SwitchRow("Increase Brightness") { row in
+            row.tag = increaseBrightnessRowTag
+            row.title = "Auto brightness to improve scanning"
+            row.value = AppManager.instance.settings.toIncreaseBrightnessForBarcodes
+            }.onChange { row in
+                if let newValue = row.value {
+                    AppManager.instance.settings.toIncreaseBrightnessForBarcodes = newValue
+                }
+            }
+        return row
+    }
+    private var increaseBrightnessRowTag: String { return "increaseBrightnessRow" }
     
     func barcodesEditableToggleRow() -> SwitchRow {
         let row = SwitchRow("Custom barcodes") { row in      // initializer

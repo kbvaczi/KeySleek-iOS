@@ -66,10 +66,12 @@ class ShowBarcodeCardViewController: UIViewController {
     }
     
     @objc func resetBrightness() {
+        guard AppManager.instance.settings.toIncreaseBrightnessForBarcodes else { return }
         UIScreen.main.brightness = baselineBrightness
     }
     
     @objc func increaseBrightness() {
+        guard AppManager.instance.settings.toIncreaseBrightnessForBarcodes else { return }
         UIScreen.main.brightness = 1.0
     }
     
