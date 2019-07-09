@@ -141,6 +141,7 @@ extension DonateCell {
         AppManager.instance.settings.isAppUnlocked = true
         self.update()
         (self.formViewController() as? SettingsViewController)?.updateForm()
+        self.formViewController()?.present(SettingsViewController.thanksForDonatingPopup(), animated: true,  completion: nil)
     }
     
     /// Performed after unsuccessful purchase

@@ -115,6 +115,14 @@ extension SettingsViewController {
         return popup
     }
     
+    static func thanksForDonatingPopup() -> UIAlertController {
+        let popup = UIAlertController(title: "Thanks!",
+                                      message: "We appreciate your donation and hope you continue to enjoy the app.",
+            preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return popup
+    }
+    
 }
 
 // MARK: - Misc functions
