@@ -8,6 +8,7 @@ PODS:
   - MBCircularProgressBar (0.3.5)
   - MGSwipeTableCell (1.6.8)
   - RSBarcodes_Swift (5.0.0)
+  - SwiftGifOrigin (1.7.0)
   - SwiftReorder (6.0.2)
 
 DEPENDENCIES:
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MBCircularProgressBar (~> 0.3.5)
   - MGSwipeTableCell (~> 1.6.8)
   - RSBarcodes_Swift (~> 5.0.0)
+  - SwiftGifOrigin (~> 1.7.0)
   - SwiftReorder (~> 6.0)
 
 SPEC REPOS:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - MBCircularProgressBar
     - MGSwipeTableCell
     - RSBarcodes_Swift
+    - SwiftGifOrigin
     - SwiftReorder
 
 SPEC CHECKSUMS:
@@ -42,8 +45,9 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
   RSBarcodes_Swift: b6bee284eef3ee27f67fabb0d7f07459ed68a3de
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftReorder: 60ef1faf6446cf68f9a647cb975530db8efd6620
 
-PODFILE CHECKSUM: f1148eabea3c34047821f23057e5640121df6d70
+PODFILE CHECKSUM: 9032a9617ca782d577d6ec1787a3bfea64399f37
 
 COCOAPODS: 1.5.3

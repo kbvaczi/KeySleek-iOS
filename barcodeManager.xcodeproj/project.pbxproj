@@ -26,6 +26,8 @@
 		BE8CA2FB226D0EC200935F16 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */; };
 		BE9686F62222CBBF00094FF8 /* ProgressBarButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */; };
 		BE9686FA2222D09F00094FF8 /* ProgressBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */; };
+		BEA9D2E722F507D900707DC1 /* HelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA9D2E622F507D900707DC1 /* HelpTableViewController.swift */; };
+		BEA9D2E922F50CE300707DC1 /* HelpTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA9D2E822F50CE300707DC1 /* HelpTopicViewController.swift */; };
 		BEB2FCF621FD192700EB7EC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FCF521FD192700EB7EC0 /* AppDelegate.swift */; };
 		BEB2FCF821FD192700EB7EC0 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2FCF721FD192700EB7EC0 /* ScanViewController.swift */; };
 		BEB2FCFB21FD192700EB7EC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB2FCF921FD192700EB7EC0 /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		BE8CA2FA226D0EC200935F16 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		BE9686F52222CBBF00094FF8 /* ProgressBarButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressBarButton.xib; sourceTree = "<group>"; };
 		BE9686F92222D09F00094FF8 /* ProgressBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarButton.swift; sourceTree = "<group>"; };
+		BEA9D2E622F507D900707DC1 /* HelpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTableViewController.swift; sourceTree = "<group>"; };
+		BEA9D2E822F50CE300707DC1 /* HelpTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpTopicViewController.swift; sourceTree = "<group>"; };
 		BEB2FCF221FD192700EB7EC0 /* barcodeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = barcodeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB2FCF521FD192700EB7EC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB2FCF721FD192700EB7EC0 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,15 @@
 			path = ProgressBarButton;
 			sourceTree = "<group>";
 		};
+		BEA9D2E522F507B900707DC1 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				BEA9D2E622F507D900707DC1 /* HelpTableViewController.swift */,
+				BEA9D2E822F50CE300707DC1 /* HelpTopicViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		BEB2FCE921FD192700EB7EC0 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 		BEB2FD1F21FE49CA00EB7EC0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				BEA9D2E522F507B900707DC1 /* Help */,
 				BE7369E0227E184400890D27 /* Settings */,
 				BE7853AC2207497B00D8B941 /* TabBarController.swift */,
 				BEB2FD342207289600EB7EC0 /* BarcodeCard */,
@@ -405,6 +419,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework",
 				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/RSBarcodes_Swift/RSBarcodes_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftReorder/SwiftReorder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -419,6 +434,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBCircularProgressBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSBarcodes_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftReorder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +460,7 @@
 				BE7369E922886B4C00890D27 /* DonateCell.swift in Sources */,
 				BE7853AB22073E9C00D8B941 /* EditBarcodeCardViewController.swift in Sources */,
 				BEC190F5221F74AD0050C324 /* UIImage+Extensions.swift in Sources */,
+				BEA9D2E722F507D900707DC1 /* HelpTableViewController.swift in Sources */,
 				BEB2FD2D21FE6A5100EB7EC0 /* BarcodeCardsIndexViewController.swift in Sources */,
 				BE7369E2227E186700890D27 /* SettingsViewController.swift in Sources */,
 				BE7853AD2207497B00D8B941 /* TabBarController.swift in Sources */,
@@ -451,6 +468,7 @@
 				BEB2FD2721FE51B100EB7EC0 /* NewBarcodeCardViewController.swift in Sources */,
 				BEB2FCF821FD192700EB7EC0 /* ScanViewController.swift in Sources */,
 				BE86D47222BFB31600F35731 /* AppStoreReviewManager.swift in Sources */,
+				BEA9D2E922F50CE300707DC1 /* HelpTopicViewController.swift in Sources */,
 				BEB2FCF621FD192700EB7EC0 /* AppDelegate.swift in Sources */,
 				BEC190E9221A4D020050C324 /* ImageCropRow.swift in Sources */,
 				BEB2FD2F220287EE00EB7EC0 /* ShowBarcodeCardViewController.swift in Sources */,

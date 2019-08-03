@@ -15,5 +15,6 @@ target 'barcodeManager' do
   pod 'MBCircularProgressBar', '~> 0.3.5'
   pod 'MGSwipeTableCell', '~> 1.6.8'
   pod 'SwiftReorder', '~> 6.0'
+  pod 'SwiftGifOrigin', '~> 1.7.0'
 
 end

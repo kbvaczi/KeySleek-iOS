@@ -244,14 +244,20 @@ extension BarcodeCardsIndexViewController {
                                                 size: CGSize(width: 30, height: 30))
         self.navigationItem.rightBarButtonItems?[0].image = setupIcon
         self.navigationItem.rightBarButtonItems?[0].title = nil
-        
-        let newIcon = UIImage.fontAwesomeIcon(name: .plusCircle,
-                                                style: .solid,
-                                                textColor: .white,
-                                                size: CGSize(width: 30, height: 30))
-        self.navigationItem.rightBarButtonItems?[1].image = newIcon
+
+        let helpIcon = UIImage.fontAwesomeIcon(name: .questionCircle,
+                                              style: .solid,
+                                              textColor: .white,
+                                              size: CGSize(width: 30, height: 30))
+        self.navigationItem.rightBarButtonItems?[1].image = helpIcon
         self.navigationItem.rightBarButtonItems?[1].title = nil
         
+        let newIcon = UIImage.fontAwesomeIcon(name: .plusCircle,
+                                              style: .solid,
+                                              textColor: .white,
+                                              size: CGSize(width: 30, height: 30))
+        self.navigationItem.rightBarButtonItems?[2].image = newIcon
+        self.navigationItem.rightBarButtonItems?[2].title = nil
     }
     
     func addSwipeButtonsTo(_ cell: MGSwipeTableCell, for barcodeCard: BarcodeCard) {
