@@ -11,7 +11,11 @@ import Eureka
 
 class NewBarcodeCardViewController: BarcodeCardFormViewController {
     
-    @IBOutlet weak var saveButton: ProgressBarButton!
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if self.saveBarcode() {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,18 +23,11 @@ class NewBarcodeCardViewController: BarcodeCardFormViewController {
         if self.barcodeCard == nil {
             self.barcodeCard = BarcodeCard()
         }
-        initButtons()        
     }
     
 }
 
 extension NewBarcodeCardViewController {
-    
-    func initButtons() {
-        saveButton.setupButton(iconName: .check, iconStyle: .solid, iconColor: .white, buttonStyle: .default)
-        saveButton.delegate = self
-        self.view.bringSubviewToFront(saveButton)
-    }
     
     func saveBarcode() -> Bool {
         guard let barcodeToSave = self.barcodeCard else { return false }
@@ -66,17 +63,5 @@ extension NewBarcodeCardViewController {
         }
         
     }
-    
-}
-
-extension NewBarcodeCardViewController: ProgressBarButtonDelegate {
- 
-    func onProgressBarButtonComplete(name: String?) {
-        if self.saveBarcode() {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func onProgressBarButtonReset(name: String?) { }
     
 }

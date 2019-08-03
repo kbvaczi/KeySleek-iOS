@@ -11,22 +11,20 @@ import Eureka
 
 class EditBarcodeCardViewController: BarcodeCardFormViewController {
     
-    @IBOutlet weak var updateButton: ProgressBarButton!
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if self.updateBarcode() {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initButtons()
     }
     
 }
 
 extension EditBarcodeCardViewController {
     
-    func initButtons() {
-        updateButton.setupButton(iconName: .check, iconStyle: .solid, iconColor: .white, buttonStyle: .default)
-        updateButton.delegate = self
-        self.view.bringSubviewToFront(updateButton)
-    }
     
     func updateBarcode() -> Bool  {
         
@@ -54,17 +52,5 @@ extension EditBarcodeCardViewController {
         }
         return true
     }
-    
-}
-
-extension EditBarcodeCardViewController: ProgressBarButtonDelegate {
-    
-    func onProgressBarButtonComplete(name: String?) {
-        if self.updateBarcode() {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func onProgressBarButtonReset(name: String?) { }
     
 }

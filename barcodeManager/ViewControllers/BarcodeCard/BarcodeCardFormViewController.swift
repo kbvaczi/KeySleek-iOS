@@ -29,9 +29,9 @@ extension BarcodeCardFormViewController {
         
         form +++ Section("General")
             <<< TextRow(){ row in
-                row.title = "Name"
+                row.title = "Card Name"
                 row.tag = "Name"
-                row.placeholder = "Enter name"
+                row.placeholder = "Name of this card"
                 row.value = barcodeCard?.title
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
@@ -60,7 +60,7 @@ extension BarcodeCardFormViewController {
             <<< TextRow(){ row in
                 row.title = "Account"
                 row.tag = "Account"
-                row.placeholder = "Add account number"
+                row.placeholder = "Account number (optional)"
                 row.value = barcodeCard?.account
                 }.onChange { row in
                     self.barcodeCard?.account = row.value
@@ -120,7 +120,7 @@ extension BarcodeCardFormViewController {
             +++ Section("Notes")
             <<< TextAreaRow() { row in
                 row.tag = "notes"
-                row.placeholder = "Add notes here"
+                row.placeholder = "Add notes here (optional)"
                 row.value = barcodeCard?.notes
                 row.textAreaHeight = .dynamic(initialTextViewHeight: 50)
             }.onChange { row in

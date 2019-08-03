@@ -19,6 +19,7 @@ class BarcodeCardsIndexViewController: UITableViewController {
     let editBarcodeCardSegueIdentifier  = "EditBarcodeCardSegue"
     let newBarcodeCardSegueIdentifier   = "NewBarcodeCardSegue"
     let settingsSegueIdentifier         = "SettingsSegue"
+    let helpSegueIdentifier             = "HelpSegue"
     
     private let editIcon = UIImage(cgImage: UIImage.fontAwesomeIcon(
                                         name: .edit,
@@ -89,6 +90,16 @@ class BarcodeCardsIndexViewController: UITableViewController {
             
             destination.barcodeCard = cardToEdit
         }
+        
+        // Set appropriate back button for the next view
+        let backItem = UIBarButtonItem()
+        switch segue.identifier {
+        case newBarcodeCardSegueIdentifier, editBarcodeCardSegueIdentifier:
+            backItem.title = "Cancel"
+        default:
+            backItem.title = "Back"
+        }
+        navigationItem.backBarButtonItem = backItem
         
     }
     

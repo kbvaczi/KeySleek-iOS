@@ -102,28 +102,16 @@
                     <view key="view" contentMode="scaleToFill" id="btE-dK-WmU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PF1-0F-Vga" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
-                                <rect key="frame" x="127.5" y="527" width="120" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="3iG-50-OZ8"/>
-                                    <constraint firstAttribute="width" constant="120" id="ssT-Wj-ouU"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="updateButton"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="CHh-dQ-kGu" firstAttribute="top" secondItem="PF1-0F-Vga" secondAttribute="bottom" constant="20" id="edJ-Ti-iHf"/>
-                            <constraint firstItem="PF1-0F-Vga" firstAttribute="centerX" secondItem="btE-dK-WmU" secondAttribute="centerX" id="pZe-fO-QsP"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Card" id="vNL-K5-FsN"/>
-                    <navigationItem key="navigationItem" title="New Card" id="duy-zy-P80"/>
+                    <navigationItem key="navigationItem" title="New Card" id="duy-zy-P80">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="zwp-VV-llO" userLabel="Save">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="mF5-ak-kpS" id="YjS-sG-RSn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="saveButton" destination="PF1-0F-Vga" id="4ln-H5-cE6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="YAU-Bf-JhH"/>
                         <segue destination="HNf-Iv-pP5" kind="show" identifier="newToSettingsSegue" id="gei-j0-veI"/>
                     </connections>
@@ -251,7 +239,7 @@
                             </barButtonItem>
                             <barButtonItem title="Help" id="aCB-i4-jK2">
                                 <connections>
-                                    <segue destination="M9b-Nz-bEZ" kind="show" id="qjf-Ce-JVb"/>
+                                    <segue destination="M9b-Nz-bEZ" kind="show" identifier="HelpSegue" id="qjf-Ce-JVb"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="New" id="Ydu-9N-UoK">
@@ -451,27 +439,15 @@
                     <view key="view" contentMode="scaleToFill" id="rel-f5-Ts6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPl-Pi-6a8" customClass="ProgressBarButton" customModule="barcodeManager" customModuleProvider="target">
-                                <rect key="frame" x="127.5" y="527" width="120" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="CBn-ar-Dj2"/>
-                                    <constraint firstAttribute="width" constant="120" id="tsh-Bk-hIM"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="name" value="updateButton"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="5gf-hn-17D" firstAttribute="top" secondItem="vPl-Pi-6a8" secondAttribute="bottom" constant="20" id="mJ3-Ww-RsA"/>
-                            <constraint firstItem="vPl-Pi-6a8" firstAttribute="centerX" secondItem="rel-f5-Ts6" secondAttribute="centerX" id="vrf-LU-ERw"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Card" id="TDh-pN-fPc"/>
+                    <navigationItem key="navigationItem" title="Edit Card" id="TDh-pN-fPc">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="XAf-1O-GF9" userLabel="Save">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="9zR-LU-ihy" id="PEy-zB-vez"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="updateButton" destination="vPl-Pi-6a8" id="9eH-bv-RI3"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="ScanSegue" modalPresentationStyle="overCurrentContext" id="Ler-48-gUK"/>
                     </connections>
                 </viewController>
@@ -481,7 +457,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0kH-8a-sex"/>
+        <segue reference="gei-j0-veI"/>
         <segue reference="Ler-48-gUK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1166676059" green="0.66669178009999996" blue="0.47801065440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
